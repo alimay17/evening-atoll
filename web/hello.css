@@ -1,0 +1,31 @@
+ /**********************************************************
+* Style Sheet Week01: Hello World
+* Alice Smith
+* CS313 - Bro. Porter
+* This sheet defines the custom select and radio inputs
+**********************************************************/
+* {
+  box-sizing:border-box;
+}
+
+h1 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size:8em;
+  text-align:center;
+  color:deeppink;
+  background-color:honeydew;
+  padding:10px;
+  margin:10px;
+  border:4px solid deeppink;
+}
+
+span {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size:1.2em;
+  font-weight:bold;
+  color:deeppink;
+}
+
+#footer {
+  text-align: center;
+}
