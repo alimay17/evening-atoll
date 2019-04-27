@@ -17,13 +17,17 @@
    <div class="row">
      <div class="col-12, flex">
       <div class="menuItem">
-       <a href="assignments.php">Core Policies</a>
+       <h4>Core Policies</h4>
+       <ul>
+         <li>Weapons & Self Defence</li>
+         <li>Environment</li>
+       </ul>
       </div>
       <div class="menuItem">
-       <a href="assignments.php">Ministers</a>
+       <h4>Ministers</h4>
       </div>
       <div class="menuItem">
-       <a href="assignments.php">CS 313 - Assignments</a>
+       <h4><a href="assignments.php">CS 313 - Assignments</a></h4>
       </div>
      </div>
    </div>
@@ -39,16 +43,43 @@
            <li>Royal Succession Laws</li>
            <li>Trade Union Mining Contracts</li>
          </ul>
+       </div><hr/>
+       <h2>Court Proceedings</h2>
+       <div class="list">
+         <h4>Court held every 4th day<br/> from nonce to tierce</h4>
+         <ol>
+           <li>Grievance Hearings</li>
+           <li>Agriculture Settlements</li>
+           <li>Academic Recognition</li>
+           <li>Emigration Hearings</li>
+           <li>Development Presentations</li>
+         </ul>
        </div>
      </div>
   
     <div class="col-9">
-      <h2>Current Ruler</h2>
+      <h2>Current Family</h2>
+      <div class="Gallery, row">
+      <div class="pic, col-4">
+        <h3>Her Majesty Breah Organa</h3>
+        <img src="week02/images/monMothma.png"/>
+      </div>
+
+      <div class="pic, col-4">
+        <h3>His Majesty Bail Organa</h3>
+        <img src="week02/images/bailOrgana.png"/>
+      </div>
+
+      <div class="pic, col-4">
+        <h3>The Princess Leia Organa</h3>
+        <img src="week02/images/princessLeia.png"/>
+      </div>
+      </div>
 
       <h2>The Royal House of Alderan</h2>
       <div class="flex">
         <p>
-          Family History 
+          Lineage
         </p>
       </div>
     </div>
