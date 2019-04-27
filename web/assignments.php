@@ -19,9 +19,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="footer, col-12">
-      <em>05 May 2019 - Alice Smith</em>
-    </div>
+    <?php require "footer.php" ?>
   </div>
 </body>
 </html>
