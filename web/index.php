@@ -88,11 +88,7 @@
       echo "this works from PHP";
     ?>
     <div class="row">
-      <div class="col-12, footer">
-        <em>05 May 2019 - Alice Smith - 
-          CS 313 - Prove 02: Personal Homepage
-        </em>
-      </div>
+      <?php require "footer.php" ?>
     </div>
 </body>
 </html>
