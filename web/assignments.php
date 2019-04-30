@@ -23,6 +23,7 @@
   <div class="row">
     <div class="col-12">
      <h2>Coming Soon</h2>
+    <a href="week02/group/teach02.html">Teach 02</a>
     </div>
   </div>
   <div class="row">
