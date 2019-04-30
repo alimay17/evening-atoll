@@ -26,6 +26,16 @@
       Throughout her life Myrna Loy was dedicated to helping people. She was an active member of the Red Cross during the war years, and in 1948 became an active member of UNESCO.
       <em><a href="https://en.wikipedia.org/wiki/Myrna_Loy">Source</a></em>
     </p>
+    <!-------------------------- POLL ---------------------------->
+    <div id="poll">
+      <h3>Have you heard of Myrna Loy?</h3>
+      <form>
+        Yes:
+        <input type="radio" name="vote" value="0" onclick="getVote(this.value)">
+        <br>No:
+        <input type="radio" name="vote" value="1" onclick="getVote(this.value)">
+      </form>
+    </div>
   <!------------------------ FILM LIST ------------------------->
     <div class="list">
     <h3>My Top 10 Films</h3>
@@ -54,8 +64,7 @@
   <!--------------------- PICTURE GALLERY ----------------------->
   <div class="col-8">
   <h4>Click on the descriptor words to find out more.</h4>
-  <button class="button" onclick="showAll()">Show All</button>
-  <button class="button" onclick="hideAll()">Hide All</button>
+  <button class="button" onclick="showAll()">Show/Hide All</button>
     <div class="flex">
     <div class="gallery">
       <img src="week02/images/myrnaLoy02.png" alt="Myrna Loy""/>
