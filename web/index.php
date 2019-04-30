@@ -53,8 +53,9 @@
   </div>
   <!--------------------- PICTURE GALLERY ----------------------->
   <div class="col-8">
-  <h4>Click on the descriptive words to find out more.</h4>
-  <div id="button" onclick="showAll()">Show All</div>
+  <h4>Click on the descriptor words to find out more.</h4>
+  <button class="button" onclick="showAll()">Show All</button>
+  <button class="button" onclick="hideAll()">Hide All</button>
     <div class="flex">
     <div class="gallery">
       <img src="week02/images/myrnaLoy02.png" alt="Myrna Loy""/>

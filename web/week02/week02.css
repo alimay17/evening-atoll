@@ -32,8 +32,10 @@ h1 {
 /************************************
 * Picture Gallery
 *************************************/
-#button {
-  border-bottom:
+.button {
+  font-size:1.2em;
+  border-bottom:3px solid orchid;
+  border-right:3px solid orchid;
   padding:10px;
   margin:10px;
 }
@@ -50,7 +52,7 @@ div.gallery {
   padding:10px;
 }
 
-div.desc:hover {
+div.desc:hover, .button:hover {
   border:none;
   border-bottom:3px solid olivedrab;
   border-left:3px solid olivedrab;
