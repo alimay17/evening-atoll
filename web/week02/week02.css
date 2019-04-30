@@ -13,15 +13,39 @@ h1 {
   color:purple;
 }
 
-.menuItem {
-  border:1px solid dodgerblue;
-  margin:10px;
-  padding:10px;
+/************************************
+* Header & Footer
+*************************************/
+.header, .footer {
+  text-align:center;
 }
 
-img {
-  height:200px;
-  width:200px
+/************************************
+* Picture Gallery
+*************************************/
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float:left;
+  width: 180px;
+}
+
+/*div.gallery:hover {
+  //border: 1px solid #777;
+}*/
+
+div.gallery img {
+  border:4px inset rgb(49, 7, 49);
+  width: 100%;
+  height: 75%;
+}
+
+div.desc {
+  font-family: cursive;
+  color:whitesmoke;
+  background-color:rgb(49, 7, 49);
+  padding: 15px;
+  text-align: center;
 }
 
 /************************************
@@ -30,10 +54,6 @@ img {
 [class*="col-"] {
   width: 100%;
   border:1px solid red;
-}
-
-#dataTable {
-display:block;
 }
 
 /* desktop sizing */
@@ -64,7 +84,7 @@ display:block;
 
 .flex {
   display:flex;
-  justify-content:space-around;
+  justify-content:space-evenly;
 }
 
 }

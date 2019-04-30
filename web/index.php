@@ -5,90 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta charset="UTF-8"/>
   <link rel="stylesheet" type="text/css" href="week02/week02.css"/>
+  <script src="week02/week02.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-   <div class="row">
-    <div class="col-12, header">
-      <h1>Alderan Government</h1>
-      <img src="week02/images/logo.png" alt="Logo"
-    style="height:100px; width:100px;"/>
-    </div>
-   </div>
-   <div class="row">
-     <div class="col-12, flex">
-      <div class="menuItem">
-       <h4>Core Policies</h4>
-       <ul>
-         <li>Weapons & Self Defence</li>
-         <li>Environment</li>
-       </ul>
-      </div>
-      <div class="menuItem">
-       <h4>Ministers</h4>
-      </div>
-      <div class="menuItem">
-       <h4><a href="assignments.php">CS 313 - Assignments</a></h4>
-      </div>
-     </div>
-   </div>
-  
-   <div class="row">
-     <div class="col-3">
-       <h2>Issues</h2>
-       <div class="list">
-         <ul>
-           <li>Privy Council Appointments</li>
-           <li>902nd Annual Royal Athletic Games</li>
-           <li>Alderan Galactic Senate Delegates</li>
-           <li>Royal Succession Laws</li>
-           <li>Trade Union Mining Contracts</li>
-         </ul>
-       </div><hr/>
-       <h2>Court Proceedings</h2>
-       <div class="list">
-         <h4>Court held every 4th day<br/> from nonce to tierce</h4>
-         <ol>
-           <li>Grievance Hearings</li>
-           <li>Agriculture Settlements</li>
-           <li>Academic Recognition</li>
-           <li>Emigration Hearings</li>
-           <li>Development Presentations</li>
-         </ul>
-       </div>
-     </div>
-  
-    <div class="col-9">
-      <h2>Current Family</h2>
-      <div class="Gallery, row">
-      <div class="pic, col-4">
-        <h3>Her Majesty Breah Organa</h3>
-        <img src="week02/images/monMothma.png"/>
-      </div>
+  <!------------------------ HEADER --------------------------->
+<div class="row">
+  <div class="col-12, header">
+    <h1>An Introduction to Myrna Loy</h1>
+  </div>
+</div>
+  <!------------------------ SIDEBAR -------------------------->
+<div class="row">
+  <div class="col-4">
+    <h2>Actress & Activist</h2>
+    <p>
+      Born in Helena Montana in 1905, Myrna Loy started out life as a rancher's daughter.
+      She entered the film industry in 1925 but her first big break didn't come till 1934 when she was cast opposite William Powell in The Thin Man.
+      She appeared in at least 30 films over the course of her film career.
+      Throughout her life Myrna Loy was dedicated to helping people. She was an active member of the Red Cross during the war years, and in 1948 became the first Hollywood celebity member of UNESCO.
+    </p>
 
-      <div class="pic, col-4">
-        <h3>His Majesty Bail Organa</h3>
-        <img src="week02/images/bailOrgana.png"/>
-      </div>
-
-      <div class="pic, col-4">
-        <h3>The Princess Leia Organa</h3>
-        <img src="week02/images/princessLeia.png"/>
-      </div>
-      </div>
-
-      <h2>The Royal House of Alderan</h2>
-      <div class="flex">
-        <p>
-          Lineage
-        </p>
-      </div>
+    <h3>My Top 10 Films</h3>
+    <div class="list">
+      <ol>
+        <li>The Thin Man</li>
+        <li>To Hot to Handle</li>
+        <li>The Bachelor and the Bobby-Soxer</li>
+        <li>Cheaper By The Dozen</li>
+        <li>I Love You Again</li>
+        <li>The Rains Came</li>
+        <li>Test Pilot</li>
+        <li>The Best Years of Our Lives</li>
+        <li>Mr. Blandings Builds His Dream House</li>
+        <li>Libeled Lady</li>
+      </ol>
     </div>
   </div>
-    <?php
-      echo "this works from PHP";
-    ?>
-    <div class="row">
-      <?php require "footer.php" ?>
+  <!-------------------- PICTURE GALLERY ---------------------->
+  <div class="col-8">
+    <div class="gallery">
+      <img src="week02/images/myrnaLoy02.png" alt="Myrna Loy"/>
+      <div class="desc">Mysterious</div>
     </div>
+    <div class="gallery">
+      <img src="week02/images/myrnaLoy01.png" alt="Myrna Loy"/>
+      <div class="desc">Determined</div>
+    </div>
+    <div class="gallery">
+      <img src="week02/images/myrnaLoy03.png" alt="Myrna Loy"/>
+      <div class="desc">Strong</div>
+    </div>
+    <div class="gallery">
+      <img src="week02/images/myrnaLoy05.png" alt="Myrna Loy"/>
+      <div class="desc">Mischevious</div>
+    </div>
+    <div class="gallery">
+      <img src="week02/images/myrnaLoy04.png" alt="Myrna Loy"/>
+      <div class="desc">Talented</div>
+    </div>
+    <div class="gallery">
+      <img src="week02/images/myrnaLoy06.png" alt="Myrna Loy"/>
+      <div class="desc">Timeless</div>
+    </div>
+  </div>
+</div>
+
+  <?php
+    echo "this works from PHP";
+  ?>
+<div class="row">
+  <?php require "footer.php" ?>
+</div>
 </body>
 </html>
