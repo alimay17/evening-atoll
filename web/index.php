@@ -24,9 +24,10 @@
       She entered the film industry in 1925 but her first big break didn't come till 1934 when she was cast opposite William Powell in The Thin Man.
       She appeared in at least 30 films over the course of her film career.
       Throughout her life Myrna Loy was dedicated to helping people. She was an active member of the Red Cross during the war years, and in 1948 became an active member of UNESCO.
-      <em><a href="https://en.wikipedia.org/wiki/Myrna_Loy">Source</a></em>
+      <em><a href="https://en.wikipedia.org/wiki/Myrna_Loy" target="blank">
+        Source</a></em>
     </p>
-    <!-------------------------- POLL ---------------------------->
+  <!-------------------------- POLL ---------------------------->
     <div id="poll">
       <h3>Have you heard of Myrna Loy?</h3>
       <form>
@@ -54,11 +55,12 @@
     </div>
     <div class="links">
       <h3>External Links</h3>
-      <a href="https://www.chicagotribune.com/news/ct-xpm-1993-12-19-9312190012-story.html">
+      <a href="https://www.chicagotribune.com/news/ct-xpm-1993-12-19-9312190012-story.html" target="blank">
       More Reading</a><br/>
       <a href="assignments.php">CS 313 Assignments</a><br/>
-      <a href="byui.edu">BYU Idaho</a><br/>
-      <a href="byui-cs313-19s-04.slack.com">Class Slack Channel<a/> 
+      <a href="byui.edu" target="blank">BYU Idaho</a><br/>
+      <a href="byui-cs313-19s-04.slack.com" target="blank">
+        Class Slack Channel<a/> 
     </div>
   </div>
   <!--------------------- PICTURE GALLERY ----------------------->
@@ -126,7 +128,7 @@
 
 <!-------------------------- FOOTER ---------------------------->
 <div class="row">
-  <?php require "footer.php" ?>
+  <?php require "footer.php"?>
 </div>
 </body>
 </html>
