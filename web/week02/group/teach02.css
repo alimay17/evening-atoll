@@ -7,3 +7,42 @@
 /************************************
 * Universal
 *************************************/
+* {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  box-sizing:border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2, h3, h4, p, textarea, button {
+  padding:10px;
+  margin:10px;
+}
+
+.item {
+  border:1px solid dodgerblue;
+  text-align: center;
+  margin:10px;
+  padding:10px;
+}
+
+.item:hover {
+  font-weight:bold;
+}
+
+#one {
+  font-size:1.5em;
+  background-color:dodgerblue;
+}
+
+#two {
+  font-size:2em;
+  background-color:lemonchiffon;
+}
+
+#three {
+  font-size:2.5em;
+  background-color:greenyellow;
+}
