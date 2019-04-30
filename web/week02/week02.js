@@ -3,3 +3,7 @@
 * Alice Smith
 * CS313 - Bro. Porter
 **********************************************************/
+function show (number) {
+  var selection = "#" + number;
+    $(selection).fadeToggle();
+}

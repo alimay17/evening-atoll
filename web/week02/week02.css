@@ -7,45 +7,77 @@
 * Universal
 *************************************/
 * {
+  font-family: 'Gill Sans', 'Gill Sans MT', 
+    Calibri, 'Trebuchet MS', sans-serif;
   box-sizing:border-box;
-}
-h1 {
-  color:purple;
 }
 
 /************************************
 * Header & Footer
 *************************************/
+h1 {
+  color:purple;
+  font-size:2.5em;
+}
+
 .header, .footer {
   text-align:center;
+  border-bottom:2px solid olivedrab;
+}
+
+.footer {
+  border-top:2px solid olivedrab;
 }
 
 /************************************
 * Picture Gallery
 *************************************/
+#button {
+  border-bottom:
+  padding:10px;
+  margin:10px;
+}
+
 div.gallery {
   margin: 5px;
-  border: 1px solid #ccc;
   float:left;
   width: 180px;
 }
 
-/*div.gallery:hover {
-  //border: 1px solid #777;
-}*/
+.about {
+  display:none;
+  margin:10px;
+  padding:10px;
+}
+
+div.desc:hover {
+  border:none;
+  border-bottom:3px solid olivedrab;
+  border-left:3px solid olivedrab;
+  cursor:pointer;
+}
 
 div.gallery img {
-  border:4px inset rgb(49, 7, 49);
   width: 100%;
-  height: 75%;
+  height:auto;
+  border-top:3px solid olivedrab;
+  border-left:3px solid olivedrab;
 }
 
 div.desc {
-  font-family: cursive;
-  color:whitesmoke;
-  background-color:rgb(49, 7, 49);
+  font-size:1.2em;
+  text-transform:uppercase;
+  color:black;
+  border-right:3px solid orchid;
+  border-bottom:3px solid orchid;
   padding: 15px;
   text-align: center;
+}
+
+.flex {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-evenly;
 }
 
 /************************************
@@ -53,7 +85,8 @@ div.desc {
 *************************************/
 [class*="col-"] {
   width: 100%;
-  border:1px solid red;
+  float:left;
+  padding:15px;
 }
 
 /* desktop sizing */
@@ -71,20 +104,14 @@ div.desc {
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
-[class*="col-"] {
-  float:left;
-  padding: 15px;
+.row {
+  margin:10px;
+  padding:5px;
 }
 
 .row::after {
   content: "";
   clear: both;
-  display: table;
+  display:table;
 }
-
-.flex {
-  display:flex;
-  justify-content:space-evenly;
-}
-
 }
