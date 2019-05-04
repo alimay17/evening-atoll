@@ -59,9 +59,7 @@
       <div class="link"><a href="https://www.chicagotribune.com/news/ct-xpm-1993-12-19-9312190012-story.html" target="blank">
       More Reading</a></div>
       <div class="link"><a href="assignments.php">CS 313 Assignments</a></div>
-      <div class="link"><a href="byui.edu" target="blank">BYU Idaho</a></div>
-      <div class="link"><a href="byui-cs313-19s-04.slack.com" target="blank">
-        Class Slack Channel<a/></div> 
+      <div class="link"><a href="https://www.byui.edu" target="blank">BYU Idaho</a></div>
     </div>
     </div>
   </div>
