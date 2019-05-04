@@ -5,11 +5,12 @@
 * CS313 - Bro. Porter
 * This PHP program takes a poll from the hompage
 * saves it on the server and displays the results as a graph
+* Result table taken from w3schools.com
 **********************************************************/
 $vote = $_REQUEST['vote'];
 
 //get file
-$filename = "poll_result.txt";
+$filename = "docs/poll_result.txt";
 $content = file($filename);
 
 //put content in array
@@ -33,12 +34,12 @@ fclose($fp);
 ?>
 
 <!-- RESULT DISPLAY -->
-<h3>Result:</h3>
+<h3>Poll Result:</h3>
 <table id="result">
   <tr>
     <td>Yes:</td>
     <td>
-    <img src="week02/images/poll.gif"
+    <img src="images/poll.gif"
     width='<?php echo(100*round($yes/($no+$yes),2)); ?>'
     height='20'>
     <?php echo(100*round($yes/($no+$yes),2)); ?>%
@@ -47,7 +48,7 @@ fclose($fp);
   <tr>
     <td>No:</td>
     <td>
-    <img src="week02/images/poll.gif"
+    <img src="images/poll.gif"
     width='<?php echo(100*round($no/($no+$yes),2)); ?>'
     height='20'>
     <?php echo(100*round($no/($no+$yes),2)); ?>%

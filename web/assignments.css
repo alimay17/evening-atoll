@@ -1,0 +1,56 @@
+/**********************************************************
+* Style Sheet Week02-2: Homepage
+* Alice Smith
+* CS313 - Bro. Porter
+**********************************************************/
+
+/************************************
+* Header
+*************************************/
+.header {
+  border-bottom:2px solid black;
+}
+
+h1 {
+  font-size:3em;
+  text-align:center;
+  color:dodgerblue;
+}
+
+h2 {
+  font-size:2em;
+  text-align:center;
+}
+
+.footer {
+  text-align:center;
+  margin:10px;
+  padding:10px;
+  border-top:2px solid black;
+  border-bottom:2px solid black;
+}
+
+/************************************
+* Menu
+*************************************/
+.menuItem {
+  text-align:center;
+  padding:10px;
+  margin:auto;
+  max-width:50%;
+  background-color:pink;
+  cursor:pointer;
+  border:1px solid black;
+}
+
+.menuItem:hover {
+  color:black;
+  box-shadow:0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color:dodgerblue;
+}
+
+a {
+  text-decoration:none;
+  text-transform: uppercase; 
+  color:black;
+}

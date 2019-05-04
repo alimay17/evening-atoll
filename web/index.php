@@ -4,8 +4,9 @@
   <title>AS Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta charset="UTF-8"/>
-  <link rel="stylesheet" type="text/css" href="week02/week02.css"/>
-  <script src="week02/week02.js"></script>
+  <link rel="stylesheet" type="text/css" href="homepage.css"/>
+  <link rel="stylesheet" type="text/css" href="grid.css"/>
+  <script src="homepage.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -18,6 +19,7 @@
   <!------------------------ SIDEBAR -------------------------->
 <div class="row">
   <div class="col-4">
+    <div id="sidebar">
     <h2>Actress & Activist</h2>
     <p>
       Born in Helena Montana in 1905, Myrna Loy started out life as a rancher's daughter.
@@ -33,7 +35,7 @@
       <form>
         Yes:
         <input type="radio" name="vote" value="0" onclick="getVote(this.value)">
-        <br>No:
+        No:
         <input type="radio" name="vote" value="1" onclick="getVote(this.value)">
       </form>
     </div>
@@ -55,21 +57,22 @@
     </div>
     <div class="links">
       <h3>External Links</h3>
-      <a href="https://www.chicagotribune.com/news/ct-xpm-1993-12-19-9312190012-story.html" target="blank">
-      More Reading</a><br/>
-      <a href="assignments.php">CS 313 Assignments</a><br/>
-      <a href="byui.edu" target="blank">BYU Idaho</a><br/>
-      <a href="byui-cs313-19s-04.slack.com" target="blank">
-        Class Slack Channel<a/> 
+      <div class="link"><a href="https://www.chicagotribune.com/news/ct-xpm-1993-12-19-9312190012-story.html" target="blank">
+      More Reading</a></div>
+      <div class="link"><a href="assignments.php">CS 313 Assignments</a></div>
+      <div class="link"><a href="byui.edu" target="blank">BYU Idaho</a></div>
+      <div class="link"><a href="byui-cs313-19s-04.slack.com" target="blank">
+        Class Slack Channel<a/></div> 
+    </div>
     </div>
   </div>
   <!--------------------- PICTURE GALLERY ----------------------->
   <div class="col-8">
   <h4>Click on the descriptor words to find out more.</h4>
-  <button class="button" onclick="showAll()">Show/Hide All</button>
+  <div class="button" onclick="showAll()">Show/Hide All</div>
     <div class="flex">
     <div class="gallery">
-      <img src="week02/images/myrnaLoy02.png" alt="Myrna Loy""/>
+      <img src="images/myrnaLoy02.png" alt="Myrna Loy""/>
       <div class="desc" onclick="show('01')">Mysterious</div>
       <div class="about" id="01">
         <p>
@@ -78,7 +81,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="week02/images/myrnaLoy01.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy01.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('02')">Determined</div>
       <div class="about" id="02">
         <p>
@@ -87,7 +90,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="week02/images/myrnaLoy03.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy03.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('03')">Strong</div>
       <div class="about" id="03">
         <p>
@@ -96,7 +99,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="week02/images/myrnaLoy05.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy05.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('04')">Mischevious</div>
       <div class="about" id="04">
         <p>
@@ -105,7 +108,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="week02/images/myrnaLoy04.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy04.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('05')">Talented</div>
       <div class="about" id="05">
         <p>
@@ -114,7 +117,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="week02/images/myrnaLoy06.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy06.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('06')">Timeless</div>
       <div class="about" id="06">
         <p>
