@@ -26,7 +26,7 @@ function showAll() {
 * makes ajax call to server to process and display poll vote
 **********************************************************/
 function getVote (int) {
-  $.post("week02/vote.php", {vote: int,},
+  $.post("docs/vote.php", {vote: int,},
     function(data){
       $("#poll").html(data);
     });

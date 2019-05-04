@@ -4,8 +4,9 @@
   <title>AS Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta charset="UTF-8"/>
-  <link rel="stylesheet" type="text/css" href="week02/week02.css"/>
-  <script src="week02/week02.js"></script>
+  <link rel="stylesheet" type="text/css" href="homepage.css"/>
+  <link rel="stylesheet" type="text/css" href="grid.css"/>
+  <script src="homepage.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
@@ -69,7 +70,7 @@
   <button class="button" onclick="showAll()">Show/Hide All</button>
     <div class="flex">
     <div class="gallery">
-      <img src="week02/images/myrnaLoy02.png" alt="Myrna Loy""/>
+      <img src="images/myrnaLoy02.png" alt="Myrna Loy""/>
       <div class="desc" onclick="show('01')">Mysterious</div>
       <div class="about" id="01">
         <p>
@@ -78,7 +79,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="week02/images/myrnaLoy01.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy01.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('02')">Determined</div>
       <div class="about" id="02">
         <p>
@@ -87,7 +88,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="week02/images/myrnaLoy03.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy03.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('03')">Strong</div>
       <div class="about" id="03">
         <p>
@@ -96,7 +97,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="week02/images/myrnaLoy05.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy05.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('04')">Mischevious</div>
       <div class="about" id="04">
         <p>
@@ -105,7 +106,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="week02/images/myrnaLoy04.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy04.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('05')">Talented</div>
       <div class="about" id="05">
         <p>
@@ -114,7 +115,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="week02/images/myrnaLoy06.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy06.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('06')">Timeless</div>
       <div class="about" id="06">
         <p>

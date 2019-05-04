@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-  <title>cs313 Assignments</title>
+  <title>CS 313 Assignments</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta charset="UTF-8"/>
-  <link rel="stylesheet" type="text/css" href="week02/week02.css"/>
-  <link rel="stylesheet" type="text/css" href="week02/assignments.css"/>
+  <link rel="stylesheet" type="text/css" href="assignments.css"/>
+  <link rel="stylesheet" type="text/css" href="grid.css"/>
 </head>
 <body>
   <div class="row">
