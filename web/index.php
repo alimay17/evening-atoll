@@ -71,7 +71,7 @@
   <div class="button" onclick="showAll()">Show/Hide All</div>
     <div class="flex">
     <div class="gallery">
-      <img src="public/images/myrnaLoy02.png" alt="Myrna Loy""/>
+      <img src="images/myrnaLoy02.png" alt="Myrna Loy""/>
       <div class="desc" onclick="show('01')">Mysterious</div>
       <div class="about" id="01">
         <p>
@@ -80,7 +80,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="public/images/myrnaLoy01.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy01.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('02')">Determined</div>
       <div class="about" id="02">
         <p>
@@ -89,7 +89,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="public/images/myrnaLoy03.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy03.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('03')">Strong</div>
       <div class="about" id="03">
         <p>
@@ -98,7 +98,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="public/images/myrnaLoy05.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy05.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('04')">Mischevious</div>
       <div class="about" id="04">
         <p>
@@ -107,7 +107,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="public/images/myrnaLoy04.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy04.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('05')">Talented</div>
       <div class="about" id="05">
         <p>
@@ -116,7 +116,7 @@
       </div>
     </div>
     <div class="gallery">
-      <img src="public/images/myrnaLoy06.png" alt="Myrna Loy"/>
+      <img src="images/myrnaLoy06.png" alt="Myrna Loy"/>
       <div class="desc" onclick="show('06')">Timeless</div>
       <div class="about" id="06">
         <p>
