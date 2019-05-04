@@ -10,7 +10,7 @@
 $vote = $_REQUEST['vote'];
 
 //get file
-$filename = "docs/poll_result.txt";
+$filename = "public/docs/poll_result.txt";
 $content = file($filename);
 
 //put content in array
@@ -39,7 +39,7 @@ fclose($fp);
   <tr>
     <td>Yes:</td>
     <td>
-    <img src="images/poll.gif"
+    <img src="public/images/poll.gif"
     width='<?php echo(100*round($yes/($no+$yes),2)); ?>'
     height='20'>
     <?php echo(100*round($yes/($no+$yes),2)); ?>%
@@ -48,7 +48,7 @@ fclose($fp);
   <tr>
     <td>No:</td>
     <td>
-    <img src="images/poll.gif"
+    <img src="public/images/poll.gif"
     width='<?php echo(100*round($no/($no+$yes),2)); ?>'
     height='20'>
     <?php echo(100*round($no/($no+$yes),2)); ?>%
