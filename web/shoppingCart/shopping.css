@@ -1,0 +1,16 @@
+/**********************************************************
+* Style Sheet Week03: Shopping Cart
+* Alice Smith
+* CS313 - Bro. Porter
+**********************************************************/
+/************************************
+* Universal
+*************************************/
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  box-sizing:border-box;
+}
+
+h1 {
+  color: gold;
+}
