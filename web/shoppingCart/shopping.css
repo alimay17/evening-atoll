@@ -38,22 +38,10 @@ h1 {
 
 
 /************************************
-* Table
+* items
 *************************************/
-#dataTable {
-  margin:5px;
-  padding:10px;
-}
 
 .busPic {
   width:100px;
   height:100px;
-}
-
-.tHeader {
-  color:gold;
-}
- 
-td {
-  font-family:'Times New Roman', Times, serif;
 }

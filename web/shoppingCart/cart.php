@@ -1,4 +1,5 @@
 <?php
+session_start();
 $pageTitle = "Shopping Cart";
 require('header.php'); 
 ?>
@@ -16,10 +17,13 @@ require('header.php');
 <!----------------------- SIDEBAR -------------------------->
 <div class="row">
 <?php require('sidebar.php');?>
+<!------------------------- BODY --------------------------->
     <div class="col-9">
       <h2>Shopping Cart Items</h2>
-      <div id="cart">Cart Items Here</div>
-      <button id="checkOut" onclick="checkout()">Check Out</button>
+      <div id="message"></div>
+      <div id="cart"><?php require('cartItems.php'); ?></div>
+      <button><a href="items.php">Continue Shopping</a></button>
+      <button id="checkOut"><a href="checkout.php">Check Out</button>
   </div>
   </div>
 <!------------------------ FOOTER --------------------------->
