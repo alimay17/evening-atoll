@@ -32,7 +32,7 @@ function checkout()
 
 function deleteItem(itemId) {
   $.post("delete.php", {item:itemId},
-  function(data, status){
-    $('#message').html(data);
+  function(){
+    location.reload();
   });
 }

@@ -1,4 +1,7 @@
 <?php
+/************************************************
+ * Holds the items array 
+ *************************************************/
 session_start();
 
 $items = array (
@@ -18,32 +21,4 @@ $items = array (
           'price' => 100000
   ) 
 );
-
-// Set a default total
-$total = 0;
-
-if($_SESSION['cart']){
-
-foreach ( $_SESSION['cart'] as $num ) {
-    ?>
-<tr>
-    <td>
-        Item: <?php echo $items[$num]['name']; ?>
-    </td>
-    <td>
-        Price: <?php echo '$' . number_format($items[$num]['price']);?>
-    </td>
-    <!--<td>
-        <button name='delete' onclick='deleteItem(<?php echo $num; ?>)'
-        value='<?php echo $num; ?>'>Remove</button><br/>
-    </td> -->
-</tr>
-<?php
-    $total += $items[$num]['price'];
-} // end foreach
-
-}
-else echo "<p>No items in cart</p>";
 ?>
-
-Total: $<?php echo number_format($total); ?>

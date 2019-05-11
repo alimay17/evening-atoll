@@ -1,6 +1,10 @@
 <?php
+/*****************************
+ * Adds items to shopping cart
+ *****************************/
   session_start();
 
+  // initialze cart array
   if(!isset($_SESSION["cart"])){
     $_SESSION["cart"] = array();
   }
@@ -10,6 +14,6 @@
     $_SESSION ['cart'][] = $_POST["item"];
     echo "Added to cart";
 }
-else echo "Already in cart";
 
+else echo "Already in cart";
 ?>

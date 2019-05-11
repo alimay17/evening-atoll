@@ -2,74 +2,35 @@
 session_start();
 $pageTitle = "Checkout";
 require('header.php'); 
-
-  $nameErr = $addressErr = $cityStateErr = $zipErr = "";
-  $name = $address = $cityState = $zip = "";
-
-  $formvalid = false;
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
-  } else {
-    $name = test_input($_POST["name"]);
-    $formvalid = true;
-  }
-  
-  if (empty($_POST["address"])) {
-    $addressErr = "Address is required";
-    $formvalid = false;
-  } else {
-    $address = test_input($_POST["address"]);
-    $formvalid = true;
-  }
-    
-  if (empty($_POST["cityState"])) {
-    $cityStateErr = "City and State is required";
-    $formvalid = false;
-  } else {
-    $cityState = test_input($_POST["cityState"]);
-    $formvalid = true;
-  }
-
-  if (empty($_POST["zip"])) {
-    $zipErr = "Zip Code is required";
-    $formvalid = false;
-  } else {
-    $zip = test_input($_POST["zip"]);
-    $formvalid = true;
-  }
-}
-
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
+require('validate.php');
 ?>
 
-<!------------------------ HEADER --------------------------->
-<body>
-  <div class="row">
-    <div class="col-12">
-      <div class="header">
-        <h1>School Bus Clearing House</h1>
-      </div>
-    </div>
-  </div>
-<!------------------------- MENU --------------------------->
+<!--------------------- MENU & SIDEBAR ---------------------->
 <?php require('menu.php');?>
-<!----------------------- SIDEBAR -------------------------->
 <div class="row">
   <?php require('sidebar.php');?>
-<!------------------------- BODY --------------------------->
-  <div class="col-9"> 
-    <div id="confirmation">
+<!-------------------------- BODY --------------------------->
+<div class="col-9"> 
+  <div id="confirmation">
   <h2>Purchase information</h2>
 
-  <?php require('cartItems.php'); ?>
+  <?php require('cartItems.php');
+    $total = 0;
+    foreach ( $_SESSION['cart'] as $num ) { ?>
+    <tr>
+      <td>
+        Item: <?php echo $items[$num]['name']; ?>
+      </td>
+      <td>
+        Price: <?php echo '$' . number_format($items[$num]['price']);?>
+      </td>
+    </tr>
+  <?php
+    $total += $items[$num]['price'];
+  } // end foreach  ?>
+  Total: $<?php echo number_format($total); ?>
 
+<!-------------------------- FORM --------------------------->
   <p><span class="error">All fields are required</span></p>
   <form method="post" 
     action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
@@ -92,26 +53,13 @@ function test_input($data) {
     <button>Return to Cart</button>
   </form>
     </div>
-
+<!--------------------- CONFIRMATION ------------------------>
   <?php 
   if($formvalid) {
-echo '<script type="text/javascript">',
-     'checkout();',
-     '</script>';
-}
-?>
-
+    echo '<script type="text/javascript">checkout();</script>';
+  }
+  ?>
   </div>
 </div>
-
 <!------------------------ FOOTER --------------------------->
-  <div class="row">
-    <div class="col-12">
-      <div class="footer">
-        <? require('footer.php'); ?>
-      </div>
-    </div>
-  </div>
-
-</body>
-</html>
+<? require('footer.php'); ?>
