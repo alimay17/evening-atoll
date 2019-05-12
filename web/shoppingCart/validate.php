@@ -18,20 +18,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $formvalid = true;
   }
   
-  if (empty($_POST["address"])) {
+  if(empty($_POST["address"])) {
     $addressErr = "Address is required";
     $formvalid = false;
   } else {
     $address = test_input($_POST["address"]);
     $formvalid = true;
+
   }
     
-  if (empty($_POST["cityState"])) {
+  if(empty($_POST["cityState"])) {
     $cityStateErr = "City & State is required";
     $formvalid = false;
   } else {
     $cityState = test_input($_POST["cityState"]);
     $formvalid = true;
+
   }
 
   if (empty($_POST["zip"])) {
@@ -39,9 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $formvalid = false;
   } else {
     $zip = test_input($_POST["zip"]);
-    $formvalid = true;
   }
 }
+
 
 function test_input($data) {
   $data = trim($data);
