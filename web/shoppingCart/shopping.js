@@ -3,6 +3,10 @@
 * Alice Smith
 * CS313 - Bro. Porter
 **********************************************************/
+/**********************************************************
+* Add Item
+* Ajax request to Add to cart
+**********************************************************/
 function addToCart(itemId) {
   $.post("addToCart.php", {item:itemId},
   function(data, status){
@@ -11,8 +15,19 @@ function addToCart(itemId) {
 }
 
 /**********************************************************
+* Delete Item
+* Ajax request to delete item
+**********************************************************/
+function deleteItem(itemId) {
+  $.post("delete.php", {item:itemId},
+  function(){
+    location.reload();
+  });
+}
+
+/**********************************************************
 * Checkout
-* 
+* Ajax request for confirmation message
 **********************************************************/
 function checkout() 
 {
@@ -21,18 +36,5 @@ function checkout()
     {
       $('#confirmation').html(data);
     }
-  });
-}
-
-
-/**********************************************************
-* Delete Item
-* 
-**********************************************************/
-
-function deleteItem(itemId) {
-  $.post("delete.php", {item:itemId},
-  function(){
-    location.reload();
   });
 }

@@ -14,16 +14,24 @@ div {
   padding:10px;
 }
 /************************************
-* headings, header, footer
+* header, footer
 *************************************/
 h1 {
   color: gold;
+  font-size:2.5em;
 }
 
 .header, .footer {
   text-align:center;
   color:gold;
   background-color:rgba(0, 0, 0, 0.589);
+}
+
+.footer a {
+  color:gold;
+}
+.footer a:hover {
+  color:whitesmoke;
 }
 
 /************************************

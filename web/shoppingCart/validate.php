@@ -5,9 +5,12 @@
  *****************************************/
 session_start();
 
-  $nameErr = $addressErr = $cityStateErr = $zipErr = "";
-  $name = $address = $cityState = $zip = "";
-  $formvalid = false;
+// variables to track data
+$nameErr = $addressErr = $cityStateErr = $zipErr = "";
+$name = $address = $cityState = $zip = "";
+
+// track if form is valid
+$formvalid = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
@@ -44,7 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 
-
+/*****************************************
+ * test input for unknow characters
+ *****************************************/
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
