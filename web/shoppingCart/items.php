@@ -8,7 +8,7 @@ require('header.php');
 <div class="row">
 <!---------------------- ITEMS GRID ------------------------->
   <div class="col-12">
-    <div class="callout" id="message"></div>
+    <div id="message"></div>
     <div class="flex" id="items">
       <div class="card">
         <img class='busPic' src='images/bus1.jpg'/>
