@@ -27,21 +27,179 @@ h1 {
 }
 
 /************************************
-* sidebar
+* menu
 *************************************/
-.sidebar {
-  margin:5px;
+
+.menuItem {
+  color:black;
+  margin:10px;
   padding:10px;
-  border:2px solid black;
-  background-color: rgba(255, 217, 0, 0.459);
+  border:2px solid rgba(0, 0, 0, 0.589);
+  text-decoration:none;
 }
+
+.menuItem:hover {
+  color:gold;
+  background-color:rgba(0, 0, 0, 0.589);
+  cursor:pointer;
+}
+
+/************************************
+* cart
+*************************************/
+.pageTitle {
+  font-size:2.5em;
+}
+
+table{
+  margin:10px;
+  padding:10px;
+  border-collapse:collapse;
+}
+
+th {
+  border-collapse:collapse;
+  background-color:gold;
+  font-size:1.2em;
+  border:4px solid black;
+}
+
+td {
+  margin:10px;
+  padding:5px;
+  border-collapse:collapse;
+}
+
+table button {
+  margin:10px;
+  padding:10px;
+  background-color:rgba(0, 0, 0, 0.589);
+  font-size:0.8em;
+  color:gold;
+}
+
+table button:hover {
+  cursor:pointer;
+}
+
+.button1:hover {
+  border:1px solid black;
+}
+
+.button1 a {
+  text-decoration:none;
+  color:black;
+}
+
+.total {
+  font-size:2em;
+  background-color:rgb(230, 223, 223);
+}
+.total span {
+  color:red;
+}
+
+/************************************
+* checkout
+*************************************/
+.table2 {
+  border-collapse:collapse;
+  font-size:1em;
+  background-color:white;
+  border:2px solid black
+}
+
+.error {
+  font-size:1.2em;
+  color:red;
+}
+
+form {
+  padding:10px;
+  border:5px solid rgba(0, 0, 0, 0.589);
+}
+
+input[type=text] {
+  margin:5px;
+  padding:5px;
+  font-size:1em;
+}
+
+.formHeading {
+  padding:10px;
+  margin:10px;
+  font-size:1.2em;
+  background-color:rgba(0, 0, 0, 0.589);
+  color:gold;
+}
+
 
 
 /************************************
 * items
 *************************************/
+.card {
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  border:1px solid rgba(0, 0, 0, 0.589);
+  margin:5px;
+}
+
+.card h2 {
+  text-align:center;
+}
+
+.price {
+  padding:5px;
+  margin:5px;
+  background-color:rgba(0, 0, 0, 0.589);
+  color:gold;
+  font-size:1.2em;
+}
 
 .busPic {
   width:100px;
   height:100px;
 }
+
+.card button, .button1 {
+  margin:10px;
+  padding:10px;
+  background-color:gold;
+  font-size:1em;
+}
+
+.card button:hover, button1:hover {
+  cursor:pointer;
+}
+/************************************
+* Message Box
+*************************************/
+.callout {
+  position: fixed;
+  top: 35px;
+  right: 30px;
+  margin-left: 20px;
+  max-width: 400px;
+}
+
+.callout-header {
+  padding: 25px 15px;
+  background: gold;
+  font-size: 30px;
+  color:black;
+}
+
+.closebtn {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: black;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color:white;
+} 
