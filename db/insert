@@ -1,0 +1,7 @@
+INSERT INTO movie VALUES (
+  1,
+  'Persuasion',
+  'An Adaptation of Jane Austin',
+  'image.jpg',
+  '1994-11-30'
+);
