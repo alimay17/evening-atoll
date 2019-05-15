@@ -16,7 +16,9 @@
     <a href="homepage.php"><div class="menuItem">Homepage</div></a>
     <a href="hello.html"><div class="menuItem">Hello World</div></a>
     <a href="shoppingCart/items.php"><div class="menuItem">Shopping Cart</div>
-  </a>
+    <a href="movieReview/movieReview.php">
+      <div class="menuItem">Movie Review</div>
+    </a>
   </div><br/>
   <div class="footer">
     <em>05 May 2019 - Alice Smith</em>
