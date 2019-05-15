@@ -1,0 +1,12 @@
+/**********************************************************
+* Style Sheet Web Application - Movie Review
+* Alice Smith
+* CS313 - Bro. Porter
+**********************************************************/
+/************************************
+* Universal
+*************************************/
+* {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  box-sizing:border-box;
+}

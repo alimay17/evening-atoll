@@ -12,7 +12,7 @@
   <link rel="stylesheet" type="text/css" href="../grid.css"/>
   
   <!--Javascript & jQuery -->
-  <script src="shopping.js"></script>
+  <script src="movieReview.js"></script>
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
   <script src="../jquery-3.3.1.min.js"></script>
 </head>
