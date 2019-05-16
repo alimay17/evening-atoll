@@ -21,7 +21,7 @@
 <div class="row">
     <div class="col-12">
       <div class="header">
-        <h1>Movie Review Page</h1>
+        <h1>Classic Movie Reviews</h1>
       </div>
     </div>
   </div>
