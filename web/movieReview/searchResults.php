@@ -20,7 +20,7 @@
       }else {
         $sql = 'SELECT * FROM movie_review AS m Join movie As movie ON m."movie_ID" = movie."movie_ID" JOIN reviewer AS r ON m."reviewer_ID" = r."reviewer_ID"';
 
-        $sql = 'SELECT * FROM movie WHERE "movie_name" LIKE ' . "'%$movieTitle%'";
+        $sql = 'SELECT * FROM movie WHERE "movie_name" ILIKE ' . "'%$movieTitle%'";
         $statement = $db->query($sql);
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
