@@ -18,10 +18,7 @@ require('header.php');
       <li><a href="submitReview.php">Review a movie<a</li>
       <li><a href="submitMovie.php">Submit movie for review</a></li>
     </ul>
-    <form>
-      <span>Search by Movie Title</span><input type="text"/>
-      <button>Search</button>
-    </form>
+    <?php require("search.php"); ?>
   </div>
 </div>
 </div>
