@@ -1,8 +1,12 @@
 <?php
+/****************************************
+ * Landing Page for Movie Review Website
+ * Provides links to all other pages and 
+ * Functionalities
+ ***************************************/
 session_start();
 $pageTitle = "Movie Review";
 require('header.php'); 
-//require('dbAccess.php');
 ?>
 
 <!------------------------ MENU -------------------------->
@@ -13,7 +17,7 @@ require('header.php');
   <h2 class="pageTitle">Please select an option</h2>
   <div>
     <ul>
-      <li><a href="viewMovies.php">View Reviewed Movies</a></li>
+      <li><a href="viewReviews.php">View Reviewed Movies</a></li>
       <li><a href="viewMovies.php">Full Movie List</a></li>
       <li><a href="submitReview.php">Review a movie<a</li>
       <li><a href="submitMovie.php">Submit movie for review</a></li>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Universal header for Movie Review Website -->
 <html lang="en-us">
 <head>
 <title>
@@ -23,5 +24,6 @@
       <div class="header">
         <h1>Classic Movie Reviews</h1>
       </div>
+        <a href="landing.php">Movie Review Home</a><br/>
     </div>
   </div>

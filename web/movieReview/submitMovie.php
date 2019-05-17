@@ -1,4 +1,7 @@
 <?php
+/****************************************
+ * Submit movie for review page
+ ***************************************/
 session_start();
 $pageTitle = "Movie Review";
 require('header.php'); 
@@ -11,6 +14,7 @@ require('header.php');
 <!------------------------ BODY -------------------------->
 <div class="col-12">
   <h2 class="pageTitle">Submit Movie for Review</h2>
+  <p>This page is under construction. Check back soon.</p>
 </div>
 </div>
 

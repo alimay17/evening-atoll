@@ -1,13 +1,15 @@
 <?php
+/****************************************
+ * Search Results page
+ ***************************************/
   require("header.php");
 ?>
 <div>
-  <a href="landing.php">Movie Review Home</a><br/>
-  <div><br/>
+  <h2>Seach Results</h2>
+  <div>
     <?php require("search.php"); ?>
   </div>
-  <h2>Seach Results</h2>
-</div>
+</div><br/>
   <?php
   if(isset($_POST['submit'])) {
     if(isset(($_GET['go']))) {
@@ -18,8 +20,6 @@
       if(!$movieTitle) {
         echo "No results found</br>";
       }else {
-        $sql = 'SELECT * FROM movie_review AS m Join movie As movie ON m."movie_ID" = movie."movie_ID" JOIN reviewer AS r ON m."reviewer_ID" = r."reviewer_ID"';
-
         $sql = 'SELECT * FROM movie WHERE "movie_name" ILIKE ' . "'%$movieTitle%'";
         $statement = $db->query($sql);
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
