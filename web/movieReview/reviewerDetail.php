@@ -44,4 +44,5 @@ foreach ($result as $row) { ?>
     </tr>
       <?php } ?>
   </table>
+  <a href="viewReviewers.php">Return to Browse</a>
   <?php } // end if($result) ?>

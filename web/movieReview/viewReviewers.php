@@ -25,7 +25,7 @@ if(!$result) {
 else {?>
 <!------------------- DISPLAY TABLE --------------------->
   <div id="message">
-  <p>Click on a name to view full reviews.</p>
+  <p>Click on a name to view details.</p>
     <table>
       <tr>
        <th>Name</th>
@@ -49,7 +49,6 @@ else {?>
       <?php } // end of display loop ?>
     </table>
   </div>
-  <a href="viewReviewers.php">Return to Full List</a>
 </div><!-- end of column  -->
 </div><!-- end of row -->
 <!----------------------- FOOTER ------------------------->

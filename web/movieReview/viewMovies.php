@@ -31,7 +31,7 @@ else {?>
    <table>
      <tr>
        <th>Movie Name</th>
-       <th>Date Released</th>
+       <th>Year Released</th>
        <th>Number of Reviews</th>
      </tr>
       <?php
@@ -41,7 +41,7 @@ else {?>
         <tr>
           <td onclick="getMovie(<?php echo $row['movie_ID']; ?>)">
             <?php echo $row['movie_name']; ?></td>
-          <td><?php echo $row['movie_date']; ?></td>
+          <td><?php echo $row['movie_year']; ?></td>
           <td><?php
             // QUERY for review count
             $sqlCount = 'SELECT COUNT("reviewer_ID") FROM movie_review WHERE "movie_ID" = ' . $row['movie_ID'];
@@ -54,7 +54,6 @@ else {?>
      <?php } // end of display loop?>
    </table>
 </div>
-  <a href="viewMovies.php">Return to Full List</a>
 </div>
 
 <!----------------------- FOOTER ------------------------->
