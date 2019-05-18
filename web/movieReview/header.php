@@ -22,7 +22,8 @@
 <div class="row">
     <div class="col-12">
       <div class="header">
-        <h1>Classic Movie Reviews</h1>
+        <h1>Idaho Reviews Hollywood</h1>
+        <p>movies reviewed by intellegent people</p>
       </div>
         <a class="menu" href="landing.php">Movie Review Home</a>
     </div>
