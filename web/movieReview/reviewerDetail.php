@@ -1,23 +1,32 @@
 <?php
-
+/********************************************
+ * Gets and displays selected reviewer details
+ *******************************************/
 require('dbAccess.php');
 
+// get reviewer id for QUERY
 $id = $_POST['reviewer'];
 
+// First QUERY for reveiwer details
 $sql = 'SELECT * FROM reviewer WHERE "reviewer_ID" =' . $id;
-
 $statement = $db->query($sql);
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+// display results
 foreach ($result as $row) { ?>
   <div>
     <h3><?php echo $row['reviewer_name']; ?>  </h3>
 
 <?php }
- $sql = 'SELECT * FROM movie_review AS m Join movie As movie ON m."movie_ID" = movie."movie_ID" JOIN reviewer AS r ON m."reviewer_ID" = r."reviewer_ID" WHERE m."reviewer_ID" =' . $id;
+  
+  // Second Query for number of reveiws by reviewer
+  $sql = 'SELECT * FROM movie_review AS m Join movie As movie ON m."movie_ID" = movie."movie_ID" JOIN reviewer AS r ON m."reviewer_ID" = r."reviewer_ID" WHERE m."reviewer_ID" =' . $id;
 
   $statement = $db->query($sql);
   $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+  // display results
+  // movie_name links to movie details. 
   if($result) {
   ?>
   <table>

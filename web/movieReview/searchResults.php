@@ -2,8 +2,11 @@
 /****************************************
  * Search Results page
  ***************************************/
-  require("header.php");
+session_start();
+$PageTitle = "Search Results";
+require('header.php'); 
 ?>
+<!------------------------ BODY -------------------------->
 <div>
   <h2>Seach Results</h2>
   <div>
@@ -28,13 +31,10 @@
           echo "No results found</br>";
         }
         else {
-
         foreach ($result as $row) 
         {
           echo 'Movie Name: ' . $row['movie_name'];
           echo '<br/>';
-          //echo ' Review: ' . $row["review"] . '<br/>';
-          //echo 'Reviewer: ' . $row['reviewer_name'] . '<br/>';
         }
       }
     } 

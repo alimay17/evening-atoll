@@ -5,7 +5,7 @@
  * Functionalities
  ***************************************/
 session_start();
-$pageTitle = "Movie Review";
+$PageTitle = "Movie Review Home";
 require('header.php'); 
 ?>
 
@@ -16,6 +16,7 @@ require('header.php');
 <div class="col-12">
   <h2 class="pageTitle">Please select an option</h2>
   <div>
+    <!-- Link List -->
     <ul>
       <li><a href="viewMovies.php">Browse Movie List</a></li>
       <li><a href="viewReviewers.php">Browse Reviewers</a></li>

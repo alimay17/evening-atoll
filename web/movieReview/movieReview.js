@@ -5,6 +5,7 @@
 **********************************************************/
 /************************************
 * getMovie
+* gets details of individual movies
 *************************************/
 function getMovie(movie_ID) 
 {
@@ -16,7 +17,8 @@ function getMovie(movie_ID)
 }
 
 /************************************
-* showDesc
+* getReviewer
+* Gets details of individual reviewers
 *************************************/
 function getReviewer(reviewer_ID) 
 {

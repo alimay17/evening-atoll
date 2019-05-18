@@ -24,6 +24,6 @@
       <div class="header">
         <h1>Classic Movie Reviews</h1>
       </div>
-        <a href="landing.php">Movie Review Home</a><br/>
+        <a href="landing.php">Movie Review Home</a>
     </div>
   </div>

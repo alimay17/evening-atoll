@@ -1,14 +1,18 @@
 <?php
-
+/******************************************
+ * Gets and displays selected movie details
+ *****************************************/
 require('dbAccess.php');
 
+// get movie_ID for sql query
 $id = $_POST['movie'];
 
-
+// make first QUERY for movie details
 $sql = 'SELECT * FROM movie WHERE "movie_ID" = ' . $id;
-
 $statement = $db->query($sql);
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+// display results
 foreach ($result as $row) { ?>
 <div>
   <h3><?php echo $row['movie_name']; ?>  </h3>
@@ -18,10 +22,13 @@ foreach ($result as $row) { ?>
   <p><?php echo $row['movie_desc']; ?></p>
 
 <?php }
- $sql = 'SELECT * FROM movie_review AS m Join movie As movie ON m."movie_ID" = movie."movie_ID" JOIN reviewer AS r ON m."reviewer_ID" = r."reviewer_ID" WHERE m."movie_ID" =' . $id;
+  // Second QUERY for reviews of Movie
+  $sql = 'SELECT * FROM movie_review AS m Join movie As movie ON m."movie_ID" = movie."movie_ID" JOIN reviewer AS r ON m."reviewer_ID" = r."reviewer_ID" WHERE m."movie_ID" =' . $id;
 
   $statement = $db->query($sql);
   $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+  // display results if any
   if($result) {
   ?>
   <h3>Reviews</h3>
