@@ -14,3 +14,16 @@ function getMovie(movie_ID)
     $('#message').html(data);
   });
 }
+
+/************************************
+* showDesc
+*************************************/
+function getReviewer(reviewer_ID) 
+{
+  $('#message').html("it Works " + reviewer_ID);
+  $.post("reviewerDetail.php", {reviewer:reviewer_ID},
+  function(data, status){
+    $('#message').html(data);
+  });
+  
+}
