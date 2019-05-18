@@ -18,7 +18,7 @@ require('header.php');
   <div>
     <ul>
       <li><a href="viewReviews.php">View Reviewed Movies</a></li>
-      <li><a href="viewMovies.php">Full Movie List</a></li>
+      <li><a href="viewMovies.php">Browse Movie List</a></li>
       <li><a href="submitReview.php">Review a movie<a</li>
       <li><a href="submitMovie.php">Submit movie for review</a></li>
     </ul>

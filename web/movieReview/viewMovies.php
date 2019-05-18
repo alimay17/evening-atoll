@@ -14,7 +14,7 @@ require('search.php');
 <!------------------------ BODY -------------------------->
 <div class="col-12">
   <h2 class="pageTitle">View Movies</h2>
-</div>
+
 <?php
  $sql = 'SELECT * FROM movie_review AS m Join movie As movie ON m."movie_ID" = movie."movie_ID" JOIN reviewer AS r ON m."reviewer_ID" = r."reviewer_ID"';
 
@@ -26,19 +26,29 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 if(!$result) {
   echo "No results found</br>";
 }
-else {
+else {?>
+  <div id="message">
+   <table>
+     <tr>
+       <th>Movie Name</th>
+       <th>Date Released</th>
+     </tr>
+      <?php
+      foreach ($result as $row) 
+      { ?>
 
-foreach ($result as $row) 
-{
-  echo 'Movie Name: ' . $row['movie_name'];
-  echo ' Movie Description: ' . $row['movie_desc'];
-  echo '<br/>';
-  //echo ' Review: ' . $row["review"] . '<br/>';
-  //echo 'Reviewer: ' . $row['reviewer_name'] . '<br/>';
-}
-}
-?>
+        <tr>
+          <td onclick="getMovie(<?php echo $row['movie_ID']; ?>)">
+            <?php echo $row['movie_name']; ?></td>
+          <td><?php echo $row['movie_date']; ?></td>
+        
+     <?php }
+    ?>
+   </table>
+</div>
+  <a href="viewMovies.php">Return to Full List</a>
 </div>
 
 <!----------------------- FOOTER ------------------------->
-<? require('footer.php'); ?>
+<? } // end of else
+ require('footer.php'); ?>

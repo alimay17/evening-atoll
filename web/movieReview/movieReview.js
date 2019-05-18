@@ -4,5 +4,13 @@
 * CS313 - Bro. Porter
 **********************************************************/
 /************************************
-* Universal
+* getMovie
 *************************************/
+function getMovie(movie_ID) 
+{
+  $('#message').html("it Works " + movie_ID);
+  $.post("movieDetail.php", {movie:movie_ID},
+  function(data, status){
+    $('#message').html(data);
+  });
+}
