@@ -42,7 +42,7 @@ foreach ($result as $row) { ?>
      <tr>
       <td><?php echo $row['Score']; ?></td>
       <td><?php echo $row['review']; ?></td>
-      <td onclick="getReviewer(<?php echo $row['reviewer_ID']; ?>)">
+      <td class="link" onclick="getReviewer(<?php echo $row['reviewer_ID']; ?>)">
         <?php echo $row['reviewer_name']; ?></td>
     </tr>
       <?php } ?>

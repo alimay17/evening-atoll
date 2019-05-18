@@ -27,10 +27,10 @@ if(!$result) {
 else {?>
 <!------------------- DISPLAY TABLE --------------------->
   <div id="message">
-  <p>Click on a Movie to view full description and reviews.</p>
+  <p>Click on a Movie Title to view full description and reviews.</p>
    <table>
      <tr>
-       <th>Movie Name</th>
+       <th>Movie Title</th>
        <th>Year Released</th>
        <th>Number of Reviews</th>
      </tr>
@@ -39,7 +39,7 @@ else {?>
       foreach ($result as $row) 
       { ?>
         <tr>
-          <td onclick="getMovie(<?php echo $row['movie_ID']; ?>)">
+          <td class="link" onclick="getMovie(<?php echo $row['movie_ID']; ?>)">
             <?php echo $row['movie_name']; ?></td>
           <td><?php echo $row['movie_year']; ?></td>
           <td><?php

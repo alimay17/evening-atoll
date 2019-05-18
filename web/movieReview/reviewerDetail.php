@@ -37,7 +37,7 @@ foreach ($result as $row) { ?>
      </tr>
   <?php foreach ($result as $row) { ?>
      <tr>
-      <td onclick="getMovie(<?php echo $row['movie_ID']; ?>)">
+      <td class="link" onclick="getMovie(<?php echo $row['movie_ID']; ?>)">
         <?php echo $row['movie_name']; ?></td>
       <td><?php echo $row['Score']; ?></td>
       <td><?php echo $row['review']; ?></td>

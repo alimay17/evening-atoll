@@ -36,7 +36,7 @@ else {?>
       foreach ($result as $row) 
       { ?>
         <tr>
-          <td onclick="getReviewer(<?php echo $row['reviewer_ID']; ?>)">
+          <td class="link" onclick="getReviewer(<?php echo $row['reviewer_ID']; ?>)">
             <?php echo $row['reviewer_name']; ?></td>
           <td><?php 
             // QUERY to get number of reviews of each reviewer
