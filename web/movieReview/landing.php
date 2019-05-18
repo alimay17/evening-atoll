@@ -17,9 +17,8 @@ require('header.php');
   <h2 class="pageTitle">Please select an option</h2>
   <div>
     <ul>
-      <li><a href="viewReviews.php">View Reviewed Movies</a></li>
       <li><a href="viewMovies.php">Browse Movie List</a></li>
-      <li><a href="submitReview.php">Review a movie<a</li>
+      <li><a href="viewReviewers.php">Browse Reviewers</a></li>
       <li><a href="submitMovie.php">Submit movie for review</a></li>
     </ul>
     <?php require("search.php"); ?>

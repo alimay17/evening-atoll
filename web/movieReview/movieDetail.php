@@ -12,8 +12,9 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 foreach ($result as $row) { ?>
 <div>
   <h3><?php echo $row['movie_name']; ?>  </h3>
-  <img src="<?php echo $row['movie_img']; ?>"/><br/>
+  <img src="<?php echo $row['movie_img']; ?>" alt="Movie Poster"/><br/>
   <p> Released on: <?php echo $row['movie_date']; ?></p>
+  <h4>Description</h4>
   <p><?php echo $row['movie_desc']; ?></p>
 
 <?php }
