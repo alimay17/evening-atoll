@@ -5,7 +5,7 @@
  * Second is Heroku
  ******************************/
 // Local db access
-/*try
+try
 {
   $user = 'alimay';
   $db = new PDO('pgsql:host=localhost;dbname=cs313', $user);
@@ -14,8 +14,9 @@ catch (PDOException $ex)
 {
   echo 'Error!: ' . $ex->getMessage();
   die();
-}*/
+}
 
+/*
 //Heroku db access
 try
 {
@@ -37,6 +38,6 @@ catch (PDOException $ex)
 {
   echo 'Error!: ' . $ex->getMessage();
   die();
-}
+}*/
 
 ?>
