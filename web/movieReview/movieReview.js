@@ -29,3 +29,16 @@ function getReviewer(reviewer_ID)
   });
   
 }
+
+/************************************
+* getReviewer
+* Gets details of individual reviewers
+*************************************/
+function submitReview(movie_ID) 
+{
+  $.post("submitReview.php", {movie:movie_ID},
+  function(data, status){
+    $('#message').html(data);
+  });
+  
+}

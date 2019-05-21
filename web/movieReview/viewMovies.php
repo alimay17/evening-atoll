@@ -33,6 +33,7 @@ else {?>
        <th>Movie Title</th>
        <th>Year Released</th>
        <th>Number of Reviews</th>
+       <th>Actions</th>
      </tr>
       <?php
       // display QUERY results as table
@@ -50,6 +51,10 @@ else {?>
             foreach ($result as $row) {
               echo $row['count'];
             }?>
+          </td>
+          <td>
+            <button onclick="submitReview(<?php echo $row['movie_ID']; ?>)">
+            Review Movie</button>
           </td>
      <?php } // end of display loop?>
    </table>
