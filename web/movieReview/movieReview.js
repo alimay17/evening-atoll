@@ -40,5 +40,8 @@ function submitReview(movie_ID)
   function(data, status){
     $('#message').html(data);
   });
-  
+}
+
+function goBack() {
+  window.history.back();
 }

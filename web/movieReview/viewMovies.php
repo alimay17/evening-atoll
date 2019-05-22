@@ -11,6 +11,7 @@ require('dbAccess.php');
 <!------------------------ BODY -------------------------->
 <div class="row">
 <div class="col-12">
+<div id="message">
   <h2 class="pageTitle">View Movies</h2>
   <?php require('search.php'); ?>
 <?php
@@ -26,7 +27,7 @@ if(!$result) {
 }
 else {?>
 <!------------------- DISPLAY TABLE --------------------->
-  <div id="message">
+  <div id="main">
   <p>Click on a Movie Title to view full description and reviews.</p>
    <table>
      <tr>
@@ -38,10 +39,13 @@ else {?>
       <?php
       // display QUERY results as table
       foreach ($result as $row) 
-      { ?>
+      { 
+        $movie = $row['movie_ID'];
+        $name = $row['movie_name'];
+        ?>
         <tr>
           <td class="link" onclick="getMovie(<?php echo $row['movie_ID']; ?>)">
-            <?php echo $row['movie_name']; ?></td>
+            <?php echo $name; ?></td>
           <td><?php echo $row['movie_year']; ?></td>
           <td><?php
             // QUERY for review count
@@ -53,11 +57,15 @@ else {?>
             }?>
           </td>
           <td>
-            <button onclick="submitReview(<?php echo $row['movie_ID']; ?>)">
-            Review Movie</button>
-          </td>
+            <a href=# onclick="submitReview('<?php echo $movie; ?>')">
+            Review Movie
+          </a> 
+        </td>
+
      <?php } // end of display loop?>
    </table>
+</div>
+</div>
 </div>
 </div>
 

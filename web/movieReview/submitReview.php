@@ -1,27 +1,23 @@
 <?php
   require('dbAccess.php');
+  $movie_ID = $_POST['movie'];
 ?>
 
 <!------------------------ BODY -------------------------->
-<div class="row">
-<div class="col-12">
-  <h2 class="pageTitle">Submit Movie for Review</h2>
-  <p>This page is under construction. Check back soon for functionality.</p>
-</div>
-</div>
+<h2 class="pageTitle">Submit Movie for Review</h2>
+<p>This page is under construction. Check back soon for functionality.</p>
 <div class="row">
   <div class="col-6">
     <div>
       <form>
-        <span>Movie Name:</span>
-        <input type="text" name="movie_name"/></br>
-        <span>Movie Image:</span>
-        <input type="text" name="movie_img"/></br>
-        <span>Movie Release Year:</span>
-        <input type="text" name="movie_year"/></br>
-        <span>Movie Description:</span>
-        <textarea name="movie_desc"></textarea></br>
-        <input type="submit" value="Submit Movie" name="submit_movie"/>
+        <span class="message">All fields are required</span><br/>
+        <span>Name:</span>
+        <input type="text" name="reviewer_name"/></br>
+        <span>Email:</span>
+        <input type="text" name="reviewer_email"/></br>
+        <span>Your Review:</span>
+        <textarea name="movie_review"></textarea></br>
+        <input type="submit" value="Submit Review" name="submit_review"/>
         <input type="reset" value="Reset Form" name="reset"/>
       </form>
     </div>
@@ -31,3 +27,4 @@
     instructions, and messages.
   </div>
 </div>
+  <a href="#main" onclick="getMovie(<?php echo $movie_ID ?>)">Back</a>

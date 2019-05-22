@@ -49,5 +49,6 @@ foreach ($result as $row) { ?>
   </table>
   <?php } // end if($result) ?>
   <a href="viewMovies.php">Return to Browse</a>
+  <a href=# onclick="submitReview(<?php echo $row['movie_ID']; ?>)">Review Movie</a>
 </div>
       
