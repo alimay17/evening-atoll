@@ -48,7 +48,7 @@ else {?>
         ?>
         <tr>
           <td class="link" onclick="getMovie(<?php echo $row['movie_ID']; ?>)">
-            <?php echo $name; ?></td>
+            <?php echo $name . " " . $movie; ?></td>
           <td><?php echo $row['movie_year']; ?></td>
           <td><?php
             // QUERY for review count

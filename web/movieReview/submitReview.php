@@ -29,4 +29,4 @@
   </div>
 </div>
 <!-------------------- BACK LINK ----------------------->
-<a href="#main" onclick="getMovie(<?php echo $movie_ID ?>)">Back</a>
+<a href="viewMovies.php">Return to Browse</a>

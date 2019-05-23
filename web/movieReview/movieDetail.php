@@ -22,6 +22,7 @@ foreach ($result as $row) { ?>
   <p> Released on: <?php echo $row['movie_year']; ?></p>
   <h4>Description</h4>
   <p><?php echo $row['movie_desc']; ?></p>
+  <div id="review">
 
 <?php }
   // Second QUERY for reviews of selected movie
@@ -33,7 +34,6 @@ foreach ($result as $row) { ?>
   // display of 2nd query results if any
   if($result) {
   ?>
-  <div id="review">
   <h3>Reviews</h3>
   <table>
      <tr>
