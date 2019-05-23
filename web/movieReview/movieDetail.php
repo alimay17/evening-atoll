@@ -3,6 +3,7 @@
  * Gets and displays selected movie details
  *****************************************/
 require('dbAccess.php');
+$db = getDatabase();
 
 // get movie_ID for sql query
 $id = $_POST['movie'];
@@ -22,7 +23,7 @@ foreach ($result as $row) { ?>
   <p><?php echo $row['movie_desc']; ?></p>
 
 <?php }
-  // Second QUERY for reviews of Movie
+  // Second QUERY for reviews of selected movie
   $sql = 'SELECT * FROM movie_review AS m Join movie As movie ON m."movie_ID" = movie."movie_ID" JOIN reviewer AS r ON m."reviewer_ID" = r."reviewer_ID" WHERE m."movie_ID" =' . $id;
 
   $statement = $db->query($sql);
@@ -31,6 +32,7 @@ foreach ($result as $row) { ?>
   // display results if any
   if($result) {
   ?>
+  <div id="review">
   <h3>Reviews</h3>
   <table>
      <tr>
@@ -49,6 +51,7 @@ foreach ($result as $row) { ?>
   </table>
   <?php } // end if($result) ?>
   <a href="viewMovies.php">Return to Browse</a>
-  <a href=# onclick="submitReview(<?php echo $row['movie_ID']; ?>)">Review Movie</a>
+  <a href="#addon" onclick="submitReview(<?php echo $row['movie_ID']; ?>)">Review Movie</a>
+  </div>
 </div>
       

@@ -6,6 +6,7 @@ session_start();
 $PageTitle = "Browse Movies";
 require('header.php'); 
 require('dbAccess.php');
+$db = getDatabase();
 ?>
 
 <!------------------------ BODY -------------------------->
@@ -57,7 +58,8 @@ else {?>
             }?>
           </td>
           <td>
-            <a href=# onclick="submitReview('<?php echo $movie; ?>')">
+            <a href="#reveiw" onclick="getMovie('<?php echo $movie; ?>'),
+            submitReview('<?php echo $movie; ?>');">
             Review Movie
           </a> 
         </td>

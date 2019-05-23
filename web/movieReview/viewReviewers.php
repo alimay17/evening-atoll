@@ -6,6 +6,7 @@ session_start();
 $PageTitle = "Browse Reviewers";
 require('header.php'); 
 require('dbAccess.php');
+$db = getDatabase();
 ?>
 
 <!------------------------ BODY -------------------------->

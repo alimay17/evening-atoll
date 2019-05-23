@@ -4,11 +4,12 @@
 ?>
 
 <!------------------------ BODY -------------------------->
-<h2 class="pageTitle">Submit Movie for Review</h2>
-<p>This page is under construction. Check back soon for functionality.</p>
+<h2 class="pageTitle">Review Movie</h2>
+<p>This feature is under construction. Check back soon for functionality.</p>
 <div class="row">
   <div class="col-6">
     <div>
+<!-------------------- REVIEW FORM ----------------------->
       <form>
         <span class="message">All fields are required</span><br/>
         <span>Name:</span>
@@ -27,4 +28,5 @@
     instructions, and messages.
   </div>
 </div>
-  <a href="#main" onclick="getMovie(<?php echo $movie_ID ?>)">Back</a>
+<!-------------------- BACK LINK ----------------------->
+<a href="#main" onclick="getMovie(<?php echo $movie_ID ?>)">Back</a>

@@ -6,6 +6,7 @@ session_start();
 $PageTitle = "Search Results";
 require('header.php'); 
 require("dbAccess.php");
+$db = getDatabase();
 ?>
 <!------------------------ BODY -------------------------->
 <div class="row">

@@ -18,7 +18,7 @@
   <script src="../jquery-3.3.1.min.js"></script>
 </head>
 <body>
-  <!-- Site header -->
+  <!-- Site heading -->
 <div class="row">
     <div class="col-12">
       <div class="header">

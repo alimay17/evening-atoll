@@ -3,6 +3,7 @@
  * Gets and displays selected reviewer details
  *******************************************/
 require('dbAccess.php');
+$db = getDatabase();
 
 // get reviewer id for QUERY
 $id = $_POST['reviewer'];

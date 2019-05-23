@@ -4,7 +4,9 @@
  * First block is local
  * Second is Heroku
  ******************************/
+function getDatabase(){
 // Local db access
+$db = null;
 try
 {
   $user = 'alimay';
@@ -40,4 +42,6 @@ catch (PDOException $ex)
   die();
 }*/
 
+  return $db;
+}
 ?>
