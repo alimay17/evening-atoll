@@ -5,7 +5,6 @@
 session_start();
 $PageTitle = "Submit Movie";
 require('header.php'); 
-//require('dbAccess.php');
 ?>
 
 <!------------------------ BODY -------------------------->

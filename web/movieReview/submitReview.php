@@ -1,5 +1,5 @@
 <?php
-  require('dbAccess.php');
+  // set movie variable
   $movie_ID = $_POST['movie'];
 ?>
 

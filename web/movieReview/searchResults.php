@@ -2,9 +2,10 @@
 /****************************************
  * Search Results page
  ***************************************/
-session_start();
 $PageTitle = "Search Results";
-require('header.php'); 
+require('header.php');
+
+// database Access
 require("dbAccess.php");
 $db = getDatabase();
 ?>
@@ -35,7 +36,7 @@ $db = getDatabase();
           echo "No results found</br>";
         }
 
-        // display search results as a table 
+        // display search results
         else { ?>
         <div id="message">
         <p>Click on a Movie to view full description and reviews.</p>
@@ -50,7 +51,7 @@ $db = getDatabase();
             foreach ($result as $row) 
             { ?>
               <tr>
-                <td onclick="getMovie(<?php echo $row['movie_ID']; ?>)">
+                <td class="link" onclick="getMovie(<?php echo $row['movie_ID']; ?>)">
                   <?php echo $row['movie_name']; ?></td>
                 <td><?php echo $row['movie_desc']; ?></td>
                 <td><?php

@@ -5,6 +5,8 @@
 session_start();
 $PageTitle = "Browse Movies";
 require('header.php'); 
+
+// database access
 require('dbAccess.php');
 $db = getDatabase();
 ?>
@@ -66,11 +68,11 @@ else {?>
 
      <?php } // end of display loop?>
    </table>
-</div>
-</div>
-</div>
-</div>
+</div> <!-- end of #main    -->
+<?php }  // end of if else  ?>
+</div> <!-- end of #message -->
+</div> <!-- end of COL-12   -->
+</div> <!-- end of ROW      -->
 
 <!----------------------- FOOTER ------------------------->
-<? } // end of if else
- require('footer.php'); ?>
+<?php require('footer.php'); ?>

@@ -5,7 +5,7 @@
 **********************************************************/
 /************************************
 * getMovie
-* gets details of individual movies
+* gets details for individual movies
 *************************************/
 function getMovie(movie_ID) 
 {
@@ -18,7 +18,7 @@ function getMovie(movie_ID)
 
 /************************************
 * getReviewer
-* Gets details of individual reviewers
+* Gets details for individual reviewers
 *************************************/
 function getReviewer(reviewer_ID) 
 {
@@ -27,12 +27,11 @@ function getReviewer(reviewer_ID)
   function(data, status){
     $('#message').html(data);
   });
-  
 }
 
 /************************************
-* getReviewer
-* Gets details of individual reviewers
+* submitReview
+* gets submit review form
 *************************************/
 function submitReview(movie_ID) 
 {
@@ -40,8 +39,4 @@ function submitReview(movie_ID)
   function(data, status){
     $('#review').html(data);
   });
-}
-
-function goBack() {
-  window.history.back();
 }

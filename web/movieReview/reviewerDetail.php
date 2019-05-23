@@ -2,6 +2,7 @@
 /********************************************
  * Gets and displays selected reviewer details
  *******************************************/
+// dabase access
 require('dbAccess.php');
 $db = getDatabase();
 
@@ -16,8 +17,7 @@ $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 // display results
 foreach ($result as $row) { ?>
   <div>
-    <h3><?php echo $row['reviewer_name']; ?>  </h3>
-
+    <h2><?php echo $row['reviewer_name']; ?> </h2>
 <?php }
   
   // Second Query for number of reveiws by reviewer
@@ -26,10 +26,11 @@ foreach ($result as $row) { ?>
   $statement = $db->query($sql);
   $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-  // display results
+  // display 2nd query results in table
   // movie_name links to movie details. 
   if($result) {
   ?>
+  <h4>Movies Reviewed</h4>
   <table>
      <tr>
        <th>Movie Name</th>

@@ -2,6 +2,7 @@
 /******************************************
  * Gets and displays selected movie details
  *****************************************/
+// database connection
 require('dbAccess.php');
 $db = getDatabase();
 
@@ -29,7 +30,7 @@ foreach ($result as $row) { ?>
   $statement = $db->query($sql);
   $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-  // display results if any
+  // display of 2nd query results if any
   if($result) {
   ?>
   <div id="review">

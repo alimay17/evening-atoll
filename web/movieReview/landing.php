@@ -4,15 +4,11 @@
  * Provides links to all other pages and 
  * Functionalities
  ***************************************/
-session_start();
 $PageTitle = "Movie Review Home";
 require('header.php'); 
 ?>
-
-<!------------------------ MENU -------------------------->
-
+<!----------------------- NAV LINKS ------------------------>
 <div class="row">
-<!------------------------ BODY -------------------------->
 <div class="col-12">
   <h2 class="pageTitle">Please select an option</h2>
   <div>
@@ -22,10 +18,10 @@ require('header.php');
       <li><a href="viewReviewers.php">Browse Reviewers</a></li>
       <li><a href="submitMovie.php">Submit movie for review</a></li>
     </ul>
+<!------------------------ SEARCH -------------------------->
     <?php require("search.php"); ?>
   </div>
 </div>
 </div>
-
-<!----------------------- FOOTER ------------------------->
+<!------------------------- FOOTER ------------------------->
 <? require('footer.php'); ?>
