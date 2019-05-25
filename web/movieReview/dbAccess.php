@@ -4,10 +4,10 @@
  * First block is local
  * Second is Heroku
  ******************************/
-/*function getDatabase(){
+function getDatabase(){
 // Local db access
 $db = null;
-try
+/*try
 {
   $user = 'alimay';
   $db = new PDO('pgsql:host=localhost;dbname=cs313', $user);
