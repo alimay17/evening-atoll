@@ -19,7 +19,7 @@ $sql = 'SELECT * FROM reviewer';
 $statement = $db->query($sql);
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-// display if there are any results of query
+// display if there are any results of query?
 if(!$result) {
   echo "No results found</br>";
 }

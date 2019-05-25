@@ -14,7 +14,7 @@ $db = getDatabase();
   <div class="col-12">
   <h2>Seach Results</h2>
     <?php
-  // Check if search is good
+  // Check if search is good?
   if(isset($_POST['submit'])) {
     if(isset(($_GET['go']))) {
 

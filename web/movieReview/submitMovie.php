@@ -33,7 +33,7 @@ require('header.php');
   </div>
   <div class="col-6">
     Display for completed submission,<br/>
-    instructions, and messages.
+    instructions, and messages
   </div>
 </div>
 

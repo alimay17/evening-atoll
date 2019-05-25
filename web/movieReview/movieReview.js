@@ -35,6 +35,7 @@ function getReviewer(reviewer_ID)
 *************************************/
 function submitReview(movie_ID) 
 {
+  // this is a post
   $.post("submitReview.php", {movie:movie_ID},
   function(data, status){
     $('#review').html(data);

@@ -25,7 +25,7 @@ foreach ($result as $row) { ?>
   <div id="review">
 
 <?php }
-  // Second QUERY for reviews of selected movie
+  // Second QUERY for reviews of selected movie. Does it work?
   $sql = 'SELECT * FROM movie_review AS m Join movie As movie ON m."movie_ID" = movie."movie_ID" JOIN reviewer AS r ON m."reviewer_ID" = r."reviewer_ID" WHERE m."movie_ID" =' . $id;
 
   $statement = $db->query($sql);

@@ -27,7 +27,7 @@ foreach ($result as $row) { ?>
   $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
   // display 2nd query results in table
-  // movie_name links to movie details. 
+  // movie_name links to movie details 
   if($result) {
   ?>
   <h4>Movies Reviewed</h4>

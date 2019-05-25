@@ -69,7 +69,7 @@ else {?>
      <?php } // end of display loop?>
    </table>
 </div> <!-- end of #main    -->
-<?php }  // end of if else  ?>
+<?php }  // end of if else.  ?>
 </div> <!-- end of #message -->
 </div> <!-- end of COL-12   -->
 </div> <!-- end of ROW      -->
