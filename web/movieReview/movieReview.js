@@ -38,6 +38,7 @@ function submitReview(movie_ID, page)
   if(page == 1){ 
   getMovie(movie_ID);
   }
+  
   $.post("submitReview.php", {movie:movie_ID},
   function(data, status){
     $('#review').html(data);
