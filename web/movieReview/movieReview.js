@@ -9,7 +9,6 @@
 *************************************/
 function getMovie(movie_ID) 
 {
-  $('#message').html("it Works " + movie_ID);
   $.post("movieDetail.php", {movie:movie_ID},
   function(data, status){
     $('#message').html(data);
@@ -33,12 +32,8 @@ function getReviewer(reviewer_ID)
 * submitReview
 * gets submit review form
 *************************************/
-function submitReview(movie_ID, page) 
+function submitReview(movie_ID) 
 {
-  if(page == 1){ 
-  getMovie(movie_ID);
-  }
-  
   $.post("submitReview.php", {movie:movie_ID},
   function(data, status){
     $('#review').html(data);
