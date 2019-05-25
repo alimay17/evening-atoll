@@ -60,8 +60,7 @@ else {?>
             }?>
           </td>
           <td>
-            <a href="#reveiw" onclick="getMovie('<?php echo $movie; ?>');
-            submitReview('<?php echo $movie; ?>');">
+            <a href="#reveiw" onclick="submitReview('<?php echo $movie; ?>', 1);">
             Review Movie
           </a> 
         </td>

@@ -52,7 +52,7 @@ foreach ($result as $row) { ?>
   </table>
   <?php } // end if($result) ?>
   <a href="viewMovies.php">Return to Browse</a>
-  <a href="#addon" onclick="submitReview(<?php echo $row['movie_ID']; ?>)">Review Movie</a>
+  <a href="#review" onclick="submitReview(<?php echo $row['movie_ID']; ?>, 2)">Review Movie</a>
   </div>
 </div>
       
