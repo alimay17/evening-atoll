@@ -47,8 +47,8 @@ else {?>
         $name = $row['movie_name'];
         ?>
         <tr>
-          <td class="link" onclick="getMovie(<?php echo $row['movie_ID']; ?>)">
-            <?php echo $name . " " . $movie; ?></td>
+          <td class="link" onclick="getMovie(<?php echo $movie; ?>)">
+            <?php echo $name; ?></td>
           <td><?php echo $row['movie_year']; ?></td>
           <td><?php
             // QUERY for review count
