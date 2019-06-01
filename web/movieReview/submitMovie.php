@@ -17,13 +17,13 @@ require('header.php');
 <div class="row">
   <div class="col-6">
     <div>
-      <form>
+      <form method="post" action="<?php echo htmlspecialchars('addData.php');?>">
         <span>Movie Name:</span>
         <input type="text" name="movie_name"/></br>
         <span>Movie Image:</span>
         <input type="text" name="movie_img"/></br>
         <span>Movie Release Year:</span>
-        <input type="text" name="movie_year"/></br>
+        <input type="number" name="movie_year"/></br>
         <span>Movie Description:</span>
         <textarea name="movie_desc"></textarea></br>
         <input type="submit" value="Submit Movie" name="submit_movie"/>
