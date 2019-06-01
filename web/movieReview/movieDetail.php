@@ -22,7 +22,7 @@ foreach ($result as $row) { ?>
   <p> Released on: <?php echo $row['movie_year']; ?></p>
   <h4>Description</h4>
   <p><?php echo $row['movie_desc']; ?></p>
-  <div id="review">
+  <div id="message">
 
 <?php }
   // Second QUERY for reviews of selected movie. Does it work?
