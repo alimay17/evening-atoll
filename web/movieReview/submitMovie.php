@@ -13,7 +13,7 @@ $db = getDatabase();
 <div class="row">
 <div class="col-12">
   <h2 class="pageTitle">Submit Movie for Review</h2>
-  <p>This page is under construction. Check back soon for functionality.</p>
+  <p>This page is under construction, some functionality might be broken.</p>
 </div>
 </div>
 <div class="row">
@@ -66,6 +66,7 @@ $db = getDatabase();
       if(isset($_POST[movie_img]))
       {
         $movieImage = sanitizeData($_POST[movie_img]);
+        $movieImage = "images/default.png";
         $stmt->bindParam(':movie_img', $movieImage);
       }
       if(isset($_POST[movie_year]))
@@ -92,7 +93,6 @@ $db = getDatabase();
       }
       return false;
     }
-      //echo "$movieName <br/> $movieImage <br/> $movieYear </br> $movieDesc";
       return $stmt;
     }
 

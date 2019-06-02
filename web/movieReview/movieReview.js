@@ -9,7 +9,7 @@
 *************************************/
 function getMovie(movie_ID) 
 {
-  $.post("movieDetail.php", {movie:movie_ID},
+  $.get("movieDetail.php", {movie:movie_ID},
   function(data, status){
     $('#message').html(data);
   });
@@ -36,6 +36,6 @@ function submitReview(movie_ID)
 {
   $.post("submitReview.php", {movie:movie_ID},
   function(data, status){
-    $('#message').html(data);
+    $('#review').html(data);
   });
 }

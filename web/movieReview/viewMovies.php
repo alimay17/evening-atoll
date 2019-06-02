@@ -6,15 +6,19 @@ session_start();
 $PageTitle = "Browse Movies";
 require('header.php'); 
 
-// database access
-require('dbAccess.php');
-$db = getDatabase();
 ?>
 
 <!------------------------ BODY -------------------------->
 <div class="row">
 <div class="col-12">
 <div id="message">
+<?php
+    if(isset($_GET[movie])){
+      require("movieDetail.php");
+    }
+else{
+      require('dbAccess.php');
+      $db = getDatabase(); ?>
   <h2 class="pageTitle">View Movies</h2>
   <?php require('search.php'); ?>
 <?php
@@ -62,10 +66,12 @@ else {?>
      <?php } // end of display loop?>
    </table>
 </div> <!-- end of #main    -->
-<?php }  // end of if else.  ?>
+<?php } // end of query if else 
+    } ?> 
 </div> <!-- end of #message -->
 </div> <!-- end of COL-12   -->
 </div> <!-- end of ROW      -->
 
 <!----------------------- FOOTER ------------------------->
 <?php require('footer.php'); ?>
+

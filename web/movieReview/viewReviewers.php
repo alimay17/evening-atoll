@@ -15,7 +15,7 @@ $db = getDatabase();
   <h2 class="pageTitle">View Reviewers</h2>
 <?php
 // QUERY to get all reviewers
-$sql = 'SELECT * FROM reviewer';
+$sql = 'SELECT * FROM mv_user';
 $statement = $db->query($sql);
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -37,11 +37,11 @@ else {?>
       foreach ($result as $row) 
       { ?>
         <tr>
-          <td class="link" onclick="getReviewer(<?php echo $row['reviewer_ID']; ?>)">
-            <?php echo $row['reviewer_name']; ?></td>
+          <td class="link" onclick="getReviewer(<?php echo $row['user_ID']; ?>)">
+            <?php echo $row['user_name']; ?></td>
           <td><?php 
             // QUERY to get number of reviews of each reviewer
-            $sqlCount = 'SELECT COUNT("reviewer_ID") FROM movie_review WHERE "reviewer_ID" = ' . $row['reviewer_ID'];
+            $sqlCount = 'SELECT COUNT("reviewer_ID") FROM movie_review WHERE "reviewer_ID" = ' . $row['user_ID'];
             $statement = $db->query($sqlCount);
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $row) {
