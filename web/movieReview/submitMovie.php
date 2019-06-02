@@ -66,7 +66,7 @@ $db = getDatabase();
       if(isset($_POST[movie_img]))
       {
         $movieImage = sanitizeData($_POST[movie_img]);
-        $movieImage = "images/default.png";
+        $movieImage = "images/default.png"; // just for testing
         $stmt->bindParam(':movie_img', $movieImage);
       }
       if(isset($_POST[movie_year]))
