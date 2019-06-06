@@ -7,6 +7,7 @@
 function getDatabase(){
 // Local db access
 $db = null;
+
 /*try
 {
   $user = 'alimay';
@@ -17,6 +18,7 @@ catch (PDOException $ex)
   echo 'Error!: ' . $ex->getMessage();
   die();
 } */
+
 
 
 //Heroku db access
