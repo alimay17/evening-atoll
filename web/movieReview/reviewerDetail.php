@@ -26,7 +26,7 @@ foreach ($result as $row) {
   if($result) {
   ?>
   <div>
-  <h2>User: <?php echo $userName; ?> </h2>
+  <h2>Reviewer: <?php echo $userName; ?> </h2>
   <h4>Movies Reviewed</h4>
   <table>
      <tr>

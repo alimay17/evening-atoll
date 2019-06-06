@@ -11,20 +11,21 @@
      $movieReview = sanitizeData($_POST[movie_review]);
      $movieScore = $_POST[score]; 
 
-       // if user is in db and get add review sql
+       // if user is in db add review
     if(!$user = getUser($userName)) {
+      // if user doesn't exist add new user before adding review
       $user = getNewUser($userName, $userEmail);
     }
-    // if user doesn't exist add new user before getting add review sql
 
     $result = insertReview($movieId, $user, $movieScore, $movieReview);
     if($result){
-      
       header("Location: movieDetail.php?movie=" . $_SESSION['movie']);
     }
-  }
-  else {
-    echo "Unable to submit Review<br/>";
+    // if user has already reviewed that movie
+    else{
+      $_SESSION['error'] = "You have already reviewed this movie.";
+      header("Location: movieDetail.php?movie=" . $_SESSION['movie']);
+    } 
   }
   
 

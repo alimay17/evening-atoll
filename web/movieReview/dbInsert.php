@@ -32,26 +32,31 @@ function insertMovie($movieName, $movieImg, $movieYear, $movieDesc) {
 function insertReview($movieId, $user, $movieScore, $movieReview) {
   $db = getDatabase();
 
-  try{
+  $validUser = $db->prepare('SELECT "reviewer_ID", "movie_ID" FROM movie_review 
+  WHERE "reviewer_ID" =' .  "'$user'" . 'AND "movie_ID" = ' . "'$movieId'");
+  $validUser->execute();
 
-    $stmt = $db->prepare('INSERT 
-    INTO movie_review ("movie_ID", "reviewer_ID", review, "Score") 
-    VALUES(:movie_ID, :reviewer_ID, :review, :Score) RETURNING ' . '"reviewer_ID"');
+  if(!$result = $validUser->fetchAll(PDO::FETCH_ASSOC)){
+    try{
 
+      $stmt = $db->prepare('INSERT 
+      INTO movie_review ("movie_ID", "reviewer_ID", review, "Score") 
+      VALUES(:movie_ID, :reviewer_ID, :review, :Score) RETURNING ' . '"reviewer_ID"');
 
-    // sanitize and bind user input
-    $stmt->bindParam('movie_ID', $movieId);
-    $stmt->bindParam('reviewer_ID', $user);
-    $stmt->bindParam(':review', $movieReview);
-    $stmt->bindParam(':Score', $movieScore);
+      // sanitize and bind user input
+      $stmt->bindParam('movie_ID', $movieId);
+      $stmt->bindParam('reviewer_ID', $user);
+      $stmt->bindParam(':review', $movieReview);
+      $stmt->bindParam(':Score', $movieScore);
 
-    $stmt->execute();
-    return $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-  }catch (PDOException $e) {
-    echo $e->getMessage();
-    return false;
+      $stmt->execute();
+      return $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }catch (PDOException $e) {
+      echo $e->getMessage();
+      return false;
+    }
   }
+  else return false;
 }
 
 

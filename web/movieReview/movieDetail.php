@@ -14,6 +14,11 @@ $id = $_GET['movie'];
 // set session for reveiw function
 $_SESSION['movie'] = $id;
 
+// if is redirect from review page
+if($_SESSION['error']){
+  echo "<h3>$_SESSION[error]</h3>";
+  unset($_SESSION['error']);
+}
 
 // get and display movie details
 $result = getDetail($id);
