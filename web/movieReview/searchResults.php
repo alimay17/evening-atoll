@@ -27,9 +27,13 @@ $db = getDatabase();
       }
       else {
         // QUERY using user input for search
-        $sql = 'SELECT * FROM movie WHERE "movie_name" ILIKE ' . "'%$movieTitle%'";
-        $statement = $db->query($sql);
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        try{
+          $sql = 'SELECT * FROM movie WHERE "movie_name" ILIKE ' . "'%$movieTitle%'";
+          $statement = $db->query($sql);
+          $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        }catch (\PDOException $e) {
+          echo $e->getMessage();
+        }
 
         // if no results
         if(!$result) {
@@ -56,9 +60,14 @@ $db = getDatabase();
                 <td><?php echo $row['movie_desc']; ?></td>
                 <td><?php
                   // QUERY for review count
+                  try {
                   $sqlCount = 'SELECT COUNT("reviewer_ID") FROM movie_review WHERE "movie_ID" = ' . $row['movie_ID'];
                   $statement = $db->query($sqlCount);
                   $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                  }catch (\PDOException $e) {
+                    echo $e->getMessage();
+                  }
+                  
                   foreach ($result as $row) {
                     echo $row['count'];
                   }?>

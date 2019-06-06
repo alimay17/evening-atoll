@@ -7,7 +7,6 @@ session_start();
 require('dbAccess.php');
 $db = getDatabase();
 
-
 // get movie_ID for sql query
 $id = $_GET['movie'];
 
@@ -16,9 +15,14 @@ $_SESSION['movie'] = $id;
 
 
 // make first QUERY for movie details
-$sql = 'SELECT * FROM movie WHERE "movie_ID" = ' . $id;
-$statement = $db->query($sql);
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+try {
+  $sql = 'SELECT * FROM movie WHERE "movie_ID" = ' . $id;
+  $statement = $db->query($sql);
+  $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+}catch (\PDOException $e) {
+  echo $e->getMessage();
+}
+
 
 // display results
 foreach ($result as $row) { ?>
@@ -31,11 +35,16 @@ foreach ($result as $row) { ?>
   <div id="review">
 
 <?php }
-  // Second QUERY for reviews of selected movie. Does it work?
-  $sql = 'SELECT * FROM movie_review AS m Join movie As movie ON m."movie_ID" = movie."movie_ID" JOIN mv_user AS r ON m."reviewer_ID" = r."user_ID" WHERE m."movie_ID" =' . $id;
 
-  $statement = $db->query($sql);
-  $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+  // Second QUERY for reviews of selected movie. Does it work?
+  try {
+    $sql = 'SELECT * FROM movie_review AS m Join movie As movie ON m."movie_ID" = movie."movie_ID" JOIN mv_user AS r ON m."reviewer_ID" = r."user_ID" WHERE m."movie_ID" =' . $id;
+
+    $statement = $db->query($sql);
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+  } catch (\PDOException $e) {
+    echo $e->getMessage();
+  }
 
   // display of 2nd query results if any
   if($result) {

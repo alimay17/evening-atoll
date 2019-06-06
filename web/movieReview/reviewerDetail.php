@@ -10,10 +10,13 @@ $db = getDatabase();
 $id = $_POST['reviewer'];
 
 // First QUERY for reveiwer details
-$sql = 'SELECT * FROM mv_user WHERE "user_ID" =' . $id;
-$statement = $db->query($sql);
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
+try{ 
+  $sql = 'SELECT * FROM mv_user WHERE "user_ID" =' . $id;
+  $statement = $db->query($sql);
+  $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+}catch (\PDOException $e) {
+  echo $e->getMessage();
+}
 // display results
 foreach ($result as $row) { ?>
   <div>
@@ -21,10 +24,13 @@ foreach ($result as $row) { ?>
 <?php }
   
   // Second Query for number of reveiws by reviewer
+  try{
   $sql = 'SELECT * FROM movie_review AS m Join movie As movie ON m."movie_ID" = movie."movie_ID" JOIN mv_user AS r ON m."reviewer_ID" = r."user_ID" WHERE m."reviewer_ID" =' . $id;
-
   $statement = $db->query($sql);
   $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+  }catch (\PDOException $e) {
+    echo $e->getMessage();
+  }
 
   // display 2nd query results in table
   // movie_name links to movie details 

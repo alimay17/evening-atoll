@@ -5,7 +5,6 @@
 session_start();
 $PageTitle = "Browse Movies";
 require('header.php'); 
-
 ?>
 
 <!------------------------ BODY -------------------------->
@@ -24,9 +23,13 @@ else{
 <?php
 
 // QUERY to display all movies
-$sql = 'SELECT * FROM movie';
-$statement = $db->query($sql);
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+try {
+  $sql = 'SELECT * FROM movie';
+  $statement = $db->query($sql);
+  $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+}catch (\PDOException $e) {
+  echo $e->getMessage();
+}
 
 // display if there are any results of query
 if(!$result) {
@@ -55,8 +58,13 @@ else {?>
           <td><?php echo $row['movie_year']; ?></td>
           <td><?php
             // QUERY for review count
-            $sqlCount = 'SELECT COUNT("reviewer_ID") FROM movie_review WHERE "movie_ID" = ' . $row['movie_ID'];
-            $statement = $db->query($sqlCount);
+            try {
+              $sqlCount = 'SELECT COUNT("reviewer_ID") FROM movie_review WHERE "movie_ID" = ' . $row['movie_ID'];
+              $statement = $db->query($sqlCount);
+            }catch (\PDOException $e) {
+              echo $e->getMessage();
+            }
+            // display reviews count
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result as $row) {
               echo $row['count'];
