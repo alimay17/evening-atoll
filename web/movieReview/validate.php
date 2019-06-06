@@ -14,16 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if($_POST["movie_name"] && $_POST["movie_year"] && $_POST["movie_desc"]) {
 
     $movieName = testString($_POST["movie_name"]);
-    echo "Movie Name: $movieName<br/>";
-
     $movieImg = "images/default.png";
-    echo "Movie Image: $movieImg<br/>";
-
     $movieYear = testNumber($_POST["movie_year"]);
-    echo "Movie Year: $movieYear<br/>";
-
     $movieDesc = testString($_POST["movie_desc"]);
-    echo "Movie Desc: $movieDesc<br/>";
 
     $formvalid = true;
   }

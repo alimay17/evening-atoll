@@ -58,12 +58,11 @@ require('dbInsert.php');
   require('validate.php');
     if($formvalid){
       if(!checkValidMovie($movieName)) {
-      echo "it works!<br/>";
       $result = insertMovie($movieName, $movieImg, $movieYear, $movieDesc);
       foreach($result as $row) {
         $newId = $row['movie_ID'];
         }
-        echo "Movie Succesfully added</b>"; ?>
+        echo "<h3>Movie Succesfully added</h3>"; ?>
         <a href="movieDetail.php?movie=<?php echo $newId; ?>">
           Click here to add a review.</a> <?php
       }
