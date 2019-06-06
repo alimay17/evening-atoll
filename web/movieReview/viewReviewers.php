@@ -5,8 +5,7 @@
 session_start();
 $PageTitle = "Browse Reviewers";
 require('header.php'); 
-require('dbAccess.php');
-$db = getDatabase();
+require('dbCalls.php');
 ?>
 
 <!------------------------ BODY -------------------------->
@@ -14,12 +13,8 @@ $db = getDatabase();
 <div class="col-12">
   <h2 class="pageTitle">View Reviewers</h2>
 <?php
-// QUERY to get all reviewers
-$sql = 'SELECT * FROM mv_user';
-$statement = $db->query($sql);
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-// display if there are any results of query?
+// get and display any reviewers
+$result = getUsers();
 if(!$result) {
   echo "No results found</br>";
 }
@@ -35,16 +30,17 @@ else {?>
       <?php
       // display QUERY results as table
       foreach ($result as $row) 
-      { ?>
+      { 
+        $userName = $row['user_name'];
+        $userID = $row['user_ID'];
+        ?>
         <tr>
-          <td class="link" onclick="getReviewer(<?php echo $row['user_ID']; ?>)">
-            <?php echo $row['user_name']; ?></td>
+        <td><a href="reviewerDetail.php?user=<?php echo $userID; ?>">
+        <?php echo $userName; ?></a></td>
           <td><?php 
             // QUERY to get number of reviews of each reviewer
-            $sqlCount = 'SELECT COUNT("reviewer_ID") FROM movie_review WHERE "reviewer_ID" = ' . $row['user_ID'];
-            $statement = $db->query($sqlCount);
-            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($result as $row) {
+            $result2 = getUserReviewCount($userID);
+            foreach ($result2 as $row) {
               echo $row['count']; } ?>
             </td>
       <?php } // end of display loop ?>

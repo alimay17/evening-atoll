@@ -2,7 +2,7 @@
 /****************************************
  * Landing Page for Movie Review Website
  * Provides links to all other pages and 
- * Functionalities
+ * Functionality
  ***************************************/
 $PageTitle = "Movie Review Home";
 require('header.php'); 

@@ -5,8 +5,7 @@
 session_start();
 $PageTitle = "Submit Movie";
 require('header.php'); 
-require("dbAccess.php");
-$db = getDatabase();
+require('dbInsert.php');
 ?>
 
 <!------------------------ BODY -------------------------->
@@ -17,93 +16,59 @@ $db = getDatabase();
 </div>
 </div>
 <div class="row">
-  <div class="col-6">
+  <div class="col-12">
     <div>
-      <form method="post" 
+      <p>* Required field</p>
+    <form method="post" onsubmit="return validate()"
       action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <span>Movie Name:</span>
-        <input type="text" name="movie_name"/></br>
+        <input type="text" name="movie_name"/>
+        <span class="error" id="nameError">
+          * <?php echo $nameErr;?></span><br/>
+
+
         <span>Movie Image:</span>
-        <input type="text" name="movie_img"/></br>
+        <input type="text" name="movie_img"/> <br/>
+      <!--  <span class="error"><?php echo $imgErr;?></span><br/> -->
+ 
+
         <span>Movie Release Year:</span>
-        <input type="number" name="movie_year"/></br>
+        <input type="number" name="movie_year"/> 
+        <span class="error" id="yearError">
+          * <?php echo $yearErr;?></span><br/>
+  
+
         <span>Movie Description:</span>
-        <textarea name="movie_desc"></textarea></br>
-        <input type="submit" value="Submit Movie" name="submit_movie"/>
-        <input type="reset" value="Reset Form" name="reset" onclick="$('#response').html('');"/>
+        <textarea name="movie_desc"></textarea> 
+        <span class="error" id="descError">
+          * <?php echo $descErr;?></span><br/> 
+
+
+        <input type="submit" id="submit" class="button"
+        value="Submit Movie" name="submit_movie"/>
+
+        <input type="reset" value="Reset Form" name="reset" class="button"
+        onclick="$('.error').text('*');"/>
       </form>
     </div>
   </div>
-  <div class="col-6">
-    <div id="message">
   <?php
 
-    $validStmt = setData();
-    if($validStmt){
-      $validStmt->execute();
-      if($result = $validStmt->fetchAll(PDO::FETCH_ASSOC)) {
-        foreach($result as $row) {
-          $newId = $row['movie_ID'];
+
+  require('validate.php');
+    if($formvalid){
+      if(!checkValidMovie($movieName)) {
+      echo "it works!<br/>";
+      $result = insertMovie($movieName, $movieImg, $movieYear, $movieDesc);
+      foreach($result as $row) {
+        $newId = $row['movie_ID'];
         }
         echo "Movie Succesfully added</b>"; ?>
-        <p class="link" onclick="getMovie(<?php echo $newId; ?>)">
-        Click here to review movie</p> 
-    <?php
+        <a href="movieDetail.php?movie=<?php echo $newId; ?>">
+          Click here to add a review.</a> <?php
       }
-    }
-  
-    function setData() {
+    } ?>
 
-      $db1 = getDatabase();
-
-      $stmt = $db1->prepare("INSERT INTO movie (movie_name, movie_img, movie_year, movie_desc) VALUES(:movie_name, :movie_img, :movie_year, :movie_desc) RETURNING " . '"movie_ID"');
-
-      if(isset($_POST[movie_name]))
-      {
-        $movieName = sanitizeData($_POST[movie_name]);
-        $stmt->bindParam(':movie_name', $movieName);
-      }
-      if(isset($_POST[movie_img]))
-      {
-        $movieImage = sanitizeData($_POST[movie_img]);
-        $movieImage = "images/default.png"; // just for testing
-        $stmt->bindParam(':movie_img', $movieImage);
-      }
-      if(isset($_POST[movie_year]))
-      {
-        $movieYear = $_POST[movie_year];
-        $stmt->bindParam(':movie_year', $movieYear);
-      }
-      if(isset($_POST[movie_desc]))
-      {
-        $movieDesc = sanitizeData($_POST[movie_desc]);
-        $stmt->bindParam(':movie_desc', $movieDesc);
-      }
-
-      $validMovie = $db1->prepare('SELECT "movie_ID", movie_name FROM movie WHERE "movie_name" ILIKE ' .  "'$movieName'");
-      $validMovie->execute();
-
-      if($result = $validMovie->fetchAll(PDO::FETCH_ASSOC)){
-      foreach ($result as $row) { 
-        echo "Movie already exists</b>"; ?>
-        <p class="link" onclick="getMovie(<?php echo $row['movie_ID']; ?>)">
-        <?php echo $row['movie_name']; ?></p>
-    
-      <?php  
-      }
-      return false;
-    }
-      return $stmt;
-    }
-
-function sanitizeData($data) {
- $clearData = filter_var($data, FILTER_SANITIZE_STRING);
- //echo "sanitized $clearData <br/>";
- return $clearData;
-
-}
-
-?>
     </div>
   </div>
 </div>
