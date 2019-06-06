@@ -2,10 +2,11 @@
 /******************************************
  * Gets and displays selected movie details
  *****************************************/
-// database connection
+// header, session, and page setup
 session_start();
-require('dbAccess.php');
-$db = getDatabase();
+$PageTitle = "Movie Detail";
+require('header.php'); 
+require('dbCalls.php');
 
 // get movie_ID for sql query
 $id = $_GET['movie'];
@@ -14,17 +15,8 @@ $id = $_GET['movie'];
 $_SESSION['movie'] = $id;
 
 
-// make first QUERY for movie details
-try {
-  $sql = 'SELECT * FROM movie WHERE "movie_ID" = ' . $id;
-  $statement = $db->query($sql);
-  $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-}catch (\PDOException $e) {
-  echo $e->getMessage();
-}
-
-
-// display results
+// get and display movie details
+$result = getDetail($id);
 foreach ($result as $row) { ?>
 <div>
   <h3><?php echo $row['movie_name']; ?>  </h3>
@@ -33,20 +25,10 @@ foreach ($result as $row) { ?>
   <h4>Description</h4>
   <p><?php echo $row['movie_desc']; ?></p>
   <div id="review">
-
 <?php }
 
-  // Second QUERY for reviews of selected movie. Does it work?
-  try {
-    $sql = 'SELECT * FROM movie_review AS m Join movie As movie ON m."movie_ID" = movie."movie_ID" JOIN mv_user AS r ON m."reviewer_ID" = r."user_ID" WHERE m."movie_ID" =' . $id;
-
-    $statement = $db->query($sql);
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-  } catch (\PDOException $e) {
-    echo $e->getMessage();
-  }
-
-  // display of 2nd query results if any
+  // get and display reveiws
+  $result = getReviews($id);
   if($result) {
   ?>
   <h3>Reviews</h3>
@@ -56,12 +38,17 @@ foreach ($result as $row) { ?>
        <th>Reveiw</th>
        <th>Reviewed By</th>
      </tr>
-  <?php foreach ($result as $row) { ?>
+  <?php foreach ($result as $row) { 
+        $score = $row['Score'];
+        $review = $row['review'];
+        $userID = $row['user_ID'];
+        $userName = $row['user_name'];
+    ?>
      <tr>
-      <td><?php echo $row['Score']; ?></td>
-      <td><?php echo $row['review']; ?></td>
-      <td class="link" onclick="getReviewer(<?php echo $row['reviewer_ID']; ?>)">
-        <?php echo $row['user_name']; ?></td>
+      <td><?php echo $score; ?></td>
+      <td><?php echo $review; ?></td>
+      <td><a href="reviewerDetail.php?user=<?php echo $userID; ?>">
+        <?php echo $userName; ?></a></td>
     </tr>
       <?php } ?>
   </table>
@@ -71,3 +58,5 @@ foreach ($result as $row) { ?>
   </div>
 </div>
       
+<!----------------------- FOOTER ------------------------->
+<?php require('footer.php'); ?>
