@@ -19,7 +19,8 @@ require('dbInsert.php');
   <div class="col-12">
     <div>
       <p>* Required field</p>
-    <form method="post" onsubmit="return validate()"
+    <form method="post" onsubmit="return validate()" 
+      enctype="multipart/form-data"
       action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <span>Movie Name:</span>
         <input type="text" name="movie_name"/>
@@ -28,7 +29,7 @@ require('dbInsert.php');
 
 
         <span>Movie Image:</span>
-        <input type="text" name="movie_img"/> <br/>
+        <input type="file" name="movie_img" id="movie_img"/> <br/>
       <!--  <span class="error"><?php echo $imgErr;?></span><br/> -->
  
 
@@ -57,15 +58,17 @@ require('dbInsert.php');
 
   require('validate.php');
     if($formvalid){
-      if(!checkValidMovie($movieName)) {
-      $result = insertMovie($movieName, $movieImg, $movieYear, $movieDesc);
-      foreach($result as $row) {
-        $newId = $row['movie_ID'];
+      require('uploadImg.php');
+      if(checkValidMovie($movieName) && $uploadOk == 1) {
+        $result = insertMovie($movieName, $movieImg, $movieYear, $movieDesc);
+        foreach($result as $row) {
+          $newId = $row['movie_ID'];
         }
         echo "<h3>Movie Succesfully added</h3>"; ?>
         <a href="movieDetail.php?movie=<?php echo $newId; ?>">
           Click here to add a review.</a> <?php
       }
+      else echo "<h3>Unable to add movie. Please try again.</h3>";
     } ?>
 
     </div>

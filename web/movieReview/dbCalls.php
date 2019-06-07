@@ -64,7 +64,8 @@ function getUserDetail($userID) {
   try {
     $stmt = $db->prepare(
 
-      'SELECT * FROM movie_review AS m 
+      'SELECT movie."movie_ID", movie_name, "Score", review, user_name
+      FROM movie_review AS m 
       Join movie As movie ON m."movie_ID" = movie."movie_ID" 
       JOIN mv_user AS r ON m."reviewer_ID" = r."user_ID" 
       WHERE m."reviewer_ID" =' . "$userID"
@@ -156,13 +157,4 @@ function search($searchTerm) {
     return false;
   }
 }
-
-
-
-/*     
-
-
-*/
-
-
 ?>
