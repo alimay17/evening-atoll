@@ -153,7 +153,8 @@ function getReviews($movieID) {
 function search($searchTerm) {
   $db = getDatabase();
   try{
-    $stmt = $db->prepare('SELECT "movie_ID", movie_name, movie_year FROM movie WHERE "movie_name" ILIKE ' . "'%$searchTerm%'");
+    $stmt = $db->prepare('SELECT "movie_ID", movie_name, movie_year FROM movie WHERE "movie_name" ILIKE ' . "'%$searchTerm%' 
+    ORDER BY movie_name");
    $stmt->execute();
     return $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
