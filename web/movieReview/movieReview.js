@@ -4,8 +4,7 @@
 * CS313 - Bro. Porter
 **********************************************************/
 /************************************
-* Validate form
-* 
+* Validate add movie form
 *************************************/
 function validate() {
   // get data for validation
@@ -33,7 +32,6 @@ function validate() {
 
 /************************************
 * Validate review form
-* 
 *************************************/
 function validateReview() {
   // get data for validation
@@ -63,10 +61,9 @@ function validateReview() {
   return true;
 }
 
-
 /**********************************************************
-* errorMessage
-* prints error message & sets focus on missing form value
+* errorMessage 
+* prints error message & sets focus on missing form values
 **********************************************************/
 function errorMessage(num)
 {
@@ -103,7 +100,6 @@ function errorMessage(num)
       break;
   }
 }
-
 
 /************************************
 * submitReview

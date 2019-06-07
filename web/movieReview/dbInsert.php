@@ -59,7 +59,6 @@ function insertReview($movieId, $user, $movieScore, $movieReview) {
   else return false;
 }
 
-
 /*******************************************
  * gets existing user from db
  * returns user_ID
@@ -109,7 +108,6 @@ function getNewUser($userName, $userEmail) {
   }
 }
 
-
 /*********************************************
  * Checks if a movie is already in the DB
  *********************************************/
@@ -120,15 +118,17 @@ function checkValidMovie($input) {
   WHERE "movie_name" ILIKE ' . "'$input'");
 
   $stmt->execute();
-  $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+  if($result = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
     foreach ($result as $row) { 
       echo "Movie already exists: "; ?>
       <a href="movieDetail.php?movie=<?php echo $row['movie_ID']; ?>">
-            <?php echo $row['movie_name']; ?></a>
+          <?php echo $row['movie_name']; ?></a>
     <?php 
     }
     return false;
+  }
+  return true;
 }
 
 

@@ -14,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if($_POST["movie_name"] && $_POST["movie_year"] && $_POST["movie_desc"]) {
 
     $movieName = testString($_POST["movie_name"]);
-    $movieImg = "images/default.png";
     $movieYear = testNumber($_POST["movie_year"]);
     $movieDesc = testString($_POST["movie_desc"]);
 
