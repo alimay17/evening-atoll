@@ -11,7 +11,10 @@ require('dbCalls.php');
 <!------------------------ BODY -------------------------->
 <div class="row">
 <div class="col-12">
-  <h2 class="pageTitle">View Reviewers</h2>
+  <div class="pageTitle">
+  <h2>View Reviewers</h2>
+  </div>
+  <?php require("search.php"); ?>
 <?php
 // get and display any reviewers
 $result = getUsers();
@@ -21,7 +24,7 @@ if(!$result) {
 else {?>
 <!------------------- DISPLAY TABLE --------------------->
   <div id="message">
-  <p>Click on a name to view details.</p>
+  <p>Click on a name to view details - sorted alphabetically.</p>
     <table>
       <tr>
        <th>Name</th>

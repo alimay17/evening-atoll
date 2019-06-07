@@ -6,8 +6,12 @@
 session_start();
 $PageTitle = "Movie Detail";
 require('header.php'); 
-require('dbCalls.php');
+require('dbCalls.php'); ?>
 
+<div class="row">
+<div class="col-12">
+
+<?php
 // get movie_ID for sql query
 $id = $_GET['movie'];
 
@@ -15,32 +19,46 @@ $id = $_GET['movie'];
 $_SESSION['movie'] = $id;
 
 // if is redirect from review page
-if($_SESSION['error']){
-  echo "<h3>$_SESSION[error]</h3>";
-  unset($_SESSION['error']);
+if($_SESSION['message']){
+  echo "<span class='message'>$_SESSION[message]</span>";
+  unset($_SESSION['message']);
 }
 
 // get and display movie details
 $result = getDetail($id);
 foreach ($result as $row) { ?>
-<div>
-  <h3><?php echo $row['movie_name']; ?>  </h3>
+  <div class="menu">
+  <h2 class="inst">Movie Details</h2>
+    <a href="viewMovies.php">
+      <div class="menuItem">RETURN TO BROWSE</div></a>
+    <a href="searchResults.php">
+      <div class="menuItem">SEARCH</div></a>
+  </div> <!--END OF .MENU-->
+
+<div class="detail">
+<h2 class="detail"><?php echo $row['movie_name']; ?> </h2>
   <img src="<?php echo $row['movie_img']; ?>" alt="Movie Poster"/><br/>
-  <p> Released on: <?php echo $row['movie_year']; ?></p>
-  <h4>Description</h4>
-  <p><?php echo $row['movie_desc']; ?></p>
-  <div id="review">
+  <p><strong>Released In:</strong> <?php echo $row['movie_year']; ?></p>
+  <p><strong>Description:</strong><br/>
+    <?php echo $row['movie_desc']; ?>
+  </p>
+  </div> <!--END OF .DETAIL -->
+  <div class="review">
 <?php }
 
   // get and display reveiws
   $result = getReviews($id);
   if($result) {
   ?>
-  <h3>Reviews</h3>
+  <p id="review">Reviews - Sorted by score
+    <a class="submitR"
+     href="#review" onclick="submitReview(<?php echo $id; ?>, 2)">
+    Review Movie</a>
+  </p>
   <table>
      <tr>
-       <th>Score</th>
-       <th>Reveiw</th>
+       <th class="num">Score</th>
+       <th>Review</th>
        <th>Reviewed By</th>
      </tr>
   <?php foreach ($result as $row) { 
@@ -50,18 +68,23 @@ foreach ($result as $row) { ?>
         $userName = $row['user_name'];
     ?>
      <tr>
-      <td><?php echo $score; ?></td>
+      <td class="num"><?php echo $score; ?></td>
       <td><?php echo $review; ?></td>
       <td><a href="reviewerDetail.php?user=<?php echo $userID; ?>">
         <?php echo $userName; ?></a></td>
     </tr>
       <?php } ?>
   </table>
-  <?php } // end if($result) ?>
-  <a href="viewMovies.php">Return to Browse</a>
-  <a href="#review" onclick="submitReview(<?php echo $id; ?>, 2)">Review Movie</a>
-  </div>
-</div>
+  <?php } else { // end if($result) ?>
+    <p id="review">No reveiws yet - Be the first: 
+    <a class="submitR"
+     href="#review" onclick="submitReview(<?php echo $id; ?>, 2)">
+    Review Movie</a>
+  </p>
+    <?php } ?>
+  </div> <!--END OF #REVIEW-->
+</div> <!--END OF .COL-12 -->
+</div> <!--END OF .ROW -->
       
 <!----------------------- FOOTER ------------------------->
 <?php require('footer.php'); ?>

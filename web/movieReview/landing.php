@@ -10,17 +10,15 @@ require('header.php');
 <!----------------------- NAV LINKS ------------------------>
 <div class="row">
 <div class="col-12">
-  <h2 class="pageTitle">Please select an option</h2>
-  <div>
+  <div class="menu">
+  <h2 class="inst">Pick an Option:</h2>
     <!-- Link List -->
-    <ul>
-      <li><a href="viewMovies.php">Browse Movie List</a></li>
-      <li><a href="viewReviewers.php">Browse Reviewers</a></li>
-      <li><a href="submitMovie.php">Submit movie for review</a></li>
-    </ul>
-<!------------------------ SEARCH -------------------------->
-    <?php require("search.php"); ?>
+    <a href="viewMovies.php"><div class="menuItem">BROWSE MOVIES</div></a>
+    <a href="viewReviewers.php"><div class="menuItem">BROWSE REVIEWERS</div></a>
+    <a href="submitMovie.php"><div class="menuItem">ADD NEW MOVIE</div></a>
   </div>
+  <!------------------------ SEARCH -------------------------->
+  <?php require("search.php"); ?>
 </div>
 </div>
 <!------------------------- FOOTER ------------------------->

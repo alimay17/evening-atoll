@@ -24,7 +24,7 @@
       <div class="header">
         <h1>Idaho Reviews Hollywood</h1>
         <p>movies reviewed by intellegent people</p>
+        <a id="home" href="landing.php"><div class="menuItem">HOME</div></a>
       </div>
-        <a class="menu" href="landing.php">Movie Review Home</a>
     </div>
   </div>

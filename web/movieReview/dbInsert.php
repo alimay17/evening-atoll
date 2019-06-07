@@ -121,9 +121,9 @@ function checkValidMovie($input) {
 
   if($result = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
     foreach ($result as $row) { 
-      echo "Movie already exists: "; ?>
+      echo "<p class='message'>Movie already exists: "; ?>
       <a href="movieDetail.php?movie=<?php echo $row['movie_ID']; ?>">
-          <?php echo $row['movie_name']; ?></a>
+          <?php echo $row['movie_name']; ?></a></p>
     <?php 
     }
     return false;

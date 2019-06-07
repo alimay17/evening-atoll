@@ -19,11 +19,12 @@
 
     $result = insertReview($movieId, $user, $movieScore, $movieReview);
     if($result){
+      $_SESSION['message'] = "Thank you for your review";
       header("Location: movieDetail.php?movie=" . $_SESSION['movie']);
     }
     // if user has already reviewed that movie
     else{
-      $_SESSION['error'] = "You have already reviewed this movie.";
+      $_SESSION['message'] = "You have already reviewed this movie.";
       header("Location: movieDetail.php?movie=" . $_SESSION['movie']);
     } 
   }
@@ -39,45 +40,50 @@ function sanitizeData($data) {
 ?>
 
 <!------------------------ BODY -------------------------->
-<h2 class="pageTitle">Review Movie</h2>
-<p>This feature is under construction, some functionality might be broken.</p>
 <div class="row">
-  <div class="col-12">
+<div class="col-12">
+  <h2 class="pageTitle">Review Movie</h2>
+  <p>Please be polite and G rated with your comments.</p>
     <?php 
       //if($result = $addReview->fetchAll(PDO::FETCH_ASSOC)){
         //require('viewMovies.php');
       //}
     ?>
-    <div>
+  <div>
 <!-------------------- REVIEW FORM ----------------------->
-  <form method="post" onsubmit="return validateReview()"
+  <form id="movieReview" method="post" onsubmit="return validateReview()"
    action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <span class="message">All fields are required</span><br/>
-        <span>Name:</span>
-        <input type="text" name="user_name"/>
-        <span class="error" id="userError">
-          * <?php echo $userErr;?></span><br/>
+    <span class="message">All fields are required</span><br/>
+    <span>Name:</span>
+    <input type="text" name="user_name"/>
+    <span class="error" id="userError">
+      * <?php echo $userErr;?></span><br/>
 
-        <span>Email:</span>
-        <input type="email" name="user_email"/>
-        <span class="error" id="emailError">
-          * <?php echo $emailErr;?></span><br/>
+    <span>Email:</span>
+    <input type="email" name="user_email"/>
+    <span class="error" id="emailError">
+      * <?php echo $emailErr;?></span><br/>
 
-        <span>Overall Score</span>
-        <input type="number" name="score"/>
-        <span class="error" id="scoreError">
-          * <?php echo $scoreErr;?></span><br/>
+  <div id="reviewInput">
+    <span>Overall Score:</span>
+    <input type="number" name="score" 
+           min=".5" max="10" step=".5"/>
+    <span class="error" id="scoreError">
+      * <?php echo $scoreErr;?></span><br/>
 
-        <span>Your Review:</span>
-        <textarea name="movie_review"></textarea>
-        <span class="error" id="reviewError">
-          * <?php echo $reviewErr;?></span><br/>
-
-        <input type="submit" value="Submit Review" name="submit_review"/>
-        <input type="reset" value="Reset Form" name="reset"/>
-      </form>
-    </div>
+    <span>Your Review:</span>
+    <span class="error" id="reviewError">
+    * <?php echo $reviewErr;?></span><br/>
+    <textarea name="movie_review"></textarea>
   </div>
+    <input class="button" 
+      type="submit" value="Submit Review" name="submit_review"/>
+    <input class="button" 
+      type="reset" value="Reset Form" name="reset"
+      onclick="$('.error').text('*');"/>
+  </form>
+</div>
+</div>
 </div>
 <!-------------------- BACK LINK ----------------------->
 <a href="viewMovies.php">Return to Browse</a>
