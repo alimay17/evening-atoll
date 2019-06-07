@@ -9,7 +9,9 @@ function getMovieList() {
   $db = getDatabase();
   try {
   $stmt = $db->prepare(
-    'SELECT movie_name, movie_desc, movie_year, "movie_ID" FROM movie'
+    'SELECT movie_name, movie_desc, movie_year, "movie_ID" 
+    FROM movie 
+    ORDER BY movie_name'
   );
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -45,7 +47,9 @@ function getUsers() {
   $db = getDatabase();
   try {
     $stmt = $db->prepare(
-      'SELECT "user_ID", user_name FROM mv_user'
+      'SELECT "user_ID", user_name 
+      FROM mv_user
+      ORDER BY user_name'
     );
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -131,7 +135,8 @@ function getReviews($movieID) {
       'SELECT "Score", review, "user_ID", "user_name" FROM movie_review AS m 
       Join movie As movie ON m."movie_ID" = movie."movie_ID" 
       JOIN mv_user AS r ON m."reviewer_ID" = r."user_ID" 
-      WHERE m."movie_ID" =' . "$movieID"
+      WHERE m."movie_ID" =' . "$movieID" .
+      'ORDER BY "Score" DESC'
     );
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

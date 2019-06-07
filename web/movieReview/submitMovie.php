@@ -6,20 +6,33 @@ session_start();
 $PageTitle = "Submit Movie";
 require('header.php'); 
 require('dbInsert.php');
+
+require('validate.php');
+if($formvalid){
+  require('uploadImg.php');
+  if(checkValidMovie($movieName) && $uploadOk == 1) {
+    $result = insertMovie($movieName, $movieImg, $movieYear, $movieDesc);
+    foreach($result as $row) {
+      $newId = $row['movie_ID'];
+    }
+    echo "<p class='message'>Movie Succesfully added</p>"; ?>
+    <a href="movieDetail.php?movie=<?php echo $newId; ?>">
+      Click here to add a review.</a> <?php
+  }
+  else echo "<p class='message'>Unable to add movie. Please try again.</p>";
+} 
+
 ?>
 
 <!------------------------ BODY -------------------------->
 <div class="row">
 <div class="col-12">
-  <h2 class="pageTitle">Submit Movie for Review</h2>
-  <p>This page is under construction, some functionality might be broken.</p>
-</div>
-</div>
-<div class="row">
-  <div class="col-12">
+  <div class="pageTitle">
+    <h2>Submit Movie for Review</h2>
+  </div>
     <div>
-      <p>* Required field</p>
-    <form method="post" onsubmit="return validate()" 
+      <p class="message">* Required field</p>
+    <form id="movieInput" method="post" onsubmit="return validate()" 
       enctype="multipart/form-data"
       action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
         <span>Movie Name:</span>
@@ -27,22 +40,19 @@ require('dbInsert.php');
         <span class="error" id="nameError">
           * <?php echo $nameErr;?></span><br/>
 
-
         <span>Movie Image:</span>
-        <input type="file" name="movie_img" id="movie_img"/> <br/>
-      <!--  <span class="error"><?php echo $imgErr;?></span><br/> -->
- 
+        <label for="file">Select Image</label>
+        <input type="file" name="movie_img" id="file" class="inputFile"/>
 
         <span>Movie Release Year:</span>
         <input type="number" name="movie_year"/> 
         <span class="error" id="yearError">
           * <?php echo $yearErr;?></span><br/>
   
-
-        <span>Movie Description:</span>
+        <span>Movie Description:</span><span class="error" id="descError">
+        * <?php echo $descErr;?></span><br/> 
         <textarea name="movie_desc"></textarea> 
-        <span class="error" id="descError">
-          * <?php echo $descErr;?></span><br/> 
+ 
 
 
         <input type="submit" id="submit" class="button"
@@ -53,24 +63,6 @@ require('dbInsert.php');
       </form>
     </div>
   </div>
-  <?php
-
-
-  require('validate.php');
-    if($formvalid){
-      require('uploadImg.php');
-      if(checkValidMovie($movieName) && $uploadOk == 1) {
-        $result = insertMovie($movieName, $movieImg, $movieYear, $movieDesc);
-        foreach($result as $row) {
-          $newId = $row['movie_ID'];
-        }
-        echo "<h3>Movie Succesfully added</h3>"; ?>
-        <a href="movieDetail.php?movie=<?php echo $newId; ?>">
-          Click here to add a review.</a> <?php
-      }
-      else echo "<h3>Unable to add movie. Please try again.</h3>";
-    } ?>
-
     </div>
   </div>
 </div>
