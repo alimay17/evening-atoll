@@ -10,33 +10,35 @@ session_start();
 $PageTitle = "Submit Movie";
 require('header.php'); 
 require('support/dbInsert.php');
-require('support/validate.php');
+if(isset($_POST['movie_name'])){
+  require('support/validate.php');
 
 // check if user input is good
-$movieName = filterString($_POST["movie_name"]);
-$movieDesc = filterString($_POST["movie_desc"]);
-$movieYear = $_POST["movie_year"];
+  $movieName = filterString($_POST["movie_name"]);
+  $movieDesc = filterString($_POST["movie_desc"]);
+  $movieYear = $_POST["movie_year"];
 
-if($movieName && $movieDesc && $movieYear){
+  if($movieName && $movieDesc && $movieYear){
 
-  // upload image function
-  require('support/uploadImg.php');
+    // upload image function
+    require('support/uploadImg.php');
 
-  // if movie isn't a duplicate add to db
-  if(checkValidMovie($movieName) && $uploadOk == 1) {
-    $result = insertMovie($movieName, $movieImg, $movieYear, $movieDesc);
+    // if movie isn't a duplicate add to db
+    if(checkValidMovie($movieName) && $uploadOk == 1) {
+      $result = insertMovie($movieName, $movieImg, $movieYear, $movieDesc);
 
-    // get new movie_id for redirect link
-    foreach($result as $row) {
-      $newId = $row['movie_ID'];
-    } ?>
-    <p class='message'>Movie Succesfully added</p>
-    <a href="movieDetail.php?movie=<?php echo $newId; ?>">
-      Click here to add a review.</a> <?php
-  }
-  // if error in adding movie
-  else echo "<p class='message'>Unable to add movie. Please try again.</p>";
-} 
+      // get new movie_id for redirect link
+      foreach($result as $row) {
+        $newId = $row['movie_ID'];
+      } ?>
+      <p class='message'>Movie Succesfully added</p>
+      <a href="movieDetail.php?movie=<?php echo $newId; ?>">
+        Click here to add a review.</a> <?php
+    }
+    // if error in adding movie
+    else echo "<p class='message'>Unable to add movie. Please try again.</p>";
+  } 
+}
 ?>
 
 <!------------------------ PAGE TITLE -------------------------->

@@ -46,7 +46,7 @@ function filterString($field){
   if(!empty($field)){
       return $field;
   } else{
-    $_SESSION['errorMessage'] = "<span class='message'>invalid input - Unable to register</span>";
+    $_SESSION['errorMessage'] = "<span class='message'>invalid input - Unable to submit</span>";
       return FALSE;
   }
 }
