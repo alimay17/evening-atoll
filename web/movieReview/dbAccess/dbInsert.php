@@ -1,8 +1,13 @@
 <?php
+/**********************************************************
+ * Idaho Reviews Hollywood
+* Alice Smith: CS313 - Bro. Porter
+* A series of functions to verify & insert db data 
+ **********************************************************/
 require('dbAccess.php');
 
 /*********************************************
- * Inserts new movie into DB
+ * Inserts new movie into DB returns movie_ID
  *********************************************/
 function insertMovie($movieName, $movieImg, $movieYear, $movieDesc) {
 
@@ -27,7 +32,7 @@ function insertMovie($movieName, $movieImg, $movieYear, $movieDesc) {
 }
 
 /*********************************************
- * Inserts new review into DB
+ * Inserts new review into DB returns user_ID
  *********************************************/
 function insertReview($movieId, $user, $movieScore, $movieReview) {
   $db = getDatabase();
@@ -38,12 +43,10 @@ function insertReview($movieId, $user, $movieScore, $movieReview) {
 
   if(!$result = $validUser->fetchAll(PDO::FETCH_ASSOC)){
     try{
-
       $stmt = $db->prepare('INSERT 
       INTO movie_review ("movie_ID", "reviewer_ID", review, "Score") 
       VALUES(:movie_ID, :reviewer_ID, :review, :Score) RETURNING ' . '"reviewer_ID"');
 
-      // sanitize and bind user input
       $stmt->bindParam('movie_ID', $movieId);
       $stmt->bindParam('reviewer_ID', $user);
       $stmt->bindParam(':review', $movieReview);
@@ -60,11 +63,10 @@ function insertReview($movieId, $user, $movieScore, $movieReview) {
 }
 
 /*******************************************
- * gets existing user from db
- * returns user_ID
+ * gets existing user from db returns user_ID
  ********************************************/
 function getUser($userName, $password) {
-  // db access
+
   $db = getDatabase();
 
   // check for user in DB
@@ -94,8 +96,7 @@ else {
 }
 
 /*******************************************
- * adds a new user to db
- * returns new user_ID
+ * adds a new user to db returns new user_ID
  ********************************************/
 function getNewUser($userName, $userEmail, $password) {
   // db access
@@ -120,9 +121,9 @@ function getNewUser($userName, $userEmail, $password) {
   }
 }
 
-/*********************************************
- * Checks if a movie is already in the DB
- *********************************************/
+/******************************************************
+ * Checks if a movie is already in db before insertion
+ *****************************************************/
 function checkValidMovie($input) {
   $db = getDatabase();
 
@@ -142,6 +143,4 @@ function checkValidMovie($input) {
   }
   return true;
 }
-
-
 ?>

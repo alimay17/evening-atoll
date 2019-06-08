@@ -1,6 +1,8 @@
-<!--
-- Universal search box for all pages
--->
+<!-- -----------------------------------------
+- Idaho Reviews Hollywood
+- Alice Smith: CS313 - Bro. Porter
+- Universal Search Form
+------------------------------------------- -->
 <form method="post" action="searchResults.php">
   <span class="message">Search by Movie Title:</span>
   <input type="text" name="movieTitle"/>

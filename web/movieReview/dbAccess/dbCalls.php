@@ -1,9 +1,13 @@
 <?php
+/**********************************************************
+ * Idaho Reviews Hollywood
+* Alice Smith: CS313 - Bro. Porter
+* A series of functions to get db data
+ **********************************************************/
 require('dbAccess.php');
 
 /*********************************************
- * Returns a list of name, year and unique id
- * for all db entries
+ * Returns a list all movies in db
  *********************************************/
 function getMovieList() {
   $db = getDatabase();
@@ -91,8 +95,7 @@ function getUserDetail($userID) {
 }
 
 /*********************************************
- * Returns count of number of reviews for 
- * specific movie
+ * Returns count of reviews for specific movie
  *********************************************/
 function getReviewCount ($movieID) {
   $db = getDatabase();
@@ -108,8 +111,7 @@ function getReviewCount ($movieID) {
 }
 
 /*********************************************
- * Returns count of number of reviews for 
- * specific user
+ * Returns count of reviews for specific user
  *********************************************/
 function getUserReviewCount($userID) {
   $db = getDatabase();
@@ -125,8 +127,7 @@ function getUserReviewCount($userID) {
 }
 
 /*********************************************
- * Returns count of number of reviews for 
- * specific movie
+ * Returns reviews for specific movie and user
  *********************************************/
 function getReviews($movieID) {
   $db = getDatabase();
@@ -149,7 +150,7 @@ function getReviews($movieID) {
 }
 
 /*********************************************
- * Returns specific details for selected movie
+ * Returns a general search of movie names
  *********************************************/
 function search($searchTerm) {
   $db = getDatabase();

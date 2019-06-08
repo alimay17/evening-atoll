@@ -1,7 +1,6 @@
 /**********************************************************
-* Javascript/jQuery Web Application - Movie Review
-* Alice Smith
-* CS313 - Bro. Porter
+* Javascript/jQuery - Idaho Reviews Hollywood
+* Alice Smith: CS313 - Bro. Porter
 **********************************************************/
 /************************************
 * Validate add movie form

@@ -1,4 +1,9 @@
 <?php
+/**********************************************************
+ * Idaho Reviews Hollywood
+* Alice Smith: CS313 - Bro. Porter
+* Login. Allows an existing user to log in.
+ **********************************************************/
 session_start();
 require('dbAccess/dbInsert.php');
 
@@ -7,35 +12,46 @@ if(isset($_GET['movie'])) {
   $_SESSION['return'] = true;
   $_SESSION['movie'] = $_GET['movie'];
 }
+// get db and variables
 $db = getDatabase();
 $user = $_POST['username'];
 $password = $_POST['password'];
-$result = 0;
 
+// check if user is good and set login.
 if(isset($_POST['username']) && isset($_POST['password']) 
     && $result = getUser($user, $password)) {
     $_SESSION['loggedIn'] = true;
     $_SESSION['user'] = $result;
+
+    // if redirect, return to movie page
     if($_SESSION['return']){
       unset($_SESSION['return']);
       header("Location: movieDetail.php?movie=$_SESSION[movie]");
       die();
+
+    // else go to landing
     }else {
       header("Location: landing.php");
       die();
     }
 }
-else {
-  require('header.php');
+
+require('header.php');
   ?>
+ <!----------------------- BODY ------------------------> 
 <div class="row">
 <div class="col-12">
 <div class="menu">
   <h2 class="inst">Sign In</h2>
+    
+  <!-- Register option -->
     <a href="register.php">
       <div class="menuItem">REGISTER</div></a>
   </div> 
+  <!-- Instructions -->
     <span class="message">Sign in or Register to review and add movies</span>
+
+  <!----------------------- FORM ------------------------> 
   <div class="login">
     <form method="post" onsubmit="return validateLogin()"
         action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -55,5 +71,4 @@ else {
 </div>
 
 <!----------------------- FOOTER ------------------------->
-<?php require('footer.php'); 
-} ?>
+<?php require('footer.php'); ?>

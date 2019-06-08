@@ -1,28 +1,35 @@
 <?php
-  // set movie variable
-  session_start();
-  require('dbAccess/dbInsert.php');
-  $movieId = $_SESSION['movie'];    
-  if(isset($_POST[movie_review]) && isset($_POST[score])) {
-     $movieReview = filter_var($_POST[movie_review], FILTER_SANITIZE_STRING);
-     $movieScore = $_POST[score]; 
+/**********************************************************
+ * Idaho Reviews Hollywood
+* Alice Smith: CS313 - Bro. Porter
+* Submit Review for movie
+ **********************************************************/
+session_start();
+require('dbAccess/dbInsert.php');
 
-    $user = $_SESSION['user'];
+// if form is filled out get user input
+$movieId = $_SESSION['movie'];    
+if(isset($_POST[movie_review]) && isset($_POST[score])) {
+  $movieReview = filter_var($_POST[movie_review], FILTER_SANITIZE_STRING);
+  $movieScore = $_POST[score]; 
+  $user = $_SESSION['user'];
 
-    $result = insertReview($movieId, $user, $movieScore, $movieReview);
-    if($result){
-      $_SESSION['message'] = "Thank you for your review";
-      header("Location: movieDetail.php?movie=" . $_SESSION['movie']);
-    }
-    // if user has already reviewed that movie
-    else{
-      $_SESSION['message'] = "You have already reviewed this movie.";
-      header("Location: movieDetail.php?movie=" . $_SESSION['movie']);
-    } 
+  // insert review to db
+  $result = insertReview($movieId, $user, $movieScore, $movieReview);
+
+  // set success or error message
+  if($result){
+    $_SESSION['message'] = "Thank you for your review";
   }
+  else{
+      $_SESSION['message'] = "You have already reviewed this movie.";
+    }
+    // redirect back to movie page. and display message 
+    header("Location: movieDetail.php?movie=" . $_SESSION['movie']);
+}
 ?>
 
-<!------------------------ BODY -------------------------->
+<!------------------------ PAGE TITLE -------------------------->
 <div class="row">
 <div class="col-12">
   <h2 class="pageTitle">Review Movie</h2>

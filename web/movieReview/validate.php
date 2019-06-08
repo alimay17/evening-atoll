@@ -1,8 +1,9 @@
 <?php
-/*****************************************
- * Form validation for checkout function
- * source: W3 Schools
- *****************************************/
+/**********************************************************
+* Idaho Reviews Hollywood
+* Alice Smith: CS313 - Bro. Porter
+* server side form validataion
+ **********************************************************/
 
 // variables to track data
 $movieName = $movieImg = $movieYear = $movieDesc = "";

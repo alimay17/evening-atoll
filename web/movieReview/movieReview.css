@@ -1,7 +1,6 @@
 /**********************************************************
-* Style Sheet Web Application - Movie Review
-* Alice Smith
-* CS313 - Bro. Porter
+ * Style Sheet - Idaho Reviews Hollywood
+* Alice Smith: CS313 - Bro. Porter
 **********************************************************/
 /************************************
 * Universal
@@ -17,7 +16,7 @@ img {
 }
 
 /************************************
-* Header, Footer & Headings
+* .header, .footer & headings
 *************************************/
 .header, .footer{
   color: cornflowerblue;

@@ -1,9 +1,15 @@
-<?php session_start(); ?>
+<?php
+/**********************************************************
+ * Idaho Reviews Hollywood
+* Alice Smith: CS313 - Bro. Porter
+* Universal header for site
+ **********************************************************/
+ session_start(); ?>
 
 <!DOCTYPE html>
-<!-- Universal header for Movie Review Website -->
 <html lang="en-us">
 <head>
+  <!-- Set Title based on different pages -->
 <title>
   <?= isset($PageTitle) ? $PageTitle : "Idaho Reviews Hollywood"?>
 </title>
@@ -18,7 +24,7 @@
   <!--Javascript & jQuery -->
   <script type="text/javascript" src="movieReview.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- <script src="../jquery-3.3.1.min.js"></script> -->
+  <!-- if no internet <script src="../jquery-3.3.1.min.js"></script> -->
 </head>
 <body>
   <!-- Site heading -->
@@ -29,6 +35,7 @@
     <p>movies reviewed by intellegent people</p>
     <a class="home" href="landing.php"><div class="menuItem">HOME</div></a>
 
+    <!-- if logged in option -->
     <?php if($_SESSION['loggedIn'] == true) { ?>
       <a class="home" href="logout.php" > 
         <div class="menuItem">SIGN OUT</div></a>
@@ -37,9 +44,10 @@
         <div class="menuItem">ACCOUNT</div></a>
   <?php } else { ?>
 
+    <!-- login button-->
     <a class="home" href="login.php">
         <div class="menuItem">SIGN IN</div></a>
     <?php } ?>
-  </div>
-</div>
-</div>
+  </div> <!-- End .header -->
+</div> <!-- End col -->
+</div> <!-- End row-->

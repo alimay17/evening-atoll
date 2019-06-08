@@ -1,15 +1,21 @@
 <?php
+/**********************************************************
+ * Idaho Reviews Hollywood
+* Alice Smith: CS313 - Bro. Porter
+* Register. Allows new user to register
+ **********************************************************/
 session_start();
 require('dbAccess/dbInsert.php');
 $db = getDatabase();
 
-// check if input is valid & set local variable
+// check if input is valid & set local variables
 if(isset($_POST['password']) && isset($_POST['username'])
   && isset($_POST['email'])){
   $password = pg_escape_string($_POST['password']);
   $username = pg_escape_string($_POST['username']);
   $email = pg_escape_string($_POST['email']);
 
+  // insert new user to db and set session to logged in
   $newUser = getNewUser($username, $email, $password);
   $_SESSION['user'] = $newUser;
   $_SESSION['loggedIn'] = true;
@@ -19,14 +25,17 @@ if(isset($_POST['password']) && isset($_POST['username'])
     unset($_SESSION['return']);
     header("Location: movieDetail.php?movie=$_SESSION[movie]");
     die();
-  }else {
+  }
+  
+  // if not redirect send to landing page.
+  else {
     header("Location: landing.php");
     die();
   }
-
-}else { 
+}
 require('header.php');
 ?>
+ <!----------------------- FORM ------------------------>
 <div class="row">
 <div class="col-12">
 <div class="menu">
@@ -55,5 +64,5 @@ require('header.php');
 </div>
 </div>
 <!----------------------- FOOTER ------------------------->
-<?php require('footer.php');  } ?>
+<?php require('footer.php'); ?>
   

@@ -1,14 +1,14 @@
 <?php
-/****************************************
- * Landing Page for Movie Review Website
- * Provides links to all other pages and 
- * Functionality
- ***************************************/
+/**********************************************************
+ * Idaho Reviews Hollywood
+* Alice Smith: CS313 - Bro. Porter
+* Landing Page with links to all other pages and functionality
+ **********************************************************/
 require('header.php'); 
 $PageTitle = "Movie Review Home";
 
 ?>
-<!----------------------- NAV LINKS ------------------------>
+  <!----------------------- MENU ------------------------>
 <div class="row">
 <div class="col-12">
   <div class="menu">
@@ -17,6 +17,7 @@ $PageTitle = "Movie Review Home";
     <a href="viewMovies.php"><div class="menuItem">BROWSE MOVIES</div></a>
     <a href="viewReviewers.php"><div class="menuItem">BROWSE REVIEWERS</div></a>
 
+    <!-- If logged in option -->
     <?php if($_SESSION['loggedIn'] == true) { ?>
       <a href="submitMovie.php"><div class="menuItem">ADD NEW MOVIE</div></a>
     <?php } ?>

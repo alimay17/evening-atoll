@@ -1,32 +1,35 @@
 <?php
-/********************************************
- * Gets and displays selected reviewer details
- *******************************************/
+/**********************************************************
+ * Idaho Reviews Hollywood
+* Alice Smith: CS313 - Bro. Porter
+* Reviewer Details. Gets and displays selected reviewer
+ **********************************************************/
 session_start();
+
+// initial page setup
 $PageTitle = "Reviewer Detail";
 require('header.php'); 
 require('dbAccess/dbCalls.php');
 
-// get reviewer id for QUERY
-$id = $_GET['user'];
-
-// get review count
+// get users review count
+$id = $_GET['user']; 
 $result = getUserReviewCount($id);
 foreach ($result as $row) { 
   $count = $row['count'];
 }
 
-// get user details
+// get user details 
 $result = getUserDetail($id);
 foreach ($result as $row) { 
   $userName = $row['user_name'];
   $time = $row['to_char'];
-}  
+} 
 
-// display as list with links on movie name
+// display results
 if($result) { ?>
-  <div class="row">
-  <div class="col-12">
+<div class="row">
+<div class="col-12">
+  <!----------------------- MENU ------------------------>
   <div class="menu">
   <h2 class="inst">Reviewer Details</h2>
     <a href="viewReviewers.php">
@@ -36,9 +39,12 @@ if($result) { ?>
     <a href="search.php">
       <div class="menuItem">SEARCH</div></a>
   </div> 
+  <!----------------------- USER DETAILS ------------------------>
   <h2 class="detail"><?php echo $userName; ?> </h2>
   <span class="message"> member since <?php echo $time;?></span>
   <span class="message1">Movies Reviewed: <?php echo $count; ?> </span>
+
+  <!----------------------- REVIEWS TABLE ------------------------>
   <p>Reviews - Sorted by Score</p>
   <table>
     <tr>
@@ -53,16 +59,17 @@ if($result) { ?>
     $movieScore = $row['Score'] 
   ?>
     <tr>
+      <!-- Movie names as links  -->
       <td><a href="movieDetail.php?movie=<?php echo $movieID; ?>">
          <?php echo $movieName; ?></a></td>
       <td class="num"><?php echo $movieScore; ?></td>
       <td><?php echo $movieReview; ?></td>
     </tr>
-<?php } ?>
+  <?php } // end reviews list ?>
   </table>
-  </div>
-  </div>
-  <?php } // end if($result) ?>
+</div>
+</div>
+<?php } // end if user details ?>
 
   <!----------------------- FOOTER ------------------------->
 <?php require('footer.php'); ?>
