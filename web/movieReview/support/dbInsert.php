@@ -67,57 +67,74 @@ function insertReview($movieId, $user, $movieScore, $movieReview) {
  ********************************************/
 function getUser($userName, $password) {
 
-  $db = getDatabase();
+  if($userName && $password) {
+    $db = getDatabase();
 
-  // check for user in DB
-  $validUser = $db->prepare('SELECT "user_ID", password 
-  FROM mv_user WHERE "user_name" ILIKE ' .  "'$userName'");
-  $validUser->execute();
+    // check for user in DB
+    $validUser = $db->prepare('SELECT "user_ID", password 
+    FROM mv_user WHERE "user_name" ILIKE ' .  "'$userName'");
+    $validUser->execute();
 
-  if($result = $validUser->fetchAll(PDO::FETCH_ASSOC)){
-  foreach ($result as $row) { 
-    $user = $row[user_ID];
-    $hash_pswd = $row[password];
+    if($result = $validUser->fetchAll(PDO::FETCH_ASSOC)){
+      foreach ($result as $row) { 
+        $user = $row[user_ID];
+        $hash_pswd = $row[password];
+      }
+      if(password_verify($password, $hash_pswd)) {
+      // return user_ID
+        return $user;
+      }
+      else {
+        $_SESSION['loginError'] = "<span class='message'>Incorrect Password</span>";
+        return false;
+      }
     }
-  if(password_verify($password, $hash_pswd)) {
-  // return user_ID
-    return $user;
+    // if unable to find user, return and report
+    else {
+      $_SESSION['loginError'] =  "<span class='message'>Not an existing user</span>";
+      return false;
+    }
   }
   else {
-      echo "<p class='error'>Incorrect Password</p>";
-      return false;
+    $_SESSION['loginError'] = "<span class='message'>Invalid Login - please try again</span>";
   }
-}
-  // if unable to find user, return and report
-else {
-  echo "<p class='error'>Not an existing user</p>";
   return false;
-}
 }
 
 /*******************************************
  * adds a new user to db returns new user_ID
  ********************************************/
 function getNewUser($userName, $userEmail, $password) {
-  // db access
-  $db = getDatabase();
-  $password_hash = password_hash($password, PASSWORD_BCRYPT);
-  // add new user sql statement
-  $stmt = $db->prepare('INSERT 
-  INTO mv_user ("user_name", "user_email", password) 
-  VALUES(:user_name, :user_email, :password) RETURNING ' . '"user_ID"');
+  if($userName && $userEmail && $password){
+    try { 
+      // db access
+      $db = getDatabase();
+      $password_hash = password_hash($password, PASSWORD_BCRYPT);
+      // add new user sql statement
+      $stmt = $db->prepare('INSERT 
+      INTO mv_user ("user_name", "user_email", password) 
+      VALUES(:user_name, :user_email, :password) RETURNING ' . '"user_ID"');
 
-  //bind user input
-    $stmt->bindParam(':user_name', $userName);
-    $stmt->bindParam(':user_email', $userEmail);
-    $stmt->bindParam('password', $password_hash);
+      //bind user input
+      $stmt->bindParam(':user_name', $userName);
+      $stmt->bindParam(':user_email', $userEmail);
+      $stmt->bindParam('password', $password_hash);
 
-  // send statement to db
-  $stmt->execute();
-  $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  foreach($result as $row) {
-    // return new user_ID
-    return $row[user_ID];
+      // send statement to db
+      $stmt->execute();
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      foreach($result as $row) {
+        // return new user_ID
+        return $row[user_ID];
+      }
+    }
+    catch(PDOException $e) {
+      $_SESSION["errorMessage"] = "<span class='message'>unable to register</span/>";
+      return false;
+    }
+  }
+  else {
+    return false;
   }
 }
 

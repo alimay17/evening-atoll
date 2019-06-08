@@ -5,7 +5,8 @@
 * Login. Allows an existing user to log in.
  **********************************************************/
 session_start();
-require('dbAccess/dbInsert.php');
+require('support/dbInsert.php');
+require('support/validate.php');
 
 // check if redirect from a movie page
 if(isset($_GET['movie'])) { 
@@ -14,12 +15,12 @@ if(isset($_GET['movie'])) {
 }
 // get db and variables
 $db = getDatabase();
-$user = $_POST['username'];
-$password = $_POST['password'];
+$password = filterName($_POST['password']);
+$username = filterString($_POST['username']);
 
 // check if user is good and set login.
 if(isset($_POST['username']) && isset($_POST['password']) 
-    && $result = getUser($user, $password)) {
+    && $result = getUser($username, $password)) {
     $_SESSION['loggedIn'] = true;
     $_SESSION['user'] = $result;
 
@@ -31,7 +32,7 @@ if(isset($_POST['username']) && isset($_POST['password'])
 
     // else go to landing
     }else {
-      header("Location: landing.php");
+      header("Location: reviewerDetail.php?user=$_SESSION[user]");
       die();
     }
 }
@@ -49,7 +50,12 @@ require('header.php');
       <div class="menuItem">REGISTER</div></a>
   </div> 
   <!-- Instructions -->
-    <span class="message">Sign in or Register to review and add movies</span>
+  <?php if(isset($_SESSION['loginError'])){
+    echo $_SESSION['loginError'];
+    unset($_SESSION['loginError']);
+  } else { 
+    echo '<span class="message">Sign in or Register to review and add movies</span>'; } ?>
+
 
   <!----------------------- FORM ------------------------> 
   <div class="login">

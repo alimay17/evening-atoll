@@ -6,7 +6,7 @@
  **********************************************************/
 $PageTitle = "Browse Reviewers";
 require('header.php'); 
-require('dbAccess/dbCalls.php');
+require('support/dbCalls.php');
 ?>
 
 <!------------------------ BODY -------------------------->

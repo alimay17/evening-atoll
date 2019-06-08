@@ -9,7 +9,7 @@ session_start();
 // initial page setup
 $PageTitle = "Reviewer Detail";
 require('header.php'); 
-require('dbAccess/dbCalls.php');
+require('support/dbCalls.php');
 
 // get users review count
 $id = $_GET['user']; 
@@ -32,10 +32,13 @@ if($result) { ?>
   <!----------------------- MENU ------------------------>
   <div class="menu">
   <h2 class="inst">Reviewer Details</h2>
-    <a href="viewReviewers.php">
-      <div class="menuItem">BROWSE REVIEWERS</div></a>
+    <?php if($_SESSION['loggedIn'] == true) { ?>
+      <a href="submitMovie.php"><div class="menuItem">ADD NEW MOVIE</div></a>
+    <?php } ?>
     <a href="viewMovies.php">
       <div class="menuItem">BROWSE MOVIES</div></a>
+    <a href="viewReviewers.php">
+      <div class="menuItem">BROWSE REVIEWERS</div></a>
     <a href="search.php">
       <div class="menuItem">SEARCH</div></a>
   </div> 

@@ -5,32 +5,34 @@
 * Register. Allows new user to register
  **********************************************************/
 session_start();
-require('dbAccess/dbInsert.php');
+require('support/dbInsert.php');
 $db = getDatabase();
 
 // check if input is valid & set local variables
 if(isset($_POST['password']) && isset($_POST['username'])
   && isset($_POST['email'])){
-  $password = pg_escape_string($_POST['password']);
-  $username = pg_escape_string($_POST['username']);
-  $email = pg_escape_string($_POST['email']);
+  require('support/validate.php');
+  $username = filterName($_POST['username']);
+  $password = filterString($_POST['password']);
+  $email = filterEmail($_POST['email']);
 
   // insert new user to db and set session to logged in
-  $newUser = getNewUser($username, $email, $password);
-  $_SESSION['user'] = $newUser;
-  $_SESSION['loggedIn'] = true;
+  if($newUser = getNewUser($username, $email, $password)){
+    $_SESSION['user'] = $newUser;
+    $_SESSION['loggedIn'] = true;
 
-  // check if is a redirect from a movie page.
-  if($_SESSION['return']){
-    unset($_SESSION['return']);
-    header("Location: movieDetail.php?movie=$_SESSION[movie]");
-    die();
-  }
+    // check if is a redirect from a movie page.
+    if($_SESSION['return']){
+      unset($_SESSION['return']);
+      header("Location: movieDetail.php?movie=$_SESSION[movie]");
+      die();
+    }
   
-  // if not redirect send to landing page.
-  else {
-    header("Location: landing.php");
-    die();
+    // if not redirect send to user page.
+    else {
+      header("Location: reviewerDetail.php?user=$_SESSION[user]");
+      die();
+    }
   }
 }
 require('header.php');
@@ -42,9 +44,14 @@ require('header.php');
   <h2 class="inst">REGISTER</h2>
 </div> 
   <div class="login">
-    <p class="message">All Fields are Required</p>
-    <form method="post" onsubmit="return validateLogin()"
-        action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <?php if($_SESSION['errorMessage']) {
+      echo $_SESSION['errorMessage'];
+      unset($_SESSION['errorMessage']);
+    } else { ?>
+
+    <p class="message">All Fields are Required</p> <? } ?>
+    <form method="post" onsubmit="return validateRegister()"
+        action="<?= htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
       <span>Username:</span>
       <input type="text" name="username"/>

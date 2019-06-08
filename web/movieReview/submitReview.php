@@ -5,7 +5,7 @@
 * Submit Review for movie
  **********************************************************/
 session_start();
-require('dbAccess/dbInsert.php');
+require('support/dbInsert.php');
 
 // if form is filled out get user input
 $movieId = $_SESSION['movie'];    
@@ -33,23 +33,21 @@ if(isset($_POST[movie_review]) && isset($_POST[score])) {
 <div class="row">
 <div class="col-12">
   <h2 class="pageTitle">Review Movie</h2>
-  <p>Please be polite and G rated with your comments.</p>
+  <p class="message">Please be polite and G rated with your comments.</p>
   <div>
 <!-------------------- REVIEW FORM ----------------------->
   <form id="movieReview" method="post" onsubmit="return validateReview()"
    action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    <span class="message">All fields are required</span><br/>
 
   <div id="reviewInput">
-    <span>Overall Score:</span>
+    <span>Overall Score:</span><br/>
+    <span>Scale of 0.5 - 10. increments of .5</span>
     <input type="number" name="score" 
            min=".5" max="10" step=".5"/>
-    <span class="error" id="scoreError">
-      * <?php echo $scoreErr;?></span><br/>
+    <span class="error" id="scoreError"></span><br/>
 
     <span>Your Review:</span>
-    <span class="error" id="reviewError">
-    * <?php echo $reviewErr;?></span><br/>
+    <span class="error" id="reviewError"></span><br/>
     <textarea name="movie_review"></textarea>
   </div>
     <input class="button" 

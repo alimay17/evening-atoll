@@ -17,12 +17,12 @@
   <meta charset="UTF-8"/>
 
   <!--Stylesheets -->
-  <link rel="stylesheet" type="text/css" href="movieReview.css"/>
+  <link rel="stylesheet" type="text/css" href="support/movieReview.css"/>
   <link rel="stylesheet" type="text/css" href="../movieReview.css"/>
   <link rel="stylesheet" type="text/css" href="../grid.css"/>
   
   <!--Javascript & jQuery -->
-  <script type="text/javascript" src="movieReview.js"></script>
+  <script type="text/javascript" src="support/movieReview.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- if no internet <script src="../jquery-3.3.1.min.js"></script> -->
 </head>

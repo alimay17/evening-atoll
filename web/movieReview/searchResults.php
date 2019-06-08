@@ -8,7 +8,7 @@ require('header.php');
 $PageTitle = "Search Results";
 
 // database Access
-require('dbAccess/dbCalls.php');
+require('support/dbCalls.php');
 ?>
 <!------------------------ BODY -------------------------->
 <div class="row">
