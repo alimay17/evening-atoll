@@ -1,5 +1,5 @@
 <?php
-require('header.php');
+session_start();
 require('dbAccess/dbInsert.php');
 $db = getDatabase();
 
@@ -11,15 +11,17 @@ if(isset($_POST['password']) && isset($_POST['username'])
   $email = pg_escape_string($_POST['email']);
   $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-  $newUser = getNewUser($username, $email, $password_hash);
-  if($newUser) {
+  try{
+    $newUser = getNewUser($username, $email, $password_hash);
     $_SESSION['user'] = $newUser;
     $_SESSION['loggedIn'] = true;
-    heading("Location: landing.php");
+    header("Location: landing.php");
+    die();
+  }catch(PDOException $e) {
     die();
   }
-}
-
+}else { 
+require('header.php');
 ?>
 <div class="row">
 <div class="col-12">
@@ -49,5 +51,5 @@ if(isset($_POST['password']) && isset($_POST['username'])
 </div>
 </div>
 <!----------------------- FOOTER ------------------------->
-<?php require('footer.php'); ?>
+<?php require('footer.php');  } ?>
   

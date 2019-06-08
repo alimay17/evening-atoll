@@ -47,8 +47,8 @@ function getUsers() {
   $db = getDatabase();
   try {
     $stmt = $db->prepare(
-      'SELECT "user_ID", user_name 
-      FROM mv_user
+      'SELECT "user_ID", user_name FROM mv_user 
+      JOIN movie_review AS r ON "user_ID" = r."reviewer_ID" 
       ORDER BY user_name'
     );
     $stmt->execute();
@@ -77,7 +77,8 @@ function getUserDetail($userID) {
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if(!$result){
-      $stmt = $db->prepare('SELECT user_name FROM mv_user
+      $stmt = $db->prepare('SELECT user_name, TO_CHAR(created_at,'. "'Mon-YYYY'" . ') 
+      FROM mv_user
       where "user_ID" =' . "$userID");
       $stmt->execute();
       $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
