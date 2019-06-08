@@ -5,6 +5,7 @@
 * Submit Movie for Review
  **********************************************************/
 session_start();
+unset($_SESSION['errorMessage']);
 
 // page setup
 $PageTitle = "Submit Movie";
