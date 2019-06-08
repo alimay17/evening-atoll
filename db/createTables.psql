@@ -1,0 +1,32 @@
+CREATE TABLE movie
+(
+    movie_name character varying(120) NOT NULL,
+    movie_img character varying(120),
+    "movie_ID" serial NOT NULL,
+    movie_desc text NOT NULL,
+    movie_year integer,
+    CONSTRAINT movie_pkey PRIMARY KEY ("movie_ID")
+)
+
+CREATE TABLE mv_user
+(
+    "user_ID" serial NOT NULL, 
+    user_name character varying(120), 
+    user_email character varying(120),
+    password character varying(255) NOT NULL,
+    created_at timestamp with time zone DEFAULT now(),
+    CONSTRAINT reviewer_pkey PRIMARY KEY ("user_ID")
+)
+
+CREATE TABLE movie_review
+(
+    "movie_ID" integer NOT NULL,
+    "reviewer_ID" integer NOT NULL,
+    review text,
+    "Score" double precision,
+    CONSTRAINT movie_review_pkey PRIMARY KEY ("movie_ID", "reviewer_ID"),
+    CONSTRAINT "movie_ID" FOREIGN KEY ("movie_ID")
+        REFERENCES public.movie ("movie_ID") MATCH SIMPLE,
+    CONSTRAINT "reveiwer_ID" FOREIGN KEY ("reviewer_ID")
+        REFERENCES public.mv_user ("user_ID") MATCH SIMPLE
+)
