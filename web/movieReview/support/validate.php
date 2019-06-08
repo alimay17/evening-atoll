@@ -13,7 +13,7 @@ function filterName($field){
   $field = filter_var(trim($field), FILTER_SANITIZE_STRING);
   
   // Validate user name
-  if(filter_var($field, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+  if(filter_var($field, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z0-9\s]+$/")))){
       return $field;
   } else{
     $_SESSION['errorMessage'] = "<span class='message'>invalid username - Unable to register</span>";
