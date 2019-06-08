@@ -1,15 +1,18 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <!-- Universal header for Movie Review Website -->
 <html lang="en-us">
 <head>
 <title>
-  <?= isset($PageTitle) ? $PageTitle : "Movie Reviews"?>
+  <?= isset($PageTitle) ? $PageTitle : "Idaho Reviews Hollywood"?>
 </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta charset="UTF-8"/>
 
   <!--Stylesheets -->
   <link rel="stylesheet" type="text/css" href="movieReview.css"/>
+  <link rel="stylesheet" type="text/css" href="../movieReview.css"/>
   <link rel="stylesheet" type="text/css" href="../grid.css"/>
   
   <!--Javascript & jQuery -->
@@ -20,11 +23,23 @@
 <body>
   <!-- Site heading -->
 <div class="row">
-    <div class="col-12">
-      <div class="header">
-        <h1>Idaho Reviews Hollywood</h1>
-        <p>movies reviewed by intellegent people</p>
-        <a id="home" href="landing.php"><div class="menuItem">HOME</div></a>
-      </div>
-    </div>
+<div class="col-12">
+  <div class="header">
+    <h1>Idaho Reviews Hollywood</h1>
+    <p>movies reviewed by intellegent people</p>
+    <a class="home" href="landing.php"><div class="menuItem">HOME</div></a>
+
+    <?php if($_SESSION['loggedIn'] == true) { ?>
+      <a class="home" href="logout.php" > 
+        <div class="menuItem">SIGN OUT</div></a>
+        <a class="home" 
+        href="reviewerDetail.php?user=<?php echo $_SESSION['user']?>">
+        <div class="menuItem">ACCOUNT</div></a>
+  <?php } else { ?>
+
+    <a class="home" href="login.php">
+        <div class="menuItem">SIGN IN</div></a>
+    <?php } ?>
   </div>
+</div>
+</div>

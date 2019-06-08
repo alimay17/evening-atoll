@@ -5,7 +5,7 @@
 session_start();
 $PageTitle = "Submit Movie";
 require('header.php'); 
-require('dbInsert.php');
+require('dbAccess/dbInsert.php');
 
 require('validate.php');
 if($formvalid){

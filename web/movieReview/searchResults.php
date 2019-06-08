@@ -2,11 +2,11 @@
 /****************************************
  * Search Results page
  ***************************************/
-$PageTitle = "Search Results";
 require('header.php');
+$PageTitle = "Search Results";
 
 // database Access
-require('dbCalls.php');
+require('dbAccess/dbCalls.php');
 ?>
 <!------------------------ BODY -------------------------->
 <div class="row">

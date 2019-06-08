@@ -2,10 +2,9 @@
 /****************************************
  * View all movies page
  ***************************************/
-session_start();
 $PageTitle = "Browse Reviewers";
 require('header.php'); 
-require('dbCalls.php');
+require('dbAccess/dbCalls.php');
 ?>
 
 <!------------------------ BODY -------------------------->

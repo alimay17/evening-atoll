@@ -69,7 +69,7 @@ img {
 /************************************
 * MENU & links
 *************************************/
-#home div {
+.home div {
   padding:5px;
   font-size:1.1em;
   margin-bottom:5px;
@@ -221,7 +221,7 @@ input:focus, textarea:focus {
 } 
 
 
-input[type=text], input[type=email]{
+input[type=text], input[type=email], input[type=password]{
   width:50%;
 }
 

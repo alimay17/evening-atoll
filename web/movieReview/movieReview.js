@@ -35,21 +35,11 @@ function validate() {
 *************************************/
 function validateReview() {
   // get data for validation
-  var name, email, score, review;
+  var score, review;
 
-  name = $("input[name=user_name]").val();
-  email = $("input[name=user_email]").val();
   score = $("input[name=score]").val();
   review = $("textarea").val();
 
-  if (!name){
-    errorMessage(4);
-    return false;
-  }
-  if (!email){
-    errorMessage(5);
-    return false;
-  }
   if (!score){
     errorMessage(6);
     return false;
@@ -58,6 +48,26 @@ function validateReview() {
     errorMessage(7);
     return false;
   }
+  return true;
+}
+
+/************************************
+* Validate login form
+*************************************/
+function validateLogin() {
+  username = $("input[name=username").val();
+  password = $("input[name=password]").val();
+
+  if (!username){
+    errorMessage(8);
+    return false;
+  }
+  if (!password){
+    errorMessage(9);
+    return false;
+  }
+
+  console.log("Username " + username + " Password " + password);
   return true;
 }
 
@@ -97,6 +107,14 @@ function errorMessage(num)
     case 7 :
       $("#reviewError").text("* Please enter a review of the movie");
       $("textarea").focus();
+      break;
+    case 8 :
+      $("#uNameError").text("* Please a username");
+      $("input[name=username]").focus();
+      break;
+    case 9 :
+      $("#passError").text("* Please enter a password");
+      $("input[name=password").focus();
       break;
   }
 }

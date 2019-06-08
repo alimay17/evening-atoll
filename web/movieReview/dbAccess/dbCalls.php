@@ -67,13 +67,13 @@ function getUserDetail($userID) {
   $db = getDatabase();
   try {
     $stmt = $db->prepare(
-
-      'SELECT movie."movie_ID", movie_name, "Score", review, user_name
-      FROM movie_review AS m 
-      Join movie As movie ON m."movie_ID" = movie."movie_ID" 
-      JOIN mv_user AS r ON m."reviewer_ID" = r."user_ID" 
-      WHERE m."reviewer_ID" =' . "$userID"
-    );
+    'SELECT movie."movie_ID", movie_name, "Score", review, user_name, 
+    TO_CHAR(created_at,'. "'Mon-YYYY'" . ')
+    FROM movie_review AS m 
+    Join movie As movie ON m."movie_ID" = movie."movie_ID" 
+    JOIN mv_user AS r ON m."reviewer_ID" = r."user_ID" 
+    WHERE m."reviewer_ID" =' . "$userID"
+  );
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if(!$result){

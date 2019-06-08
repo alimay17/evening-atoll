@@ -63,41 +63,53 @@ function insertReview($movieId, $user, $movieScore, $movieReview) {
  * gets existing user from db
  * returns user_ID
  ********************************************/
-function getUser($userName) {
+function getUser($userName, $password) {
   // db access
   $db = getDatabase();
 
-  //sanitize user input
-
   // check for user in DB
-  $validUser = $db->prepare('SELECT "user_ID", "user_name" FROM mv_user WHERE "user_name" ILIKE ' .  "'$userName'");
+  $validUser = $db->prepare('SELECT "user_ID", password 
+  FROM mv_user WHERE "user_name" ILIKE ' .  "'$userName'");
   $validUser->execute();
 
   if($result = $validUser->fetchAll(PDO::FETCH_ASSOC)){
   foreach ($result as $row) { 
-    $existingUser = $row[user_ID];
+    $user = $row[user_ID];
+    $hash_pswd = $row[password];
     }
+  if(password_verify($password, $hash_pswd)) {
   // return user_ID
-  return $existingUser;
+    return $user;
   }
+  else {
+      echo "<p class='error'>Incorrect Password</p>";
+      return false;
+  }
+}
   // if unable to find user, return and report
-  else return false;
+else {
+  echo "<p class='error'>Not an existing user</p>";
+  return false;
+}
 }
 
 /*******************************************
  * adds a new user to db
  * returns new user_ID
  ********************************************/
-function getNewUser($userName, $userEmail) {
+function getNewUser($userName, $userEmail, $password) {
   // db access
   $db = getDatabase();
 
   // add new user sql statement
-  $stmt = $db->prepare('INSERT INTO mv_user ("user_name", "user_email") VALUES(:user_name, :user_email) RETURNING ' . '"user_ID"');
+  $stmt = $db->prepare('INSERT 
+  INTO mv_user ("user_name", "user_email", password) 
+  VALUES(:user_name, :user_email, :password) RETURNING ' . '"user_ID"');
 
   //bind user input
     $stmt->bindParam(':user_name', $userName);
     $stmt->bindParam(':user_email', $userEmail);
+    $stmt->bindParam('password', $password);
 
   // send statement to db
   $stmt->execute();
