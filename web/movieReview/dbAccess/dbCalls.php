@@ -47,7 +47,7 @@ function getUsers() {
   $db = getDatabase();
   try {
     $stmt = $db->prepare(
-      'SELECT "user_ID", user_name FROM mv_user 
+      'SELECT DISTINCT "user_ID", user_name FROM mv_user 
       JOIN movie_review AS r ON "user_ID" = r."reviewer_ID" 
       ORDER BY user_name'
     );
