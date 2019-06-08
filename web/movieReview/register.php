@@ -5,6 +5,7 @@
 * Register. Allows new user to register
  **********************************************************/
 session_start();
+unset($_SESSION['errorMessage']);
 require('support/dbInsert.php');
 $db = getDatabase();
 
