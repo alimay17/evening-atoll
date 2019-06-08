@@ -6,6 +6,7 @@
  **********************************************************/
 session_start();
 require('support/dbInsert.php');
+require('support/validate.php');
 
 // check if redirect from a movie page
 if(isset($_GET['movie'])) { 
@@ -14,12 +15,12 @@ if(isset($_GET['movie'])) {
 }
 // get db and variables
 $db = getDatabase();
-$user = $_POST['username'];
-$password = $_POST['password'];
+$password = filterName($_POST['password']);
+$username = filterString($_POST['username']);
 
 // check if user is good and set login.
 if(isset($_POST['username']) && isset($_POST['password']) 
-    && $result = getUser($user, $password)) {
+    && $result = getUser($username, $password)) {
     $_SESSION['loggedIn'] = true;
     $_SESSION['user'] = $result;
 

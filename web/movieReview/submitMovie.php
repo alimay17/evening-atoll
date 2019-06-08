@@ -13,7 +13,11 @@ require('support/dbInsert.php');
 require('support/validate.php');
 
 // check if user input is good
-if($formvalid){
+$movieName = filterString($_POST["movie_name"]);
+$movieDesc = filterString($_POST["movie_desc"]);
+$movieYear = $_POST["movie_year"];
+
+if($movieName && $movieDesc && $movieYear){
 
   // upload image function
   require('support/uploadImg.php');
@@ -26,11 +30,10 @@ if($formvalid){
     foreach($result as $row) {
       $newId = $row['movie_ID'];
     } ?>
-    <p class='message'>Movie Succesfully added</p>"
+    <p class='message'>Movie Succesfully added</p>
     <a href="movieDetail.php?movie=<?php echo $newId; ?>">
       Click here to add a review.</a> <?php
   }
-
   // if error in adding movie
   else echo "<p class='message'>Unable to add movie. Please try again.</p>";
 } 
@@ -45,6 +48,10 @@ if($formvalid){
 
   <!------------------------ FORM -------------------------->
   <div>
+  <?php if($_SESSION['errorMessage']) {
+      echo $_SESSION['errorMessage'];
+      unset($_SESSION['errorMessage']);
+    } ?>
     <p class="message">* Required field</p>
     <form id="movieInput" method="post" onsubmit="return validateMovie()" 
       enctype="multipart/form-data"
@@ -55,12 +62,12 @@ if($formvalid){
       <span class="error" id="nameError">
         * <?php echo $nameErr;?></span><br/>
 
-      <span>Movie Image:</span>
+      <span>Movie Image (optional):</span>
       <label for="file">Select Image</label>
       <input type="file" name="movie_img" id="file" class="inputFile"/>
 
       <span>Movie Release Year:</span>
-      <input type="number" name="movie_year"/> 
+      <input type="number" name="movie_year" min="1900" max="2020" step="1"/> 
       <span class="error" id="yearError">
         * <?php echo $yearErr;?></span><br/>
   

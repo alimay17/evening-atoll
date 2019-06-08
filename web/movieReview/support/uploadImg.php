@@ -13,7 +13,7 @@
   // checks for size, duplicates, and image type
   if($imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION))) {
   if(file_exists($targetFile)) {
-    echo "Sorry, duplicate image<br/>";
+    $_SESSION['errorMessage'] = "Duplicate image - not uploaded<br/>";
     $uploadOk = 0;
   }
   if($_FILES['movie_image']['size'] > 500000) {
@@ -21,7 +21,7 @@
     $uploadOk = 0;
   }
   if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    echo "Sorry, only JPG, JPEG, & PNG files are allowed.<br/>";
+    $_SESSION['errorMessage'] = "Sorry, only JPG, JPEG, & PNG files are allowed.<br/>";
     $uploadOk = 0;
   } 
 
@@ -33,7 +33,7 @@
     
     // if error uploading
     else {
-      echo "Sorry, there was an error uploading your file.>br/>";
+      $_SESSION['errorMessage'] = "Sorry, there was an error uploading your file.>br/>";
     }
     $movieImg = $targetFile;
   }

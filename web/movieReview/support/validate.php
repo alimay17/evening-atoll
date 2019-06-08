@@ -5,36 +5,50 @@
 * server side form validataion
  **********************************************************/
 
-// variables to track data
-$movieName = $movieImg = $movieYear = $movieDesc = "";
+/*****************************************
+ * test input for unknow characters
+ *****************************************/
+function filterName($field){
+  // Sanitize user name
+  $field = filter_var(trim($field), FILTER_SANITIZE_STRING);
+  
+  // Validate user name
+  if(filter_var($field, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/^[a-zA-Z\s]+$/")))){
+      return $field;
+  } else{
+    $_SESSION['errorMessage'] = "<span class='message'>invalid username - Unable to register</span>";
+      return FALSE;
+  }
+}    
 
-// track if form is valid
-$formvalid = false;
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if($_POST["movie_name"] && $_POST["movie_year"] && $_POST["movie_desc"]) {
-
-    $movieName = testString($_POST["movie_name"]);
-    $movieYear = testNumber($_POST["movie_year"]);
-    $movieDesc = testString($_POST["movie_desc"]);
-
-    $formvalid = true;
+/*****************************************
+ * test input for unknow characters
+ *****************************************/
+function filterEmail($field){
+  // Sanitize e-mail address
+  $field = filter_var(trim($field), FILTER_SANITIZE_EMAIL);
+  
+  // Validate e-mail address
+  if(filter_var($field, FILTER_VALIDATE_EMAIL)){
+      return $field;
+  } else{
+    $_SESSION['errorMessage'] = "<span class='message'>invalid email - Unable to register</span>";
+      return FALSE;
   }
 }
 
 /*****************************************
  * test input for unknow characters
  *****************************************/
-function testString($data) {
-  $clearData = filter_var($data, FILTER_SANITIZE_STRING);
-  return $clearData;
+function filterString($field){
+  // Sanitize string
+  $field = filter_var(trim($field), FILTER_SANITIZE_STRING);
+  if(!empty($field)){
+      return $field;
+  } else{
+    $_SESSION['errorMessage'] = "<span class='message'>invalid input - Unable to register</span>";
+      return FALSE;
+  }
 }
 
-/*****************************************
- * test input for unknow characters
- *****************************************/
-function testNumber($data) {
-  $clearData = filter_var($data, FILTER_SANITIZE_NUMBER_INT);
-  return $clearData;
-}
 ?>
