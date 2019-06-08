@@ -6,7 +6,7 @@
 session_start();
 $PageTitle = "Movie Detail";
 require('header.php'); 
-require('dbCalls.php'); ?>
+require('dbAccess/dbCalls.php'); ?>
 
 <div class="row">
 <div class="col-12">
@@ -51,9 +51,11 @@ foreach ($result as $row) { ?>
   if($result) {
   ?>
   <p id="review">Reviews - Sorted by score
+  <?php if($_SESSION['loggedIn'] == true) { ?>
     <a class="submitR"
      href="#review" onclick="submitReview(<?php echo $id; ?>, 2)">
-    Review Movie</a>
+      Review Movie</a>
+  <?php } ?>
   </p>
   <table>
      <tr>

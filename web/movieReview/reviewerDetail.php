@@ -5,7 +5,7 @@
 session_start();
 $PageTitle = "Reviewer Detail";
 require('header.php'); 
-require('dbCalls.php');
+require('dbAccess/dbCalls.php');
 
 // get reviewer id for QUERY
 $id = $_GET['user'];
@@ -20,6 +20,7 @@ foreach ($result as $row) {
 $result = getUserDetail($id);
 foreach ($result as $row) { 
   $userName = $row['user_name'];
+  $time = $row['to_char'];
 }  
 
 // display as list with links on movie name
@@ -29,11 +30,16 @@ if($result) { ?>
   <div class="menu">
   <h2 class="inst">Reviewer Details</h2>
     <a href="viewReviewers.php">
-      <div class="menuItem">RETURN TO BROWSE</div></a>
+      <div class="menuItem">BROWSE REVIEWERS</div></a>
+    <a href="viewMovies.php">
+      <div class="menuItem">BROWSE MOVIES</div></a>
+    <a href="search.php">
+      <div class="menuItem">SEARCH</div></a>
   </div> 
   <h2 class="detail"><?php echo $userName; ?> </h2>
-  <h4 class="message1">Movies Reviewed: <?php echo $count; ?> </h4>
-  <p>Sorted by Score</p>
+  <span class="message"> member since <?php echo $time;?></span>
+  <span class="message1">Movies Reviewed: <?php echo $count; ?> </span>
+  <p>Reviews - Sorted by Score</p>
   <table>
     <tr>
       <th>Movie Name</th>

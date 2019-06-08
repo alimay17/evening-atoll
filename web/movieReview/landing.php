@@ -4,8 +4,9 @@
  * Provides links to all other pages and 
  * Functionality
  ***************************************/
-$PageTitle = "Movie Review Home";
 require('header.php'); 
+$PageTitle = "Movie Review Home";
+
 ?>
 <!----------------------- NAV LINKS ------------------------>
 <div class="row">
@@ -15,7 +16,10 @@ require('header.php');
     <!-- Link List -->
     <a href="viewMovies.php"><div class="menuItem">BROWSE MOVIES</div></a>
     <a href="viewReviewers.php"><div class="menuItem">BROWSE REVIEWERS</div></a>
-    <a href="submitMovie.php"><div class="menuItem">ADD NEW MOVIE</div></a>
+
+    <?php if($_SESSION['loggedIn'] == true) { ?>
+      <a href="submitMovie.php"><div class="menuItem">ADD NEW MOVIE</div></a>
+    <?php } ?>
   </div>
   <!------------------------ SEARCH -------------------------->
   <?php require("search.php"); ?>
