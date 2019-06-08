@@ -8,17 +8,16 @@ function getDatabase(){
 // Local db access
 $db = null;
 
-try
+/*try
 {
   $user = 'alimay';
   $db = new PDO('pgsql:host=localhost;dbname=cs313', $user);
-  return $db;
 }
 catch (PDOException $ex)
 {
   echo 'Error!: ' . $ex->getMessage();
   die();
-}
+}*/
 
 
 
@@ -39,12 +38,13 @@ try
 
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  return $db;
 }
 catch (PDOException $ex)
 {
   echo 'Error!: ' . $ex->getMessage();
   die();
 }
+
+return $db;
 }
 ?>
