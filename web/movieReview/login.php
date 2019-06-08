@@ -1,6 +1,12 @@
 <?php
 session_start();
 require('dbAccess/dbInsert.php');
+
+// check if redirect from a movie page
+if(isset($_GET['movie'])) { 
+  $_SESSION['return'] = true;
+  $_SESSION['movie'] = $_GET['movie'];
+}
 $db = getDatabase();
 $user = $_POST['username'];
 $password = $_POST['password'];
@@ -10,8 +16,14 @@ if(isset($_POST['username']) && isset($_POST['password'])
     && $result = getUser($user, $password)) {
     $_SESSION['loggedIn'] = true;
     $_SESSION['user'] = $result;
-    header("Location: landing.php");
-    die();
+    if($_SESSION['return']){
+      unset($_SESSION['return']);
+      header("Location: movieDetail.php?movie=$_SESSION[movie]");
+      die();
+    }else {
+      header("Location: landing.php");
+      die();
+    }
 }
 else {
   require('header.php');

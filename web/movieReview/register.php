@@ -9,17 +9,21 @@ if(isset($_POST['password']) && isset($_POST['username'])
   $password = pg_escape_string($_POST['password']);
   $username = pg_escape_string($_POST['username']);
   $email = pg_escape_string($_POST['email']);
-  $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-  try{
-    $newUser = getNewUser($username, $email, $password_hash);
-    $_SESSION['user'] = $newUser;
-    $_SESSION['loggedIn'] = true;
+  $newUser = getNewUser($username, $email, $password);
+  $_SESSION['user'] = $newUser;
+  $_SESSION['loggedIn'] = true;
+
+  // check if is a redirect from a movie page.
+  if($_SESSION['return']){
+    unset($_SESSION['return']);
+    header("Location: movieDetail.php?movie=$_SESSION[movie]");
+    die();
+  }else {
     header("Location: landing.php");
     die();
-  }catch(PDOException $e) {
-    die();
   }
+
 }else { 
 require('header.php');
 ?>

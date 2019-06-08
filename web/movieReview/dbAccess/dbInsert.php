@@ -100,7 +100,7 @@ else {
 function getNewUser($userName, $userEmail, $password) {
   // db access
   $db = getDatabase();
-
+  $password_hash = password_hash($password, PASSWORD_BCRYPT);
   // add new user sql statement
   $stmt = $db->prepare('INSERT 
   INTO mv_user ("user_name", "user_email", password) 
@@ -109,7 +109,7 @@ function getNewUser($userName, $userEmail, $password) {
   //bind user input
     $stmt->bindParam(':user_name', $userName);
     $stmt->bindParam(':user_email', $userEmail);
-    $stmt->bindParam('password', $password);
+    $stmt->bindParam('password', $password_hash);
 
   // send statement to db
   $stmt->execute();

@@ -79,9 +79,13 @@ foreach ($result as $row) { ?>
   </table>
   <?php } else { // end if($result) ?>
     <p id="review">No reveiws yet - Be the first: 
+    <?php if($_SESSION['loggedIn'] == true) { ?>
     <a class="submitR"
-     href="#review" onclick="submitReview(<?php echo $id; ?>, 2)">
-    Review Movie</a>
+     href="#review" onclick="submitReview(<?php echo $id; ?>)">
+      Review Movie</a>
+  <?php } else { ?>
+    <a class="submitR" href="login.php?movie=<?php echo $id; ?>">Sign In</a>
+    <?php } ?>
   </p>
     <?php } ?>
   </div> <!--END OF #REVIEW-->
