@@ -13,8 +13,9 @@ require('dbAccess/dbCalls.php');
   <div class="col-12">
   <div class="menu">
     <h2 class="inst">Search Results</h2>
-    <a href="submitMovie.php">
-      <div class="menuItem">ADD NEW MOVIE</div></a>
+    <?php if($_SESSION['loggedIn'] == true) { ?>
+      <a href="submitMovie.php"><div class="menuItem">ADD NEW MOVIE</div></a>
+    <?php } ?>
       <a href="viewMovies.php">
       <div class="menuItem">RETURN TO BROWSE</div></a>
 
