@@ -12,8 +12,8 @@ $db = null;
 
 /*try
 {
-  $user = 'alimay';
-  $db = new PDO('pgsql:host=localhost;dbname=cs313', $user);
+  $user = '';
+  $db = new PDO('pgsql:host=;dbname=', $user);
 }
 catch (PDOException $ex)
 {
