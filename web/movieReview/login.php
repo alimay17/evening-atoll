@@ -62,13 +62,17 @@ require('header.php');
     <form method="post" onsubmit="return validateLogin()"
         action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-      <span>Username:</span>
-      <input type="text" name="username"/>
-      <span class="error" id="uNameError"></span><br/>
+      <div class="register">
+        <label for="username">Username:</label>
+        <input type="text" name="username"/>
+        <span class="error" id="uNameError"></span><br/>
+      </div>
 
-      <span>Password:</span>
-      <input type="password" name="password"/>
-      <span class="error" id="passError"></span><br/>
+      <div class="register">
+        <label for="password">Password:</label>
+        <input type="password" name="password"/>
+        <span class="error" id="passError"></span><br/>
+      </div>
 
       <input class="button" type="submit" name="Submit" value="SIGN IN"/>
     </form>

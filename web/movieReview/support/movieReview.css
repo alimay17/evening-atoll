@@ -101,7 +101,7 @@ img {
   display:inline-block;
 }
 
-.menu a:hover, .header a:hover, .button:hover, label:hover {
+.menu a:hover, .header a:hover, .button:hover, #upImg:hover {
   cursor:pointer;
   border-right:5px solid darkslategrey;
   border-left:5px solid darkslategray;
@@ -248,7 +248,7 @@ textarea {
   z-index:-1;
 }
 
-label {
+#upImg {
   margin:10px;
   padding:10px;
   font-size:1em;
@@ -258,6 +258,18 @@ label {
   width:200px;
   border-right:5px solid cornflowerblue;
   border-left:5px solid cornflowerblue;
+}
+
+.register label {
+  display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+
+.r1 {
+  color:black;
+  text-transform: capitalize;
+  font-size:1em;
 }
 
 

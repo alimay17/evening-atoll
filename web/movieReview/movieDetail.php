@@ -59,19 +59,19 @@ foreach ($result as $row) {
   if($result) {
   ?>
   <div class="review">
-    <p id="review">Reviews - Sorted by score
-
      <!-- If logged in display review button -->
     <?php if($_SESSION['loggedIn'] == true) { ?>
-    <a class="submitR"
+    <p id="review">Reviews - Sorted by score
+      <a class="submitR"
      href="#review" onclick="submitReview(<?php echo $id; ?>, 2)">
-      Review Movie</a>
+      Review Movie</a></p>
   <?php }
 
     // if not logged in display sign in button 
     else { ?>
+    <p id="review">Reviews - Sorted by score
     <a class="submitR" href="login.php?movie=<?php echo $id; ?>">
-    Sign In to Review</a> <?php } ?></p>
+    Sign In to Review</a></p> <?php } ?>
 
   <!-- Review table -->
   <table>
@@ -98,16 +98,17 @@ foreach ($result as $row) {
   
   // if no reviews 
   else { ?>
-    <p id="review">No reveiws yet - Be the first: 
      
     <!-- If logged in display review button -->
     <?php if($_SESSION['loggedIn'] == true) { ?>
+    <p id="review">No reveiws yet - Be the first: 
     <a class="submitR" href="#review" 
-      onclick="submitReview(<?php echo $id; ?>)"> Review Movie</a>
+      onclick="submitReview(<?php echo $id; ?>)"> Review Movie</a></p>
   <?php } 
 
   // if not logged in display sign in button 
   else { ?>
+    <p id="review">No reveiws yet - Be the first: 
     <a class="submitR" href="login.php?movie=<?php echo $id; ?>">Sign In</a>
     <?php } ?></p>
   <?php } // end of if no reviews ?>

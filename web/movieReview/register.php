@@ -53,18 +53,22 @@ require('header.php');
     <p class="message">All Fields are Required</p> <? } ?>
     <form method="post" onsubmit="return validateRegister()"
         action="<?= htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+      <div class="register">
+        <label for="username">Username:</label>
+        <input type="text" name="username"/>
+        <span class="error" id="uNameError"></span><br/>
+      </div>
+      <div class="register">
+        <label for="email" >Email:</label>
+        <input type="email" name="email"/>
+        <span class="error" id="emailError"></span><br/>
+      </div>
 
-      <span>Username:</span>
-      <input type="text" name="username"/>
-      <span class="error" id="uNameError"></span><br/>
-
-      <span>Email:</span>
-      <input type="email" name="email"/>
-      <span class="error" id="emailError"></span><br/>
-
-      <span>Password:</span>
-      <input type="password" name="password"/>
-      <span class="error" id="passError"></span><br/>
+      <div class="register">
+        <label for="password">Password:</label>
+        <input type="password" name="password"/>
+        <span class="error" id="passError"></span><br/>
+      </div>
 
       <input class="button" type="submit" name="register" value="REGISTER"/>
     </form>

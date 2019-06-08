@@ -66,7 +66,7 @@ if(isset($_POST['movie_name'])){
         * <?php echo $nameErr;?></span><br/>
 
       <span>Movie Image (optional):</span>
-      <label for="file">Select Image</label>
+      <label id="upImg" for="file">Select Image</label>
       <input type="file" name="movie_img" id="file" class="inputFile"/>
 
       <span>Movie Release Year:</span>
