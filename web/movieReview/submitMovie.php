@@ -9,14 +9,14 @@ session_start();
 // page setup
 $PageTitle = "Submit Movie";
 require('header.php'); 
-require('dbAccess/dbInsert.php');
-require('validate.php');
+require('support/dbInsert.php');
+require('support/validate.php');
 
 // check if user input is good
 if($formvalid){
 
   // upload image function
-  require('uploadImg.php');
+  require('support/uploadImg.php');
 
   // if movie isn't a duplicate add to db
   if(checkValidMovie($movieName) && $uploadOk == 1) {
@@ -46,7 +46,7 @@ if($formvalid){
   <!------------------------ FORM -------------------------->
   <div>
     <p class="message">* Required field</p>
-    <form id="movieInput" method="post" onsubmit="return validate()" 
+    <form id="movieInput" method="post" onsubmit="return validateMovie()" 
       enctype="multipart/form-data"
       action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 

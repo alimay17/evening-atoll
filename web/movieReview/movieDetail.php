@@ -9,7 +9,7 @@
 session_start();
 $PageTitle = "Movie Detail";
 require('header.php'); 
-require('dbAccess/dbCalls.php'); ?>
+require('support/dbCalls.php'); ?>
 <div class="row">
 <div class="col-12">
 <?php

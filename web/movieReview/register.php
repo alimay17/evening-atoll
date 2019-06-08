@@ -5,7 +5,7 @@
 * Register. Allows new user to register
  **********************************************************/
 session_start();
-require('dbAccess/dbInsert.php');
+require('support/dbInsert.php');
 $db = getDatabase();
 
 // check if input is valid & set local variables
@@ -27,9 +27,9 @@ if(isset($_POST['password']) && isset($_POST['username'])
     die();
   }
   
-  // if not redirect send to landing page.
+  // if not redirect send to user page.
   else {
-    header("Location: landing.php");
+    header("Location: reviewerDetail.php?user=$_SESSION[user]");
     die();
   }
 }

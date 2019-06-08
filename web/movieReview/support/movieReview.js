@@ -5,7 +5,7 @@
 /************************************
 * Validate add movie form
 *************************************/
-function validate() {
+function validateMovie() {
   // get data for validation
   var name, image, year, desc;
 
@@ -66,7 +66,6 @@ function validateLogin() {
     return false;
   }
 
-  console.log("Username " + username + " Password " + password);
   return true;
 }
 
@@ -108,11 +107,11 @@ function errorMessage(num)
       $("textarea").focus();
       break;
     case 8 :
-      $("#uNameError").text("* Please a username");
+      $("#uNameError").text("Please enter a username");
       $("input[name=username]").focus();
       break;
     case 9 :
-      $("#passError").text("* Please enter a password");
+      $("#passError").text("Please enter a password");
       $("input[name=password").focus();
       break;
   }

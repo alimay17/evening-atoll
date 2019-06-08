@@ -5,7 +5,7 @@
 * Submit Review for movie
  **********************************************************/
 session_start();
-require('dbAccess/dbInsert.php');
+require('support/dbInsert.php');
 
 // if form is filled out get user input
 $movieId = $_SESSION['movie'];    

@@ -84,13 +84,13 @@ function getUser($userName, $password) {
     return $user;
   }
   else {
-      echo "<p class='error'>Incorrect Password</p>";
+      $_SESSION['loginError'] = "<span class='message'>Incorrect Password</span>";
       return false;
   }
 }
   // if unable to find user, return and report
 else {
-  echo "<p class='error'>Not an existing user</p>";
+  $_SESSION['loginError'] =  "<span class='message'>Not an existing user</span>";
   return false;
 }
 }
