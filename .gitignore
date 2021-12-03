@@ -10,3 +10,5 @@ web/group
 
 web/.DS_Store
 web/movieReview/images/
+
+/phpTests
