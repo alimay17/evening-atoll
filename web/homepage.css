@@ -6,4 +6,34 @@
   Using Grid
 =============================================*/
 
+/* Universal */
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Raleway:wght@200&display=swap');
 
+body {
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size: 1.1em;
+}
+
+/* Headings and Special items */
+h1, h2, h3, h4{
+  font-family: 'Raleway', sans-serif;
+}
+
+
+/* Footer */
+footer {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  font-size: 0.9em;
+}
+
+footer a, a:visited {
+  color: #22333B;
+  padding: 5px;
+}
+
+footer a:hover {
+  color: #EAE0D5;
+  background-color: #22333B;
+}
