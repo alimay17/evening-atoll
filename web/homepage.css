@@ -14,26 +14,82 @@ body {
   font-size: 1.1em;
 }
 
-/* Headings and Special items */
-h1, h2, h3, h4{
+/* Headings and paragraphs */
+h1, h2, h3, h4, button{
   font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+p {
+  margin: 5px;
+  padding: 5px;
+}
+
+/* Links and Img */
+a, a:visited {
+  color: #734B5E;
+  padding: 5px;
+}
+
+a:hover {
+  color: #734B5E;
+  background-color: #BCBDC0;
+}
+
+img {
+  width: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Aside */
+aside form {
+  text-align: center;
+}
+
+aside ul {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Article */
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+  padding: 10px 25px;
+  text-decoration: none;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #734B5E;
+  color: white;
+}
+
+button:hover {
+  background-color: #3E2832;
+  cursor: pointer;
+  
 }
 
 
 /* Footer */
 footer {
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
   font-size: 0.9em;
 }
 
-footer a, a:visited {
-  color: #22333B;
-  padding: 5px;
+footer p {
+  margin: 0;
+  padding: 0;
 }
 
-footer a:hover {
-  color: #EAE0D5;
-  background-color: #22333B;
-}
+
+
+
+

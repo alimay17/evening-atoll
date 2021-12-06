@@ -6,12 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta charset="UTF-8" />
   <link rel="stylesheet" type="text/css" href="../web/homepage.css" />
+  <link rel="stylesheet" type="text/css" href="../web/homepageGrid.css" />
 </head>
 
 <body>
   <!-- HEADER -->
   <header>
     <h1>An Introduction to Myrna Loy</h1>
+    <hr>
   </header>
 
   <!-- SIDEBAR -->
@@ -25,6 +27,7 @@
         No:
         <input type="radio" name="vote" value="1" onclick="getVote(this.value)">
       </form>
+      <div id="pollResult"></div>
     </section>
     <!-- FILM LIST -->
     <section>
@@ -43,11 +46,13 @@
       </ol>
     </section>
     <section>
-      <h3>External Links</h3>
-      <a href="https://www.chicagotribune.com/news/ct-xpm-1993-12-19-9312190012-story.html" target="blank">
-        More Reading</a>
-      <a href="index_php.html">CS 313 Assignments</a>
-      <a href="https://www.byui.edu" target="blank">BYU Idaho</a>
+      <h4>External Links</h4>
+      <ul>
+      <li><a href="https://www.chicagotribune.com/news/ct-xpm-1993-12-19-9312190012-story.html" target="blank">
+        More Reading</a></li>
+      <li><a href="index_php.html">CS 313 Assignments</a></li>
+      <li><a href="https://www.byui.edu" target="blank">BYU Idaho</a></li>
+      </ul>
     </section>
   </aside>
 
@@ -69,11 +74,12 @@
     </section>
 
     <!-- PICTURE GALLERY -->
-    <section>
-      <h2>Learn About Myrna</h2>
+    <section id="gallery">
+      <div id="galleryHead">
+      <h3>Learn About Myrna</h3>
       <p>Click on the descriptor words to find out more.</p>
       <button>Show/Hide All</button>
-
+    </div>
       <div>
         <img src="/web/images/myrnaLoy02.png" alt="Myrna Loy" />
         <h3>Mysterious</h3>
@@ -84,14 +90,14 @@
       </div>
       <div>
         <img src="/web/images/myrnaLoy01.png" alt="Myrna Loy" />
-        <h3>Determined</h3>
+        <h4>Determined</h4>
         <p>
           Despite the constant pressure from Hollywood and the media, Myrna never compromised her convictions.
         </p>
       </div>
       <div>
         <img src="/web/images/myrnaLoy03.png" alt="Myrna Loy" />
-        <h3>Strong</h3>
+        <h4>Strong</h4>
         <p>
           Close friends with Eleanore Roosevelt, Myrna was concerned with the political environment. She was always
           outspoken in her political views.
@@ -99,7 +105,7 @@
       </div>
       <div>
         <img src="/web/images/myrnaLoy05.png" alt="Myrna Loy" />
-        <h3>Mischievous</h3>
+        <h4>Mischievous</h4>
         <p>
           It wasn't until director W.S van Dyke took a chance and cast her in comedic role that her career took off.
           Myrna was widely acclaimed for her comedic skills.
@@ -107,7 +113,7 @@
       </div>
       <div>
         <img src="/web/images/myrnaLoy04.png" alt="Myrna Loy" />
-        <h3>Talented</h3>
+        <h4>Talented</h4>
         <p>
           Myrna had the ability to be convincing in a wide variety of roles from seductive gypsy girls to dedicated
           housewives to independent world shakers.
@@ -115,13 +121,14 @@
       </div>
       <div>
         <img src="/web/images/myrnaLoy06.png" alt="Myrna Loy" />
-        <h3>Timeless</h3>
+        <h4>Timeless</h4>
         <p>
           Myrna is an example of a woman dedicated to her dreams. Her beauty, skill, and courage, has had a lasting
           effect on our world.
         </p>
       </div>
     </section>
+    <hr>
   </article>
 
   <!-- FOOTER -->
