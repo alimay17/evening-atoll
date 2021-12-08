@@ -15,7 +15,11 @@ body {
 }
 
 /* Headings and paragraphs */
-h1, h2, h3, h4, button{
+h1,
+h2,
+h3,
+h4,
+button {
   font-family: 'Raleway', sans-serif;
   text-align: center;
 }
@@ -26,7 +30,8 @@ p {
 }
 
 /* Links and Img */
-a, a:visited {
+a,
+a:visited {
   color: #734B5E;
   padding: 5px;
 }
@@ -34,13 +39,6 @@ a, a:visited {
 a:hover {
   color: #734B5E;
   background-color: #BCBDC0;
-}
-
-img {
-  width: 250px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* Aside */
@@ -81,12 +79,19 @@ button:hover {
   display: none;
 }
 
+.card h4 {
+  margin-bottom: 0;
+}
+
 .card img {
   cursor: pointer;
+  width: 100%;
 }
 
 .card {
-  height: 550px;
+  height: 620px;
+  width: 100%;
+  align-content: center;
 }
 
 
@@ -99,8 +104,3 @@ footer p {
   margin: 0;
   padding: 0;
 }
-
-
-
-
-

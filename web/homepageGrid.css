@@ -16,8 +16,19 @@ body {
   margin: auto;
 }
 
-@media only screen and (min-width: 940px) {
-  
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: auto;
+}
+
+.card p {
+  justify-self: center;
+}
+
+@media only screen and (min-width: 1072px) {
+
   body {
     display: grid;
     grid-template-columns: 30% 70%;
@@ -32,7 +43,7 @@ body {
     flex-direction: column;
   }
 
-  footer{
+  footer {
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -44,10 +55,10 @@ body {
   #gallery {
     display: grid;
     grid-template-columns: 50% 50%;
+    gap: 5px;
   }
 
   #galleryHead {
     grid-column: 1 / 3;
   }
 }
-
