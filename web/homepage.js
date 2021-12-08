@@ -3,22 +3,23 @@
 * Alice Smith
 * CS313 - Bro. Porter
 **********************************************************/
+let fadeswitch = 1;
 
-/**********************************************************
-* show
-* displays the 'about' paragraph for the input selection
-**********************************************************/
 function show (number) {
   var selection = "#" + number;
     $(selection).fadeToggle();
+    fadeswitch = 0;
 }
 
-/**********************************************************
-* showAll
-* displays or hides all 'about' paragraphs
-**********************************************************/
 function showAll() {
-  $(".about").fadeToggle();
+  
+  if (fadeswitch === 1) {
+  $(".card p").fadeToggle();
+  }
+  else {
+    $(".card p").fadeOut();
+    fadeswitch = 1;
+  }
 }
 
 /**********************************************************

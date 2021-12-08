@@ -75,7 +75,18 @@ button {
 button:hover {
   background-color: #3E2832;
   cursor: pointer;
-  
+}
+
+.card p {
+  display: none;
+}
+
+.card img {
+  cursor: pointer;
+}
+
+.card {
+  height: 550px;
 }
 
 

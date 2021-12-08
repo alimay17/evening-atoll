@@ -21,13 +21,14 @@
     <!-- POLL -->
     <section>
       <h3>Have you heard of Myrna Loy?</h3>
+      <div id="poll">
       <form>
         Yes:
         <input type="radio" name="vote" value="0" onclick="getVote(this.value)">
         No:
         <input type="radio" name="vote" value="1" onclick="getVote(this.value)">
       </form>
-      <div id="pollResult"></div>
+      </div>
     </section>
     <!-- FILM LIST -->
     <section>
@@ -78,51 +79,51 @@
       <div id="galleryHead">
       <h3>Learn About Myrna</h3>
       <p>Click on the descriptor words to find out more.</p>
-      <button>Show/Hide All</button>
+      <button onclick="showAll()">Show/Hide All</button>
     </div>
-      <div>
-        <img src="/web/images/myrnaLoy02.png" alt="Myrna Loy" />
+    <div class="card">
+        <img src="/web/images/myrnaLoy02.png" alt="Myrna Loy" onclick="show('1')" />
         <h3>Mysterious</h3>
-        <p>
+        <p id="1">
           Her quiet smile and piercing eyes are iconic in film history. Despite her 4 marriages, she kept her personal
           life personal.
         </p>
       </div>
-      <div>
-        <img src="/web/images/myrnaLoy01.png" alt="Myrna Loy" />
+      <div class="card">
+        <img src="/web/images/myrnaLoy01.png" alt="Myrna Loy" onclick="show('2')"/>
         <h4>Determined</h4>
-        <p>
+        <p id="2">
           Despite the constant pressure from Hollywood and the media, Myrna never compromised her convictions.
         </p>
       </div>
-      <div>
-        <img src="/web/images/myrnaLoy03.png" alt="Myrna Loy" />
+      <div class="card">
+        <img src="/web/images/myrnaLoy03.png" alt="Myrna Loy" onclick="show('3')"/>
         <h4>Strong</h4>
-        <p>
+        <p id="3">
           Close friends with Eleanore Roosevelt, Myrna was concerned with the political environment. She was always
           outspoken in her political views.
         </p>
       </div>
-      <div>
-        <img src="/web/images/myrnaLoy05.png" alt="Myrna Loy" />
+      <div class="card">
+        <img src="/web/images/myrnaLoy05.png" alt="Myrna Loy" onclick="show('4')"/>
         <h4>Mischievous</h4>
-        <p>
+        <p id="4">
           It wasn't until director W.S van Dyke took a chance and cast her in comedic role that her career took off.
           Myrna was widely acclaimed for her comedic skills.
         </p>
       </div>
-      <div>
-        <img src="/web/images/myrnaLoy04.png" alt="Myrna Loy" />
+      <div class="card">
+        <img src="/web/images/myrnaLoy04.png" alt="Myrna Loy" onclick="show('5')"/>
         <h4>Talented</h4>
-        <p>
+        <p id="5">
           Myrna had the ability to be convincing in a wide variety of roles from seductive gypsy girls to dedicated
           housewives to independent world shakers.
         </p>
       </div>
-      <div>
-        <img src="/web/images/myrnaLoy06.png" alt="Myrna Loy" />
+      <div class="card">
+        <img src="/web/images/myrnaLoy06.png" alt="Myrna Loy" onclick="show('6')"/>
         <h4>Timeless</h4>
-        <p>
+        <p id="6">
           Myrna is an example of a woman dedicated to her dreams. Her beauty, skill, and courage, has had a lasting
           effect on our world.
         </p>
