@@ -53,8 +53,6 @@ aside ul {
   padding: 0;
 }
 
-
-
 /* Article */
 button {
   display: block;
@@ -80,16 +78,19 @@ button:hover {
 }
 
 .card h4 {
-  margin-bottom: 0;
+  margin: 0;
+  color: #3E2832;
+  background-color: #BCBDC0;
+  font-size: 1.7em;
+
 }
 
 .card img {
   cursor: pointer;
-  width: 100%;
 }
 
 .card {
-  height: 620px;
+  height: 600px;
   width: 100%;
   align-content: center;
 }
