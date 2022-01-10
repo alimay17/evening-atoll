@@ -3,7 +3,7 @@
 * PHP Week02: Homepage
 * Alice Smith
 * CS313 - Bro. Porter
-* This PHP program takes a poll from the hompage
+* This PHP program takes a poll from the homepage
 * saves it on the server and displays the results as a graph
 * Result table taken from w3schools.com
 **********************************************************/
@@ -34,7 +34,7 @@ fclose($fp);
 ?>
 
 <!-- RESULT DISPLAY -->
-<h3>Poll Result:</h3>
+<h4>Poll Result:</h4>
 <table id="result">
   <tr>
     <td>Yes:</td>
